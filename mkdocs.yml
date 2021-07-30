@@ -1,0 +1,11 @@
+site_name: IE科协
+site_description: 学习资料
+site_author: IE科协
+site_url: https://iesast.readthedocs.io
+
+copyright: 
+
+nav:
+  - 首页: index.md
+  - Python资料:
+    - 页面1: py1.md
