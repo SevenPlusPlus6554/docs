@@ -1,9 +1,11 @@
 site_name: IE科协
-site_description: 学习资料
+site_description: IE科协技术资料
 site_author: IE科协
-site_url: https://iesast.readthedocs.io
+site_url: https://ie.rtfd.io
 
 copyright: 
+
+theme: readthedocs
 
 nav:
   - 首页: index.md
