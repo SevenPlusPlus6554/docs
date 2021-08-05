@@ -10,4 +10,4 @@ theme: readthedocs
 nav:
   - 首页: index.md
   - Python资料:
-    - 页面1: py1.md
+    - 测试页面: py1.md
