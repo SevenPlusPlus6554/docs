@@ -6,6 +6,7 @@ copyright: Do not distribute.
 
 theme:
   name: mkdocs
+  locale: zh_CN
   highlightjs: true
   hljs_style: lightfair
 
@@ -33,3 +34,4 @@ extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX
 extra_css:
   - custom/style.css
 
+plugins: []
