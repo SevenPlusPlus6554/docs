@@ -32,7 +32,6 @@ markdown_extensions:
 extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML']
 
 extra_css:
-  - custom/lightfair.min.css?10.5.0
   - custom/style.css
 
 plugins: []
