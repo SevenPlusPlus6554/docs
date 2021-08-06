@@ -4,17 +4,6 @@ site_author: IE科协
 site_url: https://ie.rtfd.io
 copyright: Do not distribute.
 
-toc_depth: 2
-
-theme:
-  name: mkdocs
-  highlightjs: true
-  hljs_style: github
-  nav_style: dark
-
-extra_css:
-  - custom/style.css
-
 nav:
   - 首页: index.md
   - PyTorch:
@@ -29,3 +18,22 @@ nav:
   - 工作手册:
     - 编辑页面: manual/edit.md
     - 发布更新: manual/upd.md
+
+theme:
+  name: mkdocs
+  highlightjs: true
+  hljs_style: github
+
+python:
+  setup_py_install: true
+
+markdown_extensions: 
+  - mdx_math:
+    enable_dollar_delimiter: True
+
+extra_javascript:
+  - custom/MathJax.js?202108061645
+
+extra_css:
+  - custom/style.css
+
