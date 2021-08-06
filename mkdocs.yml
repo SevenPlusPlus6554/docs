@@ -8,6 +8,7 @@ theme:
   name: mkdocs
   highlightjs: true
   hljs_style: lightfair
+  mathjax: true
   navigation_depth: 3
   custom_dir: custom/
 
@@ -25,11 +26,5 @@ nav:
   - 工作手册:
     - 编辑页面: manual/edit.md
     - 发布更新: manual/upd.md
-
-markdown_extensions:
-  - mdx_math:
-      enable_dollar_delimiter: true
-
-extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML']
 
 plugins: []
