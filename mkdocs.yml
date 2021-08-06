@@ -6,7 +6,6 @@ copyright: Do not distribute.
 
 theme:
   name: mkdocs
-  locale: zh_CN
   highlightjs: true
   hljs_style: lightfair
 
