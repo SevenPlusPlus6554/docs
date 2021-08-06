@@ -22,7 +22,7 @@
     </head>
 
     <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" href="../..">IE科协</a>
                 <!-- Expander button -->
@@ -218,7 +218,7 @@ d = torch.FloatTensor([1, 1, 0]) # 结果：tensor([1., 1., 0.])
 </code></pre>
 <h4 id="broadcasting">Broadcasting 规则</h4>
 <p>@TODO</p>
-<p>例如，有一个长为 $m$ 的向量 $\boldsymbol a$ 和一个长为 $n$ 的向量 $\boldsymbol b$，要创建一个 $m\times n$ 的矩阵 $\boldsymbol C$ 满足第 $i$ 行第 $j$ 列的数是 $a_i+b_j$，则可以先将 $\boldsymbol a$ 变形成一个 $m\times 1$ 的矩阵，然后利用 broadcasting 规则来计算 $\boldsymbol C$。</p>
+<p>例如，有一个长为 <script type="math/tex">m</script> 的向量 <script type="math/tex">\boldsymbol a</script> 和一个长为 <script type="math/tex">n</script> 的向量 <script type="math/tex">\boldsymbol b</script>，要创建一个 <script type="math/tex">m\times n</script> 的矩阵 <script type="math/tex">\boldsymbol C</script> 满足第 <script type="math/tex">i</script> 行第 <script type="math/tex">j</script> 列的数是 <script type="math/tex">a_i+b_j</script>，则可以先将 <script type="math/tex">\boldsymbol a</script> 变形成一个 <script type="math/tex">m\times 1</script> 的矩阵，然后利用 broadcasting 规则来计算 <script type="math/tex">\boldsymbol C</script>。</p>
 <pre><code class="language-py">C = a.unsqueeze(dim = -1) + b
 </code></pre>
 <h4 id="_10">导出运算结果</h4>
@@ -268,6 +268,7 @@ d = a.to(device) + b * c # 不必再转移b或c
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js" defer></script>
+        <script src="../../custom/MathJax.js?202108061645" defer></script>
         <script src="../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
