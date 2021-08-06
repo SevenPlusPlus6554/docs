@@ -5,7 +5,7 @@ mkdocs:
 
 python:
   version: '3.7'
-  - method: pip
+    - method: pip
       path: .: true
 #  install:
 #    - requirements: docs/requirements.txt
