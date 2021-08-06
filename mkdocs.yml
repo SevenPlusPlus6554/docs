@@ -9,6 +9,7 @@ theme:
   highlightjs: true
   hljs_style: lightfair
   navigation_depth: 3
+  custom_dir: custom/
 
 nav:
   - 首页: index.md
@@ -25,13 +26,10 @@ nav:
     - 编辑页面: manual/edit.md
     - 发布更新: manual/upd.md
 
-markdown_extensions: 
+markdown_extensions:
   - mdx_math:
       enable_dollar_delimiter: true
 
 extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML']
-
-extra_css:
-  - custom/style.css?t=202108062015
 
 plugins: []
