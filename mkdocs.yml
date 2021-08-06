@@ -32,6 +32,6 @@ markdown_extensions:
 extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML']
 
 extra_css:
-  - custom/style.css
+  - custom/style.css?t=202108062015
 
-#plugins: []
+plugins: []
