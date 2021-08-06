@@ -1,6 +1,6 @@
 # 基础知识
 
-## 载入 PyTorch
+## 1 载入 PyTorch
 
 为了使用 PyTorch，首先在 Python 代码的最上方加入以下代码来载入 PyTorch（注意是 `torch` 而非 `pytorch`）。
 
@@ -8,7 +8,7 @@
 import torch
 ```
 
-## 数据的表示
+## 2 数据的表示
 
 在 PyTorch 中，所有数据都使用**张量**（tensor）类型来储存，可以将其理解为 C/C++ 里的多维数组。创建张量可以使用函数 `torch.tensor`。PyTorch 中的张量可以是数学中的标量、向量、矩阵或任意高维张量。
 
@@ -23,7 +23,7 @@ a2 = torch.tensor([[0, 1, 2], [3, 4, 5]])
 a3 = torch.tensor([[[0, 1], [2, 3]], [[4, 5], [6, 7]], [[8, 9], [10, 11]], [[12, 13], [14, 15]]])
 ```
 
-### 维度和尺寸
+### 2.1 维度和尺寸
 
 @TODO
 
@@ -57,13 +57,13 @@ torch.tensor(0).size() # 返回：torch.Size([])
 
 @TODO
 
-### 数据类型
+### 2.2 数据类型
 
 和一般的 Python 变量不同，PyTorch 中的数据是有类型的，其中常用的类型有布尔型（`torch.bool`）、整数（`torch.long`）和浮点数（`torch.float`）。
 
 **注意：**整数和浮点数的默认精度在不同计算机上可能是不同的。在常见的 64 位计算机上，`torch.long` 一般是 `torch.int64`，`torch.float` 一般是 `torch.float32`。
 
-#### 查看数据类型
+#### 2.2.1 查看数据类型
 
 与 C/C++ 的数组类似，同一张量中的所有值只能是同一类型。查看张量 `a` 的数据类型可以使用 `a.dtype` 属性。
 
@@ -72,7 +72,7 @@ a = torch.tensor([1, 2])
 a.dtype # 返回torch.int64，相当于torch.long
 ```
 
-#### 指定数据类型
+#### 2.2.2 指定数据类型
 
 如果想在创建张量时就指定数据类型，有以下两种方法：
 
@@ -90,7 +90,7 @@ c = torch.LongTensor([1, 1, 0])  # 结果：tensor([1, 1, 0])
 d = torch.FloatTensor([1, 1, 0]) # 结果：tensor([1., 1., 0.])
 ```
 
-#### 数据类型转换
+#### 2.2.3 数据类型转换
 
 如果想将转换张量的数据类型，有以下两种方法：
 
@@ -98,11 +98,11 @@ d = torch.FloatTensor([1, 1, 0]) # 结果：tensor([1., 1., 0.])
 
 方法 2：使用 `.bool()`、`.long()`、`.float()` 等函数，如 `b.long()`、`c.bool()` 等。
 
-## 张量的运算
+## 3 张量的运算
 
 @TODO
 
-#### 批量化计算
+### 3.1 批量化计算
 
 @TODO
 
@@ -110,7 +110,7 @@ d = torch.FloatTensor([1, 1, 0]) # 结果：tensor([1., 1., 0.])
 c = a + b # 相当于：c[i] = a[i] + b[i]
 ```
 
-#### Broadcasting 规则
+### 3.2 Broadcasting 规则
 
 @TODO
 
@@ -120,7 +120,7 @@ c = a + b # 相当于：c[i] = a[i] + b[i]
 C = a.unsqueeze(dim = -1) + b
 ```
 
-#### 导出运算结果
+### 3.3 导出运算结果
 
 @TODO
 
@@ -132,7 +132,7 @@ c.cpu().detach().numpy() # 通用，返回值类型为NumPy
 
 @TODO
 
-## PyTorch 常用模块
+## 4 PyTorch 常用模块
 
 @TODO
 
@@ -160,7 +160,7 @@ from torch import optim
 
 @TODO
 
-## \*使用 GPU 加速运算
+## 5\* 使用 GPU 加速运算
 
 如果你的计算机配有可用于科学计算的 NVIDIA GPU，且已经安装了 GPU 版 PyTorch 及相应版本的 NVIDIA CUDA 驱动，则可以使用 GPU 来加速 PyTorch 中的运算，在大规模运算时一般会有 5~10 倍的加速。可以使用函数 `torch.cuda.is_available()` 来确认计算机是否支持 GPU 加速，如果支持则会返回 `True`。
 
