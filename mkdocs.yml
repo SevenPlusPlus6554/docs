@@ -8,6 +8,7 @@ theme:
   name: mkdocs
   highlightjs: true
   hljs_style: lightfair
+  navigation_depth: 3
 
 nav:
   - 首页: index.md
@@ -33,4 +34,4 @@ extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX
 extra_css:
   - custom/style.css
 
-plugins: []
+#plugins: []
