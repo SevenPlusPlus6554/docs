@@ -2,12 +2,30 @@ site_name: IE科协
 site_description: IE科协技术资料
 site_author: IE科协
 site_url: https://ie.rtfd.io
+copyright: Do not distribute.
 
-copyright: 
+toc_depth: 2
 
-theme: readthedocs
+theme:
+  name: mkdocs
+  highlightjs: true
+  hljs_style: lightfair
+  nav_style: dark
+
+extra_css:
+  - custom/style.css
 
 nav:
   - 首页: index.md
-  - Python资料:
-    - 测试页面: py1.md
+  - PyTorch:
+    - 安装: pytorch/getting-started.md
+    - 基础知识: pytorch/basics.md
+    - 图像数据建模：CNN: pytorch/cnn.md
+    - 序列数据建模：RNN: pytorch/rnn.md
+    - 向量数据建模：MLP: pytorch/mlp.md
+  - TensorFlow:
+    - 安装: tensorflow/getting-started.md
+    - 基础知识: tensorflow/basics.md
+  - 工作手册:
+    - 编辑页面: manual/edit.md
+    - 发布更新: manual/upd.md

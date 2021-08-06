@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="IE科协">
+        <link rel="canonical" href="https://ie.rtfd.io/pytorch/basics/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>基础知识 - IE科协</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/lightfair.min.css">
+        <link href="../../custom/style.css" rel="stylesheet">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="../..">IE科协</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PyTorch <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../getting-started/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">基础知识</a>
+</li>
+                                    
+<li>
+    <a href="../cnn/" class="dropdown-item">图像数据建模：CNN</a>
+</li>
+                                    
+<li>
+    <a href="../rnn/" class="dropdown-item">序列数据建模：RNN</a>
+</li>
+                                    
+<li>
+    <a href="../mlp/" class="dropdown-item">向量数据建模：MLP</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">TensorFlow <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tensorflow/getting-started/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../../tensorflow/basics/" class="dropdown-item">基础知识</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">工作手册 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../manual/edit/" class="dropdown-item">编辑页面</a>
+</li>
+                                    
+<li>
+    <a href="../../manual/upd/" class="dropdown-item">发布更新</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../getting-started/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../cnn/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">基础知识</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#pytorch" class="nav-link">载入 PyTorch</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">数据的表示</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_8" class="nav-link">张量的运算</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#pytorch_1" class="nav-link">PyTorch 常用模块</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#gpu" class="nav-link">*使用 GPU 加速运算</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">基础知识</h1>
+<h2 id="pytorch">载入 PyTorch</h2>
+<p>为了使用 PyTorch，首先在 Python 代码的最上方加入以下代码来载入 PyTorch（注意是 <code>torch</code> 而非 <code>pytorch</code>）。</p>
+<pre><code class="language-py">import torch
+</code></pre>
+<h2 id="_2">数据的表示</h2>
+<p>在 PyTorch 中，所有数据都使用<strong>张量</strong>（tensor）类型来储存，可以将其理解为 C/C++ 里的多维数组。创建张量可以使用函数 <code>torch.tensor</code>。PyTorch 中的张量可以是数学中的标量、向量、矩阵或任意高维张量。</p>
+<pre><code class="language-py"># 标量
+a0 = torch.tensor(0)
+# 向量
+a1 = torch.tensor([0, 1])
+# 矩阵
+a2 = torch.tensor([[0, 1, 2], [3, 4, 5]])
+# 3维数组
+a3 = torch.tensor([[[0, 1], [2, 3]], [[4, 5], [6, 7]], [[8, 9], [10, 11]], [[12, 13], [14, 15]]])
+</code></pre>
+<h3 id="_3">维度和尺寸</h3>
+<p>@TODO</p>
+<pre><code class="language-py">a = torch.arange(12) # 对应Python里的range(12)
+a.size()         # 返回：torch.Size([12])
+a.size(dim = -1) # 返回：12
+</code></pre>
+<p>@TODO</p>
+<pre><code class="language-py">b = a.view(3, 4)  # 尺寸变为 [3, 4]
+b = a.view(-1, 4) # 尺寸变为 [3, 4]
+</code></pre>
+<p>@TODO</p>
+<pre><code class="language-py">b = a.unsqueeze(dim = 0) # 尺寸变为 [1, 12]
+c = b.squeeze(dim = 0)   # 尺寸变为 [12]
+</code></pre>
+<p>@TODO</p>
+<p>标量没有尺寸。</p>
+<pre><code class="language-py">torch.tensor(0).size() # 返回：torch.Size([])
+</code></pre>
+<p>@TODO</p>
+<h3 id="_4">数据类型</h3>
+<p>和一般的 Python 变量不同，PyTorch 中的数据是有类型的，其中常用的类型有布尔型（<code>torch.bool</code>）、整数（<code>torch.long</code>）和浮点数（<code>torch.float</code>）。</p>
+<p><strong>注意：</strong>整数和浮点数的默认精度在不同计算机上可能是不同的。在常见的 64 位计算机上，<code>torch.long</code> 一般是 <code>torch.int64</code>，<code>torch.float</code> 一般是 <code>torch.float32</code>。</p>
+<h4 id="_5">查看数据类型</h4>
+<p>与 C/C++ 的数组类似，同一张量中的所有值只能是同一类型。查看张量 <code>a</code> 的数据类型可以使用 <code>a.dtype</code> 属性。</p>
+<pre><code class="language-py">a = torch.tensor([1, 2])
+a.dtype # 返回torch.int64，相当于torch.long
+</code></pre>
+<h4 id="_6">指定数据类型</h4>
+<p>如果想在创建张量时就指定数据类型，有以下两种方法：</p>
+<p>方法 1：在 <code>torch.tensor</code> 中指定 <code>dtype</code> 参数，若类型不符合则会自动进行类型转换。</p>
+<pre><code class="language-py">a = torch.tensor([True, True, False], dtype = torch.float) # 结果：tensor([1., 1., 0.])
+</code></pre>
+<p>方法 2：直接调用对应数据类型张量的构造函数（注意区分大小写），若类型不符合也会自动进行类型转换。</p>
+<pre><code class="language-py">b = torch.BoolTensor([1, 1, 0])  # 结果：tensor([True, True, False])
+c = torch.LongTensor([1, 1, 0])  # 结果：tensor([1, 1, 0])
+d = torch.FloatTensor([1, 1, 0]) # 结果：tensor([1., 1., 0.])
+</code></pre>
+<h4 id="_7">数据类型转换</h4>
+<p>如果想将转换张量的数据类型，有以下两种方法：</p>
+<p>方法 1：使用 <code>.to</code> 函数，如 <code>a.to(torch.float)</code>。</p>
+<p>方法 2：使用 <code>.bool()</code>、<code>.long()</code>、<code>.float()</code> 等函数，如 <code>b.long()</code>、<code>c.bool()</code> 等。</p>
+<h2 id="_8">张量的运算</h2>
+<p>@TODO</p>
+<h4 id="_9">批量化计算</h4>
+<p>@TODO</p>
+<pre><code class="language-py">c = a + b # 相当于：c[i] = a[i] + b[i]
+</code></pre>
+<h4 id="broadcasting">Broadcasting 规则</h4>
+<p>@TODO</p>
+<p>例如，有一个长为 $m$ 的向量 $\boldsymbol a$ 和一个长为 $n$ 的向量 $\boldsymbol b$，要创建一个 $m\times n$ 的矩阵 $\boldsymbol C$ 满足第 $i$ 行第 $j$ 列的数是 $a_i+b_j$，则可以先将 $\boldsymbol a$ 变形成一个 $m\times 1$ 的矩阵，然后利用 broadcasting 规则来计算 $\boldsymbol C$。</p>
+<pre><code class="language-py">C = a.unsqueeze(dim = -1) + b
+</code></pre>
+<h4 id="_10">导出运算结果</h4>
+<p>@TODO</p>
+<pre><code class="language-py">a.item()   # 只能用于标量，返回值类型为Python标量
+b.tolist() # 不能用于标量，返回值类型为list
+c.cpu().detach().numpy() # 通用，返回值类型为NumPy
+</code></pre>
+<p>@TODO</p>
+<h2 id="pytorch_1">PyTorch 常用模块</h2>
+<p>@TODO</p>
+<pre><code class="language-py">import torch
+</code></pre>
+<p>@TODO</p>
+<pre><code class="language-py">import torch.nn.functional as F
+</code></pre>
+<p>@TODO</p>
+<pre><code class="language-py">from torch import nn
+</code></pre>
+<p>@TODO</p>
+<pre><code class="language-py">from torch import optim
+</code></pre>
+<p>@TODO</p>
+<h2 id="gpu">*使用 GPU 加速运算</h2>
+<p>如果你的计算机配有可用于科学计算的 NVIDIA GPU，且已经安装了 GPU 版 PyTorch 及相应版本的 NVIDIA CUDA 驱动，则可以使用 GPU 来加速 PyTorch 中的运算，在大规模运算时一般会有 5~10 倍的加速。可以使用函数 <code>torch.cuda.is_available()</code> 来确认计算机是否支持 GPU 加速，如果支持则会返回 <code>True</code>。</p>
+<p><strong>提示：</strong>这里只介绍单个 GPU 的情况。多个 GPU 的情况比较复杂，这里不再进一步介绍。</p>
+<p>要使用 GPU，首先需指定运算设备。为了让代码在支持和不支持 GPU 的计算机上都能正常运行，可以使用以下代码。</p>
+<pre><code class="language-py">device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+</code></pre>
+<p>为了让 GPU 加速运算，需要在运算前使用 <code>.to(device)</code> 将待运算的数据从内存转移到 GPU 的显存；运算后的结果仍然会保存在显存里。已经转移过的数据和运算结果不必重新转移。</p>
+<pre><code class="language-py">b = b.to(device)
+c = a.to(device) + b     # c的结果已存至显存里
+d = a.to(device) + b * c # 不必再转移b或c
+</code></pre>
+<p><strong>注意：</strong>同一运算中涉及到的所有变量必须在同一设备里，假如 <code>a</code> 在内存里而 <code>b</code> 在显存里，则 <code>a + b</code> 会报错。</p>
+<p><strong>提示：</strong>尽管 PyTorch 中绝大多数运算都支持 GPU，但仍有少量不常用的运算目前还不支持 GPU。如果在使用的过程中报错，请用 <code>.cpu()</code> 函数将数据转移回内存之后再进行运算。</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Do not distribute.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

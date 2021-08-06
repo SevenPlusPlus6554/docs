@@ -4,27 +4,27 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="IE科协技术资料">
+        
         <meta name="author" content="IE科协">
-        <link rel="canonical" href="https://ie.rtfd.io/">
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>IE科协</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        <link rel="canonical" href="https://ie.rtfd.io/pytorch/cnn/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>图像数据建模：CNN - IE科协</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/lightfair.min.css">
-        <link href="custom/style.css" rel="stylesheet">
+        <link href="../../custom/style.css" rel="stylesheet">
 
-        <script src="js/jquery-1.10.2.min.js" defer></script>
-        <script src="js/bootstrap.min.js" defer></script>
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href=".">IE科协</a>
+                <a class="navbar-brand" href="../..">IE科协</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -34,31 +34,31 @@
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem active">
-                                <a href="." class="nav-link">首页</a>
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">首页</a>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PyTorch <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="pytorch/getting-started/" class="dropdown-item">安装</a>
+    <a href="../getting-started/" class="dropdown-item">安装</a>
 </li>
                                     
 <li>
-    <a href="pytorch/basics/" class="dropdown-item">基础知识</a>
+    <a href="../basics/" class="dropdown-item">基础知识</a>
 </li>
                                     
 <li>
-    <a href="pytorch/cnn/" class="dropdown-item">图像数据建模：CNN</a>
+    <a href="./" class="dropdown-item active">图像数据建模：CNN</a>
 </li>
                                     
 <li>
-    <a href="pytorch/rnn/" class="dropdown-item">序列数据建模：RNN</a>
+    <a href="../rnn/" class="dropdown-item">序列数据建模：RNN</a>
 </li>
                                     
 <li>
-    <a href="pytorch/mlp/" class="dropdown-item">向量数据建模：MLP</a>
+    <a href="../mlp/" class="dropdown-item">向量数据建模：MLP</a>
 </li>
                                 </ul>
                             </li>
@@ -67,11 +67,11 @@
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="tensorflow/getting-started/" class="dropdown-item">安装</a>
+    <a href="../../tensorflow/getting-started/" class="dropdown-item">安装</a>
 </li>
                                     
 <li>
-    <a href="tensorflow/basics/" class="dropdown-item">基础知识</a>
+    <a href="../../tensorflow/basics/" class="dropdown-item">基础知识</a>
 </li>
                                 </ul>
                             </li>
@@ -80,11 +80,11 @@
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="manual/edit/" class="dropdown-item">编辑页面</a>
+    <a href="../../manual/edit/" class="dropdown-item">编辑页面</a>
 </li>
                                     
 <li>
-    <a href="manual/upd/" class="dropdown-item">发布更新</a>
+    <a href="../../manual/upd/" class="dropdown-item">发布更新</a>
 </li>
                                 </ul>
                             </li>
@@ -97,12 +97,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" class="nav-link disabled">
+                                <a rel="prev" href="../basics/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="pytorch/getting-started/" class="nav-link">
+                                <a rel="next" href="../rnn/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -124,13 +124,21 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#welcome-to-mkdocs" class="nav-link">Welcome to MkDocs</a>
+            <li class="nav-item" data-level="1"><a href="#cnn" class="nav-link">图像数据建模：CNN</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#commands" class="nav-link">Commands</a>
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">加载数据集</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#project-layout" class="nav-link">Project layout</a>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">定义神经网络</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">训练神经网络</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">测试神经网络</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -141,22 +149,26 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>@TODO 请将本页面替换成整体介绍</p>
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<h1 id="cnn">图像数据建模：CNN</h1>
+<p><strong>提示：</strong>本教程的主要目的是 PyTorch 入门，并不会深入讲述算法背后的数学原理。如果你想要进一步了解其数学原理，请参考<a href="#">深度学习教程@TODO</a>。</p>
+<p><strong>提示：</strong>这里假设你已经安装好了 PyTorch。关于如何安装，参见<a href="../getting-started/">安装 PyTorch</a>。</p>
+<p>在 PyTorch 中，对数据进行建模的一般流程是：</p>
+<ol>
+<li>加载数据集；</li>
+<li>定义神经网络；</li>
+<li>训练神经网络；</li>
+<li>测试神经网络。</li>
+</ol>
+<p>下面将以手写数字识别为例，介绍用 PyTorch 进行图像分类的一般流程。</p>
+<h2 id="_1">加载数据集</h2>
+<p>在 PyTorch 中，所有数据均使用<strong>张量</strong>（Tensor）这一数据结构来储存，可以将其理解成多维数组。</p>
+<p>@TODO</p>
+<h2 id="_2">定义神经网络</h2>
+<p>@TODO</p>
+<h2 id="_3">训练神经网络</h2>
+<p>@TODO</p>
+<h2 id="_4">测试神经网络</h2>
+<p>@TODO</p></div>
             </div>
         </div>
 
@@ -166,11 +178,11 @@ docs/
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = ".",
+            var base_url = "../..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js" defer></script>
-        <script src="search/main.js" defer></script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -235,8 +247,3 @@ docs/
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.2.2
-Build Date UTC : 2021-08-06 08:31:40.024994+00:00
--->

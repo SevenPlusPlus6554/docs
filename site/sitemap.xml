@@ -2,12 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ie.rtfd.io/</loc>
-         <lastmod>2021-08-05</lastmod>
+         <lastmod>2021-08-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ie.rtfd.io/py1/</loc>
-         <lastmod>2021-08-05</lastmod>
+         <loc>https://ie.rtfd.io/manual/edit/</loc>
+         <lastmod>2021-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ie.rtfd.io/manual/upd/</loc>
+         <lastmod>2021-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ie.rtfd.io/pytorch/basics/</loc>
+         <lastmod>2021-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ie.rtfd.io/pytorch/cnn/</loc>
+         <lastmod>2021-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ie.rtfd.io/pytorch/getting-started/</loc>
+         <lastmod>2021-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ie.rtfd.io/pytorch/mlp/</loc>
+         <lastmod>2021-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ie.rtfd.io/pytorch/rnn/</loc>
+         <lastmod>2021-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ie.rtfd.io/tensorflow/basics/</loc>
+         <lastmod>2021-08-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ie.rtfd.io/tensorflow/getting-started/</loc>
+         <lastmod>2021-08-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
