@@ -4,6 +4,11 @@ site_author: IE科协
 site_url: https://ie.rtfd.io
 copyright: Do not distribute.
 
+theme:
+  name: mkdocs
+  highlightjs: true
+  hljs_style: lightfair
+
 nav:
   - 首页: index.md
   - PyTorch:
@@ -19,17 +24,11 @@ nav:
     - 编辑页面: manual/edit.md
     - 发布更新: manual/upd.md
 
-theme:
-  name: mkdocs
-  highlightjs: true
-  hljs_style: github
-
 markdown_extensions: 
   - mdx_math:
       enable_dollar_delimiter: true
 
-extra_javascript:
-  - 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML'
+extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML']
 
 extra_css:
   - custom/style.css
