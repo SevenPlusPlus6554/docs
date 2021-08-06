@@ -24,9 +24,6 @@ theme:
   highlightjs: true
   hljs_style: github
 
-python:
-  setup_py_install: true
-
 markdown_extensions: 
   - mdx_math:
       enable_dollar_delimiter: true
