@@ -20,9 +20,9 @@ nav:
     - 图像数据建模：CNN: pytorch/cnn.md
     - 序列数据建模：RNN: pytorch/rnn.md
     - 向量数据建模：MLP: pytorch/mlp.md
-  - TensorFlow:
-    - 安装: tensorflow/getting-started.md
-    - 基础知识: tensorflow/basics.md
+  - TensorFlow2:
+    - 安装: tensorflow2/getting-started.md
+    - 基础知识: tensorflow2/basics.md
   - 工作手册:
     - 编辑页面: manual/edit.md
     - 发布更新: manual/upd.md
