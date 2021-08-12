@@ -15,7 +15,7 @@ theme:
 nav:
   - 首页: index.md
   - PyTorch:
-    - 安装: pytorch/getting-started.md
+    - 安装: pytorch/install.md
     - 基础知识: pytorch/basics.md
     - 图像数据建模：CNN: pytorch/cnn.md
     - 序列数据建模：RNN: pytorch/rnn.md
