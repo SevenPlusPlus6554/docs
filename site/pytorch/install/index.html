@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="IE科协">
+        <link rel="canonical" href="https://ie.rtfd.io/pytorch/install/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>安装 - IE科协</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/custom.css?t=202108070318" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight-10.5.0-lightfair.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="../../js/highlight-10.5.0.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+		<script>
+window.MathJax = {
+    tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        autoload: {
+            color: [],
+            colorV2: ['color']
+        },
+        packages: {'[+]': ['noerrors']}
+    },
+    svg: {
+        fontCache: 'global'
+    },
+    options: {
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+        load: ['[tex]/noerrors']
+    }
+};
+		</script>
+		<script type="text/javascript" id="MathJax-script" defer src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.0/es5/tex-svg.min.js"></script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">IE科协</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PyTorch <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">安装</a>
+</li>
+                                    
+<li>
+    <a href="../basics/" class="dropdown-item">基础知识</a>
+</li>
+                                    
+<li>
+    <a href="../cnn/" class="dropdown-item">图像数据建模：CNN</a>
+</li>
+                                    
+<li>
+    <a href="../rnn/" class="dropdown-item">序列数据建模：RNN</a>
+</li>
+                                    
+<li>
+    <a href="../mlp/" class="dropdown-item">向量数据建模：MLP</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">TensorFlow2 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tensorflow2/getting-started/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../../tensorflow2/basics/" class="dropdown-item">基础知识</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">工作手册 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../manual/edit/" class="dropdown-item">编辑页面</a>
+</li>
+                                    
+<li>
+    <a href="../../manual/upd/" class="dropdown-item">发布更新</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a rel="prev" href="../.." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../basics/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#pytorch" class="nav-link">安装PyTorch</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1-pytorch" class="nav-link">1 安装最新版 PyTorch</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#11-cuda" class="nav-link">1.1 CUDA 是什么</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#12-cuda" class="nav-link">1.2 使用 CUDA 的条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#13-cuda" class="nav-link">1.3 查看 CUDA 版本并安装</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2-190-pytorch" class="nav-link">*2 安装 1.9.0 版 PyTorch</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#21-windows" class="nav-link">2.1 Windows 系统</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#22-mac" class="nav-link">2.2 Mac 系统</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#23-linux" class="nav-link">2.3 Linux 系统</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3" class="nav-link">3 验证是否安装成功</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#31-pytorch" class="nav-link">3.1 PyTorch</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#32-gpu-cuda-pytorch" class="nav-link">3.２ 检查 GPU 驱动程序和 CUDA 是否启用并可通过 PyTorch 访问</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="pytorch">安装PyTorch</h1>
+<p>*说明：本文中网站部分为境外网站，可能不稳定，如遇网站打不开的情况可等待一段时间再刷新。</p>
+<h2 id="1-pytorch">1 安装最新版 PyTorch</h2>
+<p>关于安装 PyTorch，<a href="https://pytorch.org/get-started/locally/">官网</a>上有方便且详细的安装说明。</p>
+<p>在 <strong>START LOCALLY</strong> 部分选择合适的 PyTorch 版本、系统类型、安装包、编程语言、计算平台，并运行 <strong>Run this Command</strong> 中的命令即可完成安装。</p>
+<p><img alt="install-0" src="../figs/install-0.png" /></p>
+<p>上图中 <strong>Compute Platform</strong> 部分代表运算平台，可自行选择是否使用 CUDA （或 ROCm )。如使用 CUDA 则需先下载好相应版本的 CUDA 再安装 PyTorch 。</p>
+<p>下面详细说明 CUDA 的选择和下载。</p>
+<h3 id="11-cuda">1.1 CUDA 是什么</h3>
+<p>CUDA（Compute Unified Device Architecture），是显卡厂商 NVIDIA 推出的运算平台，主要用于<strong>支持 GPU 加速计算</strong>。</p>
+<blockquote>
+<p>一般而言，GPU 会比 CPU 有 5 ~ 10 倍的加速，因此如果有合适的显卡，安装 CUDA 比较好。</p>
+<p>如果电脑不支持 CUDA，只是无法使用显卡加速，并无其他影响。</p>
+</blockquote>
+<h3 id="12-cuda">1.2 使用 CUDA 的条件</h3>
+<p>需要电脑有 NVIDIA 的显卡</p>
+<blockquote>
+<p>CUDA 和后文中的 ROCm 都是显卡的驱动程序，区别在于 CUDA 是 NVIDIA 的，ROCm 是 AMD 的，选择哪一个驱动程序取决于电脑硬件。</p>
+</blockquote>
+<h3 id="13-cuda">1.3 查看 CUDA 版本并安装</h3>
+<h4 id="131">1.3.1 查看显卡型号</h4>
+<ol>
+<li>
+<p>按 Alt + Ctrl + Del 打开任务管理器</p>
+</li>
+<li>
+<p>点击左下角 “详细信息”</p>
+</li>
+</ol>
+<p><img alt="install-1" src="../figs/install-1.png" /></p>
+<ol>
+<li>点击上方 “性能” 栏</li>
+</ol>
+<p><img alt="install-2" src="../figs/install-2.png" /></p>
+<ol>
+<li>找到 GPU（如果是双显卡，则还会有 GPU1），记住 GPU 型号</li>
+</ol>
+<p><img alt="install-3" src="../figs/install-3.png" /></p>
+<h4 id="132-cuda">1.3.2 查看对应 CUDA 版本并安装</h4>
+<ol>
+<li>
+<p>打开 <a href="https://www.nvidia.com/Download/index.aspx?lang=en-us">NVIDIA 网站</a></p>
+</li>
+<li>
+<p>填写显卡型号等信息，点击 <strong>SEARCH</strong> 查询</p>
+</li>
+</ol>
+<blockquote>
+<p>Download Type 一般选择 Game Ready Driver 即可</p>
+<p>Studio 版用于专业视频处理软件加速</p>
+</blockquote>
+<p><img alt="install-4" src="../figs/install-4.png" /></p>
+<ol>
+<li>记住 NVIDIA 驱动版本并安装相应驱动</li>
+</ol>
+<p><img alt="install-5" src="../figs/install-5.png" /></p>
+<p><img alt="install-6" src="../figs/install-6.png" /></p>
+<ol>
+<li>打开<a href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html">此网站</a>，找到 <strong>Table 3.CUDA Toolkit and Corresponding Driver Versions</strong>，即为需要安装的 CUDA 版本</li>
+</ol>
+<p><img alt="install-7" src="../figs/install-7.png" /></p>
+<ol>
+<li>打开 <a href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA 下载网站</a>，下载对应版本的 CUDA</li>
+</ol>
+<h2 id="2-190-pytorch">*2 安装 1.9.0 版 PyTorch</h2>
+<h3 id="21-windows">2.1 Windows 系统</h3>
+<p>可以自行选择通过 pip 或 Anaconda 来安装。</p>
+<blockquote>
+<p>以下 Windows 发行版本支持 PyTorch：</p>
+<ul>
+<li>Windows 7 及以上版本，推荐使用 Windows 10及以上版本</li>
+<li>Windows Sever 2008 r2 或以上版本</li>
+</ul>
+<p>此安装说明通常适用于所有受支持的 Windows 发行版</p>
+<p>文中所显示的具体示例在 Windows 10 上运行</p>
+<p>要求 Python 3.x 版本</p>
+<p>为了充分利用 PyTorch 的 CUDA 支持，建议 Windows 系统使用 NVIDIA GPU，但不是必需的</p>
+</blockquote>
+<h4 id="211-pip">2.1.1 通过 pip 安装</h4>
+<p><strong>*常见错误：MemoryError</strong></p>
+<p>错误原因：由于 pip 的缓存机制尝试将待安装库的整个文件缓存到内存，而在限制缓存大小的环境中如果安装包较大就会出现 MemoryError 的这个错误。</p>
+<p>解决方法：将 <code>pip3 install torch</code> 命令改为 <code>pip3 --no-cache-dir install torch</code> ，以此禁用缓存。</p>
+<h5 id="2111-cuda">2.1.1.1 使用 CUDA</h5>
+<p>根据需要的 CUDA 版本，在 cmd 中运行以下两种命令之一。一般来讲，最新的 CUDA 版本更好。</p>
+<p>CUDA 11.1</p>
+<pre><code class="language-bash">pip3 install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio===0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+</code></pre>
+<p>CUDA 10.2</p>
+<pre><code class="language-bash">pip3 install torch==1.9.0+cu102 torchvision==0.10.0+cu102 torchaudio===0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+</code></pre>
+<h5 id="2112-cuda">2.1.1.2 不使用 CUDA</h5>
+<p>电脑不支持 CUDA 或不需要 CUDA 可选择此方法。在 cmd 中运行以下代码。</p>
+<pre><code class="language-bash">pip3 install torch torchvision torchaudio
+</code></pre>
+<h4 id="212-anaconda">2.1.2 通过 Anaconda 安装</h4>
+<p>要使用 Anaconda 安装 PyTorch，需要通过 <code>Start | Anaconda3 | Anaconda prompt</code> 打开一个 Anaconda 提示符</p>
+<h5 id="2121-cuda">2.1.2.1 使用 CUDA</h5>
+<p>根据需要的 CUDA 版本，运行以下两种命令之一。一般来讲，最新的 CUDA 版本更好。</p>
+<p>CUDA 11.1</p>
+<pre><code class="language-bash">conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge
+</code></pre>
+<blockquote>
+<p><strong>注意：</strong> cudatoolkit 11.1 需要 'conda-forge' 通道</p>
+</blockquote>
+<p>CUDA 10.2</p>
+<pre><code class="language-bash">conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch
+</code></pre>
+<h5 id="2122-cuda">2.1.2.2 不使用 CUDA</h5>
+<p>电脑不支持 CUDA 或不需要 CUDA 可选择此方法。运行以下命令。</p>
+<pre><code class="language-bash">conda install pytorch torchvision torchaudio cpuonly -c pytorch
+</code></pre>
+<h3 id="22-mac">2.2 Mac 系统</h3>
+<p>可以自行选择通过 pip 或 Anaconda 安装</p>
+<blockquote>
+<p>macOS 10.10 (Yosemite) 或更高版本支持 PyTorch</p>
+<p>要求 Python 3.5 及以上版本</p>
+<p>为充分利用 PyTorch 的 CUDA 支持，建议 Mac 使用 NVIDIA 的 GPU，但不是必需的</p>
+<p>目前，macOS 上的 CUDA 支持只能通过从源代码构建 PyTorch 来获得</p>
+</blockquote>
+<h4 id="221-pip">2.2.1 通过 pip 安装</h4>
+<p>使用以下命令</p>
+<pre><code class="language-bash">pip3 install torch torchvision
+</code></pre>
+<p><strong>*常见错误：MemoryError</strong></p>
+<p>错误原因：由于 pip 的缓存机制尝试将待安装库的整个文件缓存到内存，而在限制缓存大小的环境中如果安装包较大就会出现 MemoryError 的这个错误。</p>
+<p>解决方法：将 <code>pip3 install torch</code> 命令改为 <code>pip3 --no-cache-dir install torch</code> ，以此禁用缓存。</p>
+<h4 id="222-anaconda">2.2.2 通过 Anaconda 安装</h4>
+<p>使用以下命令</p>
+<pre><code class="language-bash">conda install pytorch torchvision -c pytorch
+</code></pre>
+<h3 id="23-linux">2.3 Linux 系统</h3>
+<p>可以自行选择通过 pip 或 Anaconda 安装</p>
+<blockquote>
+<p>PyTorch 在使用 glibc &gt;= v2.17 的 Linux 发行版上受支持，包括:</p>
+<ul>
+<li>
+<p><a href="https://www.archlinux.org/download/">Arch Linux</a>, 最低版本 2012-07-15</p>
+</li>
+<li>
+<p><a href="https://www.centos.org/download/">CentOS</a>, 最低版本 7.3-1611</p>
+</li>
+<li>
+<p><a href="https://www.debian.org/distrib/">Debian</a>, 最低版本 8.0</p>
+</li>
+<li>
+<p><a href="https://getfedora.org/">Fedora</a>, 最低版本 24</p>
+</li>
+<li>
+<p><a href="https://linuxmint.com/download.php">Mint</a>, 最低版本 14</p>
+</li>
+<li>
+<p><a href="https://software.opensuse.org/">OpenSUSE</a>, 最低版本 42.1</p>
+</li>
+<li>
+<p><a href="https://www.pclinuxos.com/get-pclinuxos/">PCLinuxOS</a>, 最低版本 2014.7</p>
+</li>
+<li>
+<p><a href="http://www.slackware.com/getslack/">Slackware</a>, 最低版本 14.2</p>
+</li>
+<li>
+<p><a href="https://www.ubuntu.com/download/desktop">Ubuntu</a>, 最低版本 13.04</p>
+</li>
+</ul>
+<p>此说明通常适用于所有受支持的 Linux 发行版</p>
+<p>不同的是，你的发行版可能支持 yum 而不是 apt</p>
+<p>文中的具体示例是在 Ubuntu 18.04 机器上运行的</p>
+<p>要求 Python 3.6 及以上</p>
+<p>为了充分利用 PyTorch 的 CUDA 支持，建议 Linux 系统有 NVIDIA GPU，但不是必需的</p>
+</blockquote>
+<h4 id="231-pip">2.3.1 通过 pip 安装</h4>
+<p><strong>*常见错误：MemoryError</strong></p>
+<p>错误原因：由于 pip 的缓存机制尝试将待安装库的整个文件缓存到内存，而在限制缓存大小的环境中如果安装包较大就会出现 MemoryError 的这个错误。</p>
+<p>解决方法：将 <code>pip3 install torch</code> 命令改为 <code>pip3 --no-cache-dir install torch</code> ，以此禁用缓存。</p>
+<h5 id="2311-cuda">2.3.1.1 使用 CUDA</h5>
+<p>根据需要的 CUDA 版本，运行以下两种命令之一。一般来讲，最新的 CUDA 版本更好。</p>
+<p>CUDA 11.1</p>
+<pre><code class="language-bash">pip3 install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+</code></pre>
+<p>CUDA 10.2</p>
+<pre><code class="language-bash">pip3 install torch torchvision torchaudio
+</code></pre>
+<h5 id="2312-rocm-42-beta">2.3.1.2 使用 ROCm 4.2 (beta)</h5>
+<p>电脑支持 ROCm 可选择此方法。运行以下命令。</p>
+<pre><code class="language-bash">pip3 install torch -f https://download.pytorch.org/whl/rocm4.2/torch_stable.html
+pip3 install ninja &amp;&amp; pip3 install 'git+https://github.com/pytorch/vision.git@v0.10.0'
+</code></pre>
+<h5 id="2313-cuda-rocm">2.3.1.3 不使用 CUDA 或 ROCm</h5>
+<p>电脑不支持 CUDA (ROCm) 或不需要 CUDA (ROCm) 可选择此方法。运行以下命令。</p>
+<pre><code class="language-bash">pip3 install torch==1.9.0+cpu torchvision==0.10.0+cpu torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+</code></pre>
+<h4 id="232-anaconda">2.3.2 通过 Anaconda 安装</h4>
+<h5 id="2321-cuda">2.3.2.1 使用 CUDA</h5>
+<p>根据需要的 CUDA 版本，运行以下两种命令之一。一般来讲，最新的 CUDA 版本更好。</p>
+<p>CUDA 11.1</p>
+<p><strong>注意：</strong>cudatoolkit 11.1 需要 'nvidia' 通道</p>
+<pre><code class="language-bash">conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia
+</code></pre>
+<p>CUDA 10.2</p>
+<pre><code class="language-bash">conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch
+</code></pre>
+<h5 id="2322-cuda">2.3.2.2 不使用 CUDA</h5>
+<p>电脑不支持 CUDA 或不需要 CUDA 可选择此方法。运行以下命令。</p>
+<pre><code class="language-bash">conda install pytorch torchvision torchaudio cpuonly -c pytorch
+</code></pre>
+<h2 id="3">3 验证是否安装成功</h2>
+<h3 id="31-pytorch">3.1 PyTorch</h3>
+<p>为了确保 PyTorch 已正确安装，我们可以通过在 Python 中运行样例 PyTorch 代码来验证安装。这里我们将构造一个随机初始化的张量。</p>
+<pre><code class="language-python">import torch
+x = torch.rand(5, 3)
+print(x)
+</code></pre>
+<p>如安装成功，则输出类似：</p>
+<blockquote>
+<p>tensor([[0.2909, 0.1746, 0.5248],
+            [0.6025, 0.7822, 0.0810],
+            [0.4011, 0.6752, 0.7671],
+            [0.1711, 0.3247, 0.7620],
+            [0.1548, 0.5274, 0.9023]])</p>
+</blockquote>
+<h3 id="32-gpu-cuda-pytorch">3.２ 检查 GPU 驱动程序和 CUDA 是否启用并可通过 PyTorch 访问</h3>
+<p>运行以下代码：</p>
+<pre><code class="language-python">import torch
+torch.cuda.is_available()
+</code></pre>
+<p>将返回是否启用 CUDA 驱动程序</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Do not distribute.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
