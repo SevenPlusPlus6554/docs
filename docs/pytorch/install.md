@@ -37,6 +37,7 @@ CUDA（Compute Unified Device Architecture），是显卡厂商 NVIDIA 推出的
 #### 1.3.1 查看显卡型号
 
 1.按 Alt \+ Ctrl \+ Del 打开任务管理器
+
 2.点击左下角 “详细信息”
 
 ![install-1](figs/install-1.png)
