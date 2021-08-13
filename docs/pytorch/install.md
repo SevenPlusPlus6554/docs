@@ -22,33 +22,32 @@
 
 CUDA（Compute Unified Device Architecture），是显卡厂商 NVIDIA 推出的运算平台，主要用于**支持 GPU 加速计算**。
 
-> 一般而言，GPU 会比 CPU 有 5 ~ 10 倍的加速，因此如果有合适的显卡，安装 CUDA 比较好。
+\*一般而言，GPU 会比 CPU 有 5 ~ 10 倍的加速，因此如果有合适的显卡，安装 CUDA 比较好。
 
-> 如果电脑不支持 CUDA，只是无法使用显卡加速，并无其他影响。
+\*如果电脑不支持 CUDA，只是无法使用显卡加速，并无其他影响。
 
 ### 1.2 使用 CUDA 的条件
 
 需要电脑有 NVIDIA 的显卡
 
-> CUDA 和后文中的 ROCm 都是显卡的驱动程序，区别在于 CUDA 是 NVIDIA 的，ROCm 是 AMD 的，选择哪一个驱动程序取决于电脑硬件。
+\*CUDA 和后文中的 ROCm 都是显卡的驱动程序，区别在于 CUDA 是 NVIDIA 的，ROCm 是 AMD 的，选择哪一个驱动程序取决于电脑硬件。
 
 ### 1.3 查看 CUDA 版本并安装
 
 #### 1.3.1 查看显卡型号
 
 1. 按 Alt \+ Ctrl \+ Del 打开任务管理器
-
 2. 点击左下角 “详细信息”
 
-   ![install-1](figs/install-1.png)
+![install-1](figs/install-1.png)
 
 3. 点击上方 “性能” 栏
 
-   ![install-2](figs/install-2.png)
+![install-2](figs/install-2.png)
 
 4. 找到 GPU（如果是双显卡，则还会有 GPU1），记住 GPU 型号
 
-   ![install-3](figs/install-3.png)
+![install-3](figs/install-3.png)
 
 #### 1.3.2 查看对应 CUDA 版本并安装
 
@@ -56,23 +55,23 @@ CUDA（Compute Unified Device Architecture），是显卡厂商 NVIDIA 推出的
 
 2. 填写显卡型号等信息，点击 **SEARCH** 查询
 
-   > Download Type 一般选择 Game Ready Driver 即可
-   >
-   > Studio 版用于专业视频处理软件加速
+\*Download Type 一般选择 Game Ready Driver 即可
+
+\*Studio 版用于专业视频处理软件加速
 
 ![install-4](figs/install-4.png)
 
 3. 记住 NVIDIA 驱动版本并安装相应驱动
 
-   ![install-5](figs/install-5.png)
+![install-5](figs/install-5.png)
 
-   
 
-   ![install-6](figs/install-6.png)
+
+![install-6](figs/install-6.png)
 
 4. 打开[此网站](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html)，找到 **Table 3.CUDA Toolkit and Corresponding Driver Versions**，即为需要安装的 CUDA 版本
 
-   ![install-7](figs/install-7.png)
+![install-7](figs/install-7.png)
 
 5. 打开 [CUDA 下载网站](https://developer.nvidia.com/cuda-toolkit-archive)，下载对应版本的 CUDA
 
@@ -84,18 +83,19 @@ CUDA（Compute Unified Device Architecture），是显卡厂商 NVIDIA 推出的
 
 可以自行选择通过 pip 或 Anaconda 来安装。
 
-> 以下 Windows 发行版本支持 PyTorch：
->
-> - Windows 7 及以上版本，推荐使用 Windows 10及以上版本
-> - Windows Sever 2008 r2 或以上版本
+\*以下 Windows 发行版本支持 PyTorch：
 
-> 此安装说明通常适用于所有受支持的 Windows 发行版
->
-> 文中所显示的具体示例在 Windows 10 上运行
+* Windows 7 及以上版本，推荐使用 Windows 10及以上版本
 
-> 要求 Python 3.x 版本
+* Windows Sever 2008 r2 或以上版本
 
-> 为了充分利用 PyTorch 的 CUDA 支持，建议 Windows 系统使用 NVIDIA GPU，但不是必需的
+\*此安装说明通常适用于所有受支持的 Windows 发行版
+
+\*文中所显示的具体示例在 Windows 10 上运行
+
+\*要求 Python 3.x 版本
+
+\*为了充分利用 PyTorch 的 CUDA 支持，建议 Windows 系统使用 NVIDIA GPU，但不是必需的
 
 #### 2.1.1 通过 pip 安装
 
@@ -143,7 +143,7 @@ CUDA 11.1
 conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge
 ```
 
-> **注意：** cudatoolkit 11.1 需要 'conda-forge' 通道
+***注意：** cudatoolkit 11.1 需要 'conda-forge' 通道
 
 CUDA 10.2
 
@@ -163,13 +163,13 @@ conda install pytorch torchvision torchaudio cpuonly -c pytorch
 
 可以自行选择通过 pip 或 Anaconda 安装
 
-> macOS 10.10 (Yosemite) 或更高版本支持 PyTorch
+\*macOS 10.10 (Yosemite) 或更高版本支持 PyTorch
 
-> 要求 Python 3.5 及以上版本
+\*要求 Python 3.5 及以上版本
 
-> 为充分利用 PyTorch 的 CUDA 支持，建议 Mac 使用 NVIDIA 的 GPU，但不是必需的
+\*为充分利用 PyTorch 的 CUDA 支持，建议 Mac 使用 NVIDIA 的 GPU，但不是必需的
 
-> 目前，macOS 上的 CUDA 支持只能通过从源代码构建 PyTorch 来获得
+\*目前，macOS 上的 CUDA 支持只能通过从源代码构建 PyTorch 来获得
 
 #### 2.2.1 通过 pip 安装
 
@@ -197,35 +197,31 @@ conda install pytorch torchvision -c pytorch
 
 可以自行选择通过 pip 或 Anaconda 安装
 
-> PyTorch 在使用 glibc &gt;= v2.17 的 Linux 发行版上受支持，包括:
->
-> - [Arch Linux](https://www.archlinux.org/download/), 最低版本 2012-07-15
->
-> - [CentOS](https://www.centos.org/download/), 最低版本 7.3-1611
->
-> - [Debian](https://www.debian.org/distrib/), 最低版本 8.0
->
-> - [Fedora](https://getfedora.org/), 最低版本 24
->
-> - [Mint](https://linuxmint.com/download.php), 最低版本 14
->
-> - [OpenSUSE](https://software.opensuse.org/), 最低版本 42.1
->
-> - [PCLinuxOS](https://www.pclinuxos.com/get-pclinuxos/), 最低版本 2014.7
->
-> - [Slackware](http://www.slackware.com/getslack/), 最低版本 14.2
->
-> - [Ubuntu](https://www.ubuntu.com/download/desktop), 最低版本 13.04
+\*PyTorch 在使用 glibc \>= v2.17 的 Linux 发行版上受支持，包括:
 
-> 此说明通常适用于所有受支持的 Linux 发行版
->
-> 不同的是，你的发行版可能支持 yum 而不是 apt
->
-> 文中的具体示例是在 Ubuntu 18.04 机器上运行的
+- [Arch Linux](https://www.archlinux.org/download/), 最低版本 2012-07-15
 
-> 要求 Python 3.6 及以上
+- [CentOS](https://www.centos.org/download/), 最低版本 7.3-1611
 
-> 为了充分利用 PyTorch 的 CUDA 支持，建议 Linux 系统有 NVIDIA GPU，但不是必需的
+- [Debian](https://www.debian.org/distrib/), 最低版本 8.0
+
+- [Fedora](https://getfedora.org/), 最低版本 24
+
+- [Mint](https://linuxmint.com/download.php), 最低版本 14
+
+- [OpenSUSE](https://software.opensuse.org/), 最低版本 42.1
+
+- [PCLinuxOS](https://www.pclinuxos.com/get-pclinuxos/), 最低版本 2014.7
+
+- [Slackware](http://www.slackware.com/getslack/), 最低版本 14.2
+
+- [Ubuntu](https://www.ubuntu.com/download/desktop), 最低版本 13.04
+
+\*此说明通常适用于所有受支持的 Linux 发行版；不同的是，你的发行版可能支持 yum 而不是 apt；文中的具体示例是在 Ubuntu 18.04 机器上运行的
+
+\*要求 Python 3.6 及以上
+
+\*为了充分利用 PyTorch 的 CUDA 支持，建议 Linux 系统有 NVIDIA GPU，但不是必需的
 
 #### 2.3.1 通过 pip 安装
 
@@ -312,11 +308,13 @@ print(x)
 
 如安装成功，则输出类似：
 
->tensor([[0.2909, 0.1746, 0.5248],
->			  [0.6025, 0.7822, 0.0810],
->			  [0.4011, 0.6752, 0.7671],
->			  [0.1711, 0.3247, 0.7620],
->			  [0.1548, 0.5274, 0.9023]])
+```
+tensor([[0.2909, 0.1746, 0.5248],
+		[0.6025, 0.7822, 0.0810],
+		[0.4011, 0.6752, 0.7671],
+		[0.1711, 0.3247, 0.7620],
+		[0.1548, 0.5274, 0.9023]])
+```
 
 ### 3.２ 检查 GPU 驱动程序和 CUDA 是否启用并可通过 PyTorch 访问
 
