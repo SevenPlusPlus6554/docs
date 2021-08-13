@@ -36,24 +36,24 @@ CUDA（Compute Unified Device Architecture），是显卡厂商 NVIDIA 推出的
 
 #### 1.3.1 查看显卡型号
 
-1. 按 Alt \+ Ctrl \+ Del 打开任务管理器
-2. 点击左下角 “详细信息”
+1.按 Alt \+ Ctrl \+ Del 打开任务管理器
+2.点击左下角 “详细信息”
 
 ![install-1](figs/install-1.png)
 
-3. 点击上方 “性能” 栏
+3.点击上方 “性能” 栏
 
 ![install-2](figs/install-2.png)
 
-4. 找到 GPU（如果是双显卡，则还会有 GPU1），记住 GPU 型号
+4.找到 GPU（如果是双显卡，则还会有 GPU1），记住 GPU 型号
 
 ![install-3](figs/install-3.png)
 
 #### 1.3.2 查看对应 CUDA 版本并安装
 
-1. 打开 [NVIDIA 网站](https://www.nvidia.com/Download/index.aspx?lang=en-us)
+1.打开 [NVIDIA 网站](https://www.nvidia.com/Download/index.aspx?lang=en-us)
 
-2. 填写显卡型号等信息，点击 **SEARCH** 查询
+2.填写显卡型号等信息，点击 **SEARCH** 查询
 
 \*Download Type 一般选择 Game Ready Driver 即可
 
@@ -61,7 +61,7 @@ CUDA（Compute Unified Device Architecture），是显卡厂商 NVIDIA 推出的
 
 ![install-4](figs/install-4.png)
 
-3. 记住 NVIDIA 驱动版本并安装相应驱动
+3.记住 NVIDIA 驱动版本并安装相应驱动
 
 ![install-5](figs/install-5.png)
 
@@ -69,11 +69,11 @@ CUDA（Compute Unified Device Architecture），是显卡厂商 NVIDIA 推出的
 
 ![install-6](figs/install-6.png)
 
-4. 打开[此网站](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html)，找到 **Table 3.CUDA Toolkit and Corresponding Driver Versions**，即为需要安装的 CUDA 版本
+4.打开[此网站](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html)，找到 **Table 3.CUDA Toolkit and Corresponding Driver Versions**，即为需要安装的 CUDA 版本
 
 ![install-7](figs/install-7.png)
 
-5. 打开 [CUDA 下载网站](https://developer.nvidia.com/cuda-toolkit-archive)，下载对应版本的 CUDA
+5.打开 [CUDA 下载网站](https://developer.nvidia.com/cuda-toolkit-archive)，下载对应版本的 CUDA
 
 
 
