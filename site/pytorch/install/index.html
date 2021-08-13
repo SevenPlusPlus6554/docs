@@ -205,24 +205,16 @@ window.MathJax = {
 <p>下面详细说明 CUDA 的选择和下载。</p>
 <h3 id="11-cuda">1.1 CUDA 是什么</h3>
 <p>CUDA（Compute Unified Device Architecture），是显卡厂商 NVIDIA 推出的运算平台，主要用于<strong>支持 GPU 加速计算</strong>。</p>
-<blockquote>
-<p>一般而言，GPU 会比 CPU 有 5 ~ 10 倍的加速，因此如果有合适的显卡，安装 CUDA 比较好。</p>
-<p>如果电脑不支持 CUDA，只是无法使用显卡加速，并无其他影响。</p>
-</blockquote>
+<p>*一般而言，GPU 会比 CPU 有 5 ~ 10 倍的加速，因此如果有合适的显卡，安装 CUDA 比较好。</p>
+<p>*如果电脑不支持 CUDA，只是无法使用显卡加速，并无其他影响。</p>
 <h3 id="12-cuda">1.2 使用 CUDA 的条件</h3>
 <p>需要电脑有 NVIDIA 的显卡</p>
-<blockquote>
-<p>CUDA 和后文中的 ROCm 都是显卡的驱动程序，区别在于 CUDA 是 NVIDIA 的，ROCm 是 AMD 的，选择哪一个驱动程序取决于电脑硬件。</p>
-</blockquote>
+<p>*CUDA 和后文中的 ROCm 都是显卡的驱动程序，区别在于 CUDA 是 NVIDIA 的，ROCm 是 AMD 的，选择哪一个驱动程序取决于电脑硬件。</p>
 <h3 id="13-cuda">1.3 查看 CUDA 版本并安装</h3>
 <h4 id="131">1.3.1 查看显卡型号</h4>
 <ol>
-<li>
-<p>按 Alt + Ctrl + Del 打开任务管理器</p>
-</li>
-<li>
-<p>点击左下角 “详细信息”</p>
-</li>
+<li>按 Alt + Ctrl + Del 打开任务管理器</li>
+<li>点击左下角 “详细信息”</li>
 </ol>
 <p><img alt="install-1" src="../figs/install-1.png" /></p>
 <ol>
@@ -242,10 +234,8 @@ window.MathJax = {
 <p>填写显卡型号等信息，点击 <strong>SEARCH</strong> 查询</p>
 </li>
 </ol>
-<blockquote>
-<p>Download Type 一般选择 Game Ready Driver 即可</p>
-<p>Studio 版用于专业视频处理软件加速</p>
-</blockquote>
+<p>*Download Type 一般选择 Game Ready Driver 即可</p>
+<p>*Studio 版用于专业视频处理软件加速</p>
 <p><img alt="install-4" src="../figs/install-4.png" /></p>
 <ol>
 <li>记住 NVIDIA 驱动版本并安装相应驱动</li>
@@ -262,17 +252,19 @@ window.MathJax = {
 <h2 id="2-190-pytorch">*2 安装 1.9.0 版 PyTorch</h2>
 <h3 id="21-windows">2.1 Windows 系统</h3>
 <p>可以自行选择通过 pip 或 Anaconda 来安装。</p>
-<blockquote>
-<p>以下 Windows 发行版本支持 PyTorch：</p>
+<p>*以下 Windows 发行版本支持 PyTorch：</p>
 <ul>
-<li>Windows 7 及以上版本，推荐使用 Windows 10及以上版本</li>
-<li>Windows Sever 2008 r2 或以上版本</li>
+<li>
+<p>Windows 7 及以上版本，推荐使用 Windows 10及以上版本</p>
+</li>
+<li>
+<p>Windows Sever 2008 r2 或以上版本</p>
+</li>
 </ul>
-<p>此安装说明通常适用于所有受支持的 Windows 发行版</p>
-<p>文中所显示的具体示例在 Windows 10 上运行</p>
-<p>要求 Python 3.x 版本</p>
-<p>为了充分利用 PyTorch 的 CUDA 支持，建议 Windows 系统使用 NVIDIA GPU，但不是必需的</p>
-</blockquote>
+<p>*此安装说明通常适用于所有受支持的 Windows 发行版</p>
+<p>*文中所显示的具体示例在 Windows 10 上运行</p>
+<p>*要求 Python 3.x 版本</p>
+<p>*为了充分利用 PyTorch 的 CUDA 支持，建议 Windows 系统使用 NVIDIA GPU，但不是必需的</p>
 <h4 id="211-pip">2.1.1 通过 pip 安装</h4>
 <p><strong>*常见错误：MemoryError</strong></p>
 <p>错误原因：由于 pip 的缓存机制尝试将待安装库的整个文件缓存到内存，而在限制缓存大小的环境中如果安装包较大就会出现 MemoryError 的这个错误。</p>
@@ -296,9 +288,7 @@ window.MathJax = {
 <p>CUDA 11.1</p>
 <pre><code class="language-bash">conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge
 </code></pre>
-<blockquote>
-<p><strong>注意：</strong> cudatoolkit 11.1 需要 'conda-forge' 通道</p>
-</blockquote>
+<p><strong>*注意：</strong> cudatoolkit 11.1 需要 'conda-forge' 通道</p>
 <p>CUDA 10.2</p>
 <pre><code class="language-bash">conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch
 </code></pre>
@@ -308,12 +298,10 @@ window.MathJax = {
 </code></pre>
 <h3 id="22-mac">2.2 Mac 系统</h3>
 <p>可以自行选择通过 pip 或 Anaconda 安装</p>
-<blockquote>
-<p>macOS 10.10 (Yosemite) 或更高版本支持 PyTorch</p>
-<p>要求 Python 3.5 及以上版本</p>
-<p>为充分利用 PyTorch 的 CUDA 支持，建议 Mac 使用 NVIDIA 的 GPU，但不是必需的</p>
-<p>目前，macOS 上的 CUDA 支持只能通过从源代码构建 PyTorch 来获得</p>
-</blockquote>
+<p>*macOS 10.10 (Yosemite) 或更高版本支持 PyTorch</p>
+<p>*要求 Python 3.5 及以上版本</p>
+<p>*为充分利用 PyTorch 的 CUDA 支持，建议 Mac 使用 NVIDIA 的 GPU，但不是必需的</p>
+<p>*目前，macOS 上的 CUDA 支持只能通过从源代码构建 PyTorch 来获得</p>
 <h4 id="221-pip">2.2.1 通过 pip 安装</h4>
 <p>使用以下命令</p>
 <pre><code class="language-bash">pip3 install torch torchvision
@@ -327,8 +315,7 @@ window.MathJax = {
 </code></pre>
 <h3 id="23-linux">2.3 Linux 系统</h3>
 <p>可以自行选择通过 pip 或 Anaconda 安装</p>
-<blockquote>
-<p>PyTorch 在使用 glibc &gt;= v2.17 的 Linux 发行版上受支持，包括:</p>
+<p>*PyTorch 在使用 glibc >= v2.17 的 Linux 发行版上受支持，包括:</p>
 <ul>
 <li>
 <p><a href="https://www.archlinux.org/download/">Arch Linux</a>, 最低版本 2012-07-15</p>
@@ -358,12 +345,9 @@ window.MathJax = {
 <p><a href="https://www.ubuntu.com/download/desktop">Ubuntu</a>, 最低版本 13.04</p>
 </li>
 </ul>
-<p>此说明通常适用于所有受支持的 Linux 发行版</p>
-<p>不同的是，你的发行版可能支持 yum 而不是 apt</p>
-<p>文中的具体示例是在 Ubuntu 18.04 机器上运行的</p>
-<p>要求 Python 3.6 及以上</p>
-<p>为了充分利用 PyTorch 的 CUDA 支持，建议 Linux 系统有 NVIDIA GPU，但不是必需的</p>
-</blockquote>
+<p>*此说明通常适用于所有受支持的 Linux 发行版；不同的是，你的发行版可能支持 yum 而不是 apt；文中的具体示例是在 Ubuntu 18.04 机器上运行的</p>
+<p>*要求 Python 3.6 及以上</p>
+<p>*为了充分利用 PyTorch 的 CUDA 支持，建议 Linux 系统有 NVIDIA GPU，但不是必需的</p>
 <h4 id="231-pip">2.3.1 通过 pip 安装</h4>
 <p><strong>*常见错误：MemoryError</strong></p>
 <p>错误原因：由于 pip 的缓存机制尝试将待安装库的整个文件缓存到内存，而在限制缓存大小的环境中如果安装包较大就会出现 MemoryError 的这个错误。</p>
@@ -407,13 +391,12 @@ x = torch.rand(5, 3)
 print(x)
 </code></pre>
 <p>如安装成功，则输出类似：</p>
-<blockquote>
-<p>tensor([[0.2909, 0.1746, 0.5248],
-            [0.6025, 0.7822, 0.0810],
-            [0.4011, 0.6752, 0.7671],
-            [0.1711, 0.3247, 0.7620],
-            [0.1548, 0.5274, 0.9023]])</p>
-</blockquote>
+<pre><code>tensor([[0.2909, 0.1746, 0.5248],
+        [0.6025, 0.7822, 0.0810],
+        [0.4011, 0.6752, 0.7671],
+        [0.1711, 0.3247, 0.7620],
+        [0.1548, 0.5274, 0.9023]])
+</code></pre>
 <h3 id="32-gpu-cuda-pytorch">3.２ 检查 GPU 驱动程序和 CUDA 是否启用并可通过 PyTorch 访问</h3>
 <p>运行以下代码：</p>
 <pre><code class="language-python">import torch

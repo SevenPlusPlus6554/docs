@@ -26,11 +26,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ie.rtfd.io/pytorch/getting-started/</loc>
-         <lastmod>2021-08-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://ie.rtfd.io/pytorch/install/</loc>
          <lastmod>2021-08-13</lastmod>
          <changefreq>daily</changefreq>
