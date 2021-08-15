@@ -2,52 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ie.rtfd.io/</loc>
-         <lastmod>2021-08-13</lastmod>
+         <lastmod>2021-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/manual/edit/</loc>
-         <lastmod>2021-08-13</lastmod>
+         <lastmod>2021-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/manual/upd/</loc>
-         <lastmod>2021-08-13</lastmod>
+         <lastmod>2021-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/basics/</loc>
-         <lastmod>2021-08-13</lastmod>
+         <lastmod>2021-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/cnn/</loc>
-         <lastmod>2021-08-13</lastmod>
+         <lastmod>2021-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/install/</loc>
-         <lastmod>2021-08-13</lastmod>
+         <lastmod>2021-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/mlp/</loc>
-         <lastmod>2021-08-13</lastmod>
+         <lastmod>2021-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/rnn/</loc>
-         <lastmod>2021-08-13</lastmod>
+         <lastmod>2021-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/tensorflow2/basics/</loc>
-         <lastmod>2021-08-13</lastmod>
+         <lastmod>2021-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/tensorflow2/getting-started/</loc>
-         <lastmod>2021-08-13</lastmod>
+         <lastmod>2021-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
