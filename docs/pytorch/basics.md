@@ -4,93 +4,190 @@
 
 为了使用 PyTorch，首先在 Python 代码的最上方加入以下代码来载入 PyTorch（注意是 `torch` 而非 `pytorch`）。
 
-```py
+```python
 import torch
 ```
 
 ## 2 数据的表示
 
-在 PyTorch 中，所有数据都使用**张量**（tensor）类型来储存，可以将其理解为 C/C++ 里的多维数组。创建张量可以使用函数 `torch.tensor`。PyTorch 中的张量可以是数学中的标量、向量、矩阵或任意高维张量。
+在 PyTorch 中，所有数据都使用**张量**（tensor）类型来储存，可以将其理解为 C/C++ 里的多维数组。PyTorch 中的张量可以是数学中的标量、向量、矩阵或任意高维张量。
 
-```py
-# 标量
-a0 = torch.tensor(0)
-# 向量
-a1 = torch.tensor([0, 1])
-# 矩阵
-a2 = torch.tensor([[0, 1, 2], [3, 4, 5]])
-# 3维张量
-a3 = torch.tensor([[[0, 1], [2, 3]], [[4, 5], [6, 7]], [[8, 9], [10, 11]], [[12, 13], [14, 15]]])
-```
+tensor对象有三个属性：  
+**rank**：即张量的维数  
+**shape**：即张量的行数和列数  
+**type**：即张量元素的数据类型
 
-### 2.1 维度和尺寸
+### 2.1 创建与初始化
 
-@TODO
+1. 使用函数 `torch.tensor()` 或 `torch.arange()`，直接从数据创建 tensor。
 
-```py
-a = torch.arange(12) # 对应Python里的range(12)
-a.size()         # 返回：torch.Size([12])
-a.size(dim = -1) # 返回：12
-```
+	```python
+	# 标量
+	a0 = torch.tensor(0)
+	# 向量
+	a = torch.arange(12) # 对应 Python 中的 range(12)
+	a1 = torch.tensor([0, 1])
+	# 矩阵
+	a2 = torch.tensor([[0, 1, 2], [3, 4, 5]])
+	# 3维张量
+	a3 = torch.tensor([[[0, 1], [2, 3]], [[4, 5], [6, 7]], [[8, 9], [10, 	11]], [[12, 13], [14, 15]]])
+	# 把变量作为参数
+	data = [[1,2],[3,4]]
+	a_data = torch.tensor(data)
+	```
 
-@TODO
+2. 从 NumPy 数组创建 tensor
 
-```py
-b = a.view(3, 4)  # 尺寸变为 [3, 4]
-b = a.view(-1, 4) # 尺寸变为 [3, 4]
-```
+	```python
+	import numpy as np
+	np_array = np.array(data)
+	a_np = torch.from_numpy(np_array)
+	```
+	
+3. 从另一个 tensor 创建 tensor
 
-@TODO
+	使用 `torch.ones_like(tensor[,dtype])` 来创建全 1 tensor，或使用 `torch.rand_like(tensor[,dtype])` 来创建随机数 tensor
+	
+	```python
+	# 保留 a_data 的性质
+	a_ones = torch.ones_like(a_data)
+	# 改变 a_data 的性质
+	a_rand = torch.rand_like(a_data, dtype=torch.float)
+	print(a_ones)
+	print(a_rand)
+	```
+	
+	输出：
+	
+	```
+	tensor([[1, 1],
+			[1, 1]])
+	tensor([[0.2095, 0.9481],
+			[0.2369, 0.0424]])
+	```
 
-```py
-b = a.unsqueeze(dim = 0) # 尺寸变为 [1, 12]
-c = b.squeeze(dim = 0)   # 尺寸变为 [12]
-```
+4. 用随机数或常量创建 tensor
 
-@TODO
+	用一个元组（tuple） `shape` 来表示 tensor 的维度。
+	
+	```python
+	shape = (2,3)
+	b_rand = torch.rand(shape)
+	b_ones = torch.ones(shape)
+	b_zeros = torch.zeros(shape)
+	print(b_rand)
+	print(b_ones)
+	print(b_zeros)
+	```
+	输出：
+	
+	```
+	tensor([[0.8283, 0.5521, 0.4598],
+			[0.3117, 0.7638, 0.0300]])
+	tensor([[1., 1., 1.],
+			[1., 1., 1.]])
+	tensor([[0., 0., 0.],
+			[0., 0., 0.]])
+	```
 
-标量没有尺寸。
+### 2.2 维度和尺寸
 
-```py
-torch.tensor(0).size() # 返回：torch.Size([])
-```
+#### 2.2.1 维度大小与数目的获取
 
-@TODO
+1. `tensor.ndimension()`
 
-### 2.2 数据类型
+	用于获取 tensor 的维数（整数）
+
+	```python
+	a0.ndimension() # 返回：0
+	a1.ndimension() # 返回：1
+	a2.ndimension() # 返回：2
+	```
+
+2. `tensor.nelement()`
+
+	用于获取张量总元素个数
+
+	```python
+	a0.nelement() # 返回：1
+	a1.nelement() # 返回：2
+	a2.nelement() # 返回：6
+	```
+
+3. `tensor.size([dim])` 或 `tensor.shape`
+
+	用于获取张量每个维度的大小，返回结果类型为 `torch.Size`。`tensor.size()` 调用的是函数，想要获得特定维度的大小可以加入维度参数，而 `tensor.shape` 访问的是张量的属性。
+
+	```python
+	a3.size()   # 返回：torch.Size([4, 2, 2])
+	a3.size(0)  # 返回：4
+	a3.size(1)  # 返回：2
+	a3.size(2)  # 返回：2
+	a3.size(-1) # 返回：2 （-1 表示倒数第一个）
+	a3.shape    # 返回：torch.Size([4, 2, 2])
+	```
+
+	\*标量没有尺寸
+
+	```python
+	a0.size() # 返回：torch.Size([])
+	a0.shape  # 返回：torch.Size([])
+	```
+
+#### 2.2.2 维度变换
+
+1. `tensor.view()`
+
+	将 tensor 中的数据按照行优先的顺序排成一个一维数组，之后按照参数组合成其它维度的 tensor。参数有两个时，可省略其中一个，用 -1 表示。
+
+	```python
+	b = a.view(3, 4)  # 尺寸变为 [3, 4]
+	b = a.view(-1, 4) # 尺寸变为 [3, 4]
+	```
+
+2. `tensor.unsqueeze(dim)` 或 `tensor.squeeze([dim])`
+
+	`tensor.unsqueeze(dim)` 是给指定位置加上维数为 1 的维度；`tensor.squeeze()` 是去掉所有维数为 1 的维度；`tensor.squeeze(dim)` 是去掉指定的维数为 1 的维度。
+
+	```py
+	b = a.unsqueeze(dim = 0) # 尺寸变为 [1, 12]
+	c = b.squeeze(dim = 0)   # 尺寸变为 [12]
+	```
+
+### 2.3 数据类型
 
 和一般的 Python 变量不同，PyTorch 中的数据是有类型的，其中常用的类型有布尔型（`torch.bool`）、整数（`torch.long`）和浮点数（`torch.float`）。
 
 **注意：**整数和浮点数的默认精度在不同计算机上可能是不同的。在常见的 64 位计算机上，`torch.long` 一般是 `torch.int64`，`torch.float` 一般是 `torch.float32`。
 
-#### 2.2.1 查看数据类型
+#### 2.3.1 查看数据类型
 
 与 C/C++ 的数组类似，同一张量中的所有值只能是同一类型。查看张量 `a` 的数据类型可以使用 `a.dtype` 属性。
 
-```py
+```python
 a = torch.tensor([1, 2])
 a.dtype # 返回torch.int64，相当于torch.long
 ```
 
-#### 2.2.2 指定数据类型
+#### 2.3.2 指定数据类型
 
 如果想在创建张量时就指定数据类型，有以下两种方法：
 
 方法 1：在 `torch.tensor` 中指定 `dtype` 参数，若类型不符合则会自动进行类型转换。
 
-```py
+```python
 a = torch.tensor([True, True, False], dtype = torch.float) # 结果：tensor([1., 1., 0.])
 ```
 
 方法 2：直接调用对应数据类型张量的构造函数（注意区分大小写），若类型不符合也会自动进行类型转换。
 
-```py
+```python
 b = torch.BoolTensor([1, 1, 0])  # 结果：tensor([True, True, False])
 c = torch.LongTensor([1, 1, 0])  # 结果：tensor([1, 1, 0])
 d = torch.FloatTensor([1, 1, 0]) # 结果：tensor([1., 1., 0.])
 ```
 
-#### 2.2.3 数据类型转换
+#### 2.3.3 数据类型转换
 
 如果想将转换张量的数据类型，有以下两种方法：
 
@@ -100,65 +197,66 @@ d = torch.FloatTensor([1, 1, 0]) # 结果：tensor([1., 1., 0.])
 
 ## 3 张量的运算
 
-@TODO
+对于维度相同的张量，直接采用批量化计算；对于维度不同的张量，遵循 broadingcasting 规则。
 
 ### 3.1 批量化计算
 
-@TODO
+维度相同的张量可以直接相加。
 
-```py
+```python
 c = a + b # 相当于：c[i] = a[i] + b[i]
 ```
 
 ### 3.2 Broadcasting 规则
 
-@TODO
+算数运算中，从后向前对两个张量的维度进行遍历。如果至少一个张量的维度遍历结束时，两张量维度的值相同或者其中一个值为 1，则满足进行算术运算的要求，否则不满足。
 
-例如，有一个长为 $m$ 的向量 $\boldsymbol a$ 和一个长为 $n$ 的向量 $\boldsymbol b$，要创建一个 $m\times n$ 的矩阵 $\boldsymbol C$ 满足第 $i$ 行第 $j$ 列的数是 $a_i+b_j$，则可以先将 $\boldsymbol a$ 变形成一个 $m\times 1$ 的矩阵，然后利用 broadcasting 规则来计算 $\boldsymbol C$。
+若满足进行算术运算的要求，则在检查过程中，将相应维度取最大值，其中一个张量遍历结束时，复制另一个张量的剩余维度。
 
-```py
+例1：现有三个张量 **a**，**b**，**c**，其维度分别为 [2,3,5]，[2,5]，[1,5]。若运行 `a + b` ，二者最后一维值均为 5，而倒数第二维值分别为 3 和 2，不满足要求。若运行 `a + c`，二者最后一维值均为5，倒数第二维有一值为 1，**c** 遍历结束，满足要求，运算结果的维度为 [2,3,5]。
+
+例2：有一个长为 *m* 的向量 **a** 和一个长为 *n* 的向量 **b**，维度分别为 [m]，[n]，要创建一个 *m \* n* 的矩阵 **C** 满足第 *i* 行第 *j* 列的数是 *a<sub>i</sub> \+ b<sub>j</sub>*，则可以先将 **a** 变形成一个 *m \* 1* 的矩阵，维度变为 [m,1]，然后利用 broadcasting 规则来计算 **C**，最终得到 **C** 的维度即为 [m,n]。
+
+```python
 C = a.unsqueeze(dim = -1) + b
 ```
 
 ### 3.3 导出运算结果
 
-@TODO
+`tensor.item()` 用于返回单元素张量的元素值；`tensor.tolist()` 用于将张量作为（嵌套）列表返回；`tensor.cpu()` 用于将数据处理设备从其它设备拿到 CPU 上；`tensor.detach()` 返回一个新的tensor，仍指向原变量的存放位置，requirse_grad 变为false，得到的 tensor 不需要计算器梯度，不具有 grad；`tensor.numpy()` 用于将张量（不限维数）转换为 ndarray 变量，转换后 dtype 与 tensor 一致。
 
-```py
+```python
 a.item()   # 只能用于标量，返回值类型为Python标量
 b.tolist() # 不能用于标量，返回值类型为list
 c.cpu().detach().numpy() # 通用，返回值类型为NumPy
 ```
 
-@TODO
-
 ## 4 PyTorch 常用模块
 
-@TODO
+载入 PyTorch
 
-```py
+```python
 import torch
 ```
 
-@TODO
+`torch.nn.functional` 包含 convolution 函数、pooling 函数、非线性激活函数、normalization 函数、线性函数、距离函数（distance functions）、损失函数（loss functions）、vision functions 等，用以下代码载入。
 
-```py
+```python
 import torch.nn.functional as F
 ```
 
-@TODO
+参见 [WHAT IS *TORCH.NN* REALLY?](https://pytorch.org/tutorials/beginner/nn_tutorial.html)
 
-```py
+```python
 from torch import nn
 ```
 
-@TODO
+参见 [torch.optim](https://pytorch-cn.readthedocs.io/zh/latest/package_references/torch-optim/)
 
-```py
+```python
 from torch import optim
 ```
 
-@TODO
 
 ## 5\* 使用 GPU 加速运算
 
