@@ -154,43 +154,6 @@ window.MathJax = {
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#_2" class="nav-link">标量</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#_3" class="nav-link">向量</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#_4" class="nav-link">矩阵</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#3" class="nav-link">3维张量</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#_5" class="nav-link">把变量作为参数</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#a_data" class="nav-link">保留 a_data 的性质</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#a_data_1" class="nav-link">改变 a_data 的性质</a>
-              <ul class="nav flex-column">
             <li class="nav-item" data-level="3"><a href="#22" class="nav-link">2.2 维度和尺寸</a>
               <ul class="nav flex-column">
               </ul>
@@ -199,7 +162,9 @@ window.MathJax = {
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#3_1" class="nav-link">3 张量的运算</a>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3" class="nav-link">3 张量的运算</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-level="3"><a href="#31" class="nav-link">3.1 批量化计算</a>
               <ul class="nav flex-column">
@@ -242,120 +207,96 @@ window.MathJax = {
 <strong>shape</strong>：即张量的行数和列数<br />
 <strong>type</strong>：即张量元素的数据类型</p>
 <h3 id="21">2.1 创建与初始化</h3>
-<ol>
-<li>
-<p>使用函数 <code>torch.tensor()</code> 或 <code>torch.arange()</code>，直接从数据创建 tensor。</p>
-<p>```Python</p>
-<h1 id="_2">标量</h1>
-<p>a0 = torch.tensor(0)</p>
-<h1 id="_3">向量</h1>
-<p>a = torch.arange(12) # 对应 Python 中的 range(12)
-a1 = torch.tensor([0, 1])</p>
-<h1 id="_4">矩阵</h1>
-<p>a2 = torch.tensor([[0, 1, 2], [3, 4, 5]])</p>
-<h1 id="3">3维张量</h1>
-<p>a3 = torch.tensor([[[0, 1], [2, 3]], [[4, 5], [6, 7]], [[8, 9], [10,    11]], [[12, 13], [14, 15]]])</p>
-<h1 id="_5">把变量作为参数</h1>
-<p>data = [[1,2],[3,4]]
+<h4 id="211-torchtensor-torcharange-tensor">2.1.1 使用函数 <code>torch.tensor()</code> 或 <code>torch.arange()</code>，直接从数据创建 tensor。</h4>
+<pre><code class="language-Python"># 标量
+a0 = torch.tensor(0)
+# 向量
+a = torch.arange(12) # 对应 Python 中的 range(12)
+a1 = torch.tensor([0, 1])
+# 矩阵
+a2 = torch.tensor([[0, 1, 2], [3, 4, 5]])
+# 3维张量
+a3 = torch.tensor([[[0, 1], [2, 3]], [[4, 5], [6, 7]], [[8, 9], [10,    11]], [[12, 13], [14, 15]]])
+# 把变量作为参数
+data = [[1,2],[3,4]]
 a_data = torch.tensor(data)
-```</p>
-</li>
-<li>
-<p>从 NumPy 数组创建 tensor</p>
-<p><code>Python
-import numpy as np
+</code></pre>
+<h4 id="212-numpy-tensor">2.1.2 从 NumPy 数组创建 tensor</h4>
+<pre><code class="language-Python">import numpy as np
 np_array = np.array(data)
-a_np = torch.from_numpy(np_array)</code></p>
-</li>
-<li>
-<p>从另一个 tensor 创建 tensor</p>
+a_np = torch.from_numpy(np_array)
+</code></pre>
+<h4 id="213-tensor-tensor">2.1.3 从另一个 tensor 创建 tensor</h4>
 <p>使用 <code>torch.ones_like(tensor[,dtype])</code> 来创建全 1 tensor，或使用 <code>torch.rand_like(tensor[,dtype])</code> 来创建随机数 tensor</p>
-<p>```Python</p>
-<h1 id="a_data">保留 a_data 的性质</h1>
-<p>a_ones = torch.ones_like(a_data)</p>
-<h1 id="a_data_1">改变 a_data 的性质</h1>
-<p>a_rand = torch.rand_like(a_data, dtype=torch.float)
+<pre><code class="language-Python"># 保留 a_data 的性质
+a_ones = torch.ones_like(a_data)
+# 改变 a_data 的性质
+a_rand = torch.rand_like(a_data, dtype=torch.float)
 print(a_ones)
 print(a_rand)
-```</p>
+</code></pre>
 <p>输出：</p>
-<p><code>tensor([[1, 1],
+<pre><code>tensor([[1, 1],
         [1, 1]])
 tensor([[0.2095, 0.9481],
-        [0.2369, 0.0424]])</code></p>
-</li>
-<li>
-<p>用随机数或常量创建 tensor</p>
+        [0.2369, 0.0424]])
+</code></pre>
+<h4 id="214-tensor">2.1.4 用随机数或常量创建 tensor</h4>
 <p>用一个元组（tuple） <code>shape</code> 来表示 tensor 的维度。</p>
-<p><code>Python
-shape = (2,3)
+<pre><code class="language-Python">shape = (2,3)
 b_rand = torch.rand(shape)
 b_ones = torch.ones(shape)
 b_zeros = torch.zeros(shape)
 print(b_rand)
 print(b_ones)
-print(b_zeros)</code>
-输出：</p>
-<p><code>tensor([[0.8283, 0.5521, 0.4598],
+print(b_zeros)
+</code></pre>
+<p>输出：</p>
+<pre><code>tensor([[0.8283, 0.5521, 0.4598],
         [0.3117, 0.7638, 0.0300]])
 tensor([[1., 1., 1.],
         [1., 1., 1.]])
 tensor([[0., 0., 0.],
-        [0., 0., 0.]])</code></p>
-</li>
-</ol>
+        [0., 0., 0.]])
+</code></pre>
 <h3 id="22">2.2 维度和尺寸</h3>
 <h4 id="221">2.2.1 维度大小与数目的获取</h4>
-<ol>
-<li>
-<p><code>tensor.ndimension()</code></p>
+<h5 id="2211-tensorndimension">2.2.1.1 <code>tensor.ndimension()</code></h5>
 <p>用于获取 tensor 的维数（整数）</p>
-<p><code>Python
-a0.ndimension() # 返回：0
+<pre><code class="language-Python">a0.ndimension() # 返回：0
 a1.ndimension() # 返回：1
-a2.ndimension() # 返回：2</code></p>
-</li>
-<li>
-<p><code>tensor.nelement()</code></p>
+a2.ndimension() # 返回：2
+</code></pre>
+<h5 id="2212-tensornelement">2.2.1.2 <code>tensor.nelement()</code></h5>
 <p>用于获取张量总元素个数</p>
-<p><code>Python
-a0.nelement() # 返回：1
+<pre><code class="language-Python">a0.nelement() # 返回：1
 a1.nelement() # 返回：2
-a2.nelement() # 返回：6</code></p>
-</li>
-<li>
-<p><code>tensor.size([dim])</code> 或 <code>tensor.shape</code></p>
+a2.nelement() # 返回：6
+</code></pre>
+<h5 id="2213-tensorsizedim-tensorshape">2.2.1.3 <code>tensor.size([dim])</code> 或 <code>tensor.shape</code></h5>
 <p>用于获取张量每个维度的大小，返回结果类型为 <code>torch.Size</code>。<code>tensor.size()</code> 调用的是函数，想要获得特定维度的大小可以加入维度参数，而 <code>tensor.shape</code> 访问的是张量的属性。</p>
-<p><code>Python
-a3.size()   # 返回：torch.Size([4, 2, 2])
+<pre><code class="language-Python">a3.size()   # 返回：torch.Size([4, 2, 2])
 a3.size(0)  # 返回：4
 a3.size(1)  # 返回：2
 a3.size(2)  # 返回：2
 a3.size(-1) # 返回：2 （-1 表示倒数第一个）
-a3.shape    # 返回：torch.Size([4, 2, 2])</code></p>
+a3.shape    # 返回：torch.Size([4, 2, 2])
+</code></pre>
 <p>*标量没有尺寸</p>
-<p><code>Python
-a0.size() # 返回：torch.Size([])
-a0.shape  # 返回：torch.Size([])</code></p>
-</li>
-</ol>
+<pre><code class="language-Python">a0.size() # 返回：torch.Size([])
+a0.shape  # 返回：torch.Size([])
+</code></pre>
 <h4 id="222">2.2.2 维度变换</h4>
-<ol>
-<li>
-<p><code>tensor.view()</code></p>
+<h5 id="2221-tensorview">2.2.2.1 <code>tensor.view()</code></h5>
 <p>将 tensor 中的数据按照行优先的顺序排成一个一维数组，之后按照参数组合成其它维度的 tensor。参数有两个时，可省略其中一个，用 -1 表示。</p>
-<p><code>Python
-b = a.view(3, 4)  # 尺寸变为 [3, 4]
-b = a.view(-1, 4) # 尺寸变为 [3, 4]</code></p>
-</li>
-<li>
-<p><code>tensor.unsqueeze(dim)</code> 或 <code>tensor.squeeze([dim])</code></p>
+<pre><code class="language-Python">b = a.view(3, 4)  # 尺寸变为 [3, 4]
+b = a.view(-1, 4) # 尺寸变为 [3, 4]
+</code></pre>
+<h5 id="2222-tensorunsqueezedim-tensorsqueezedim">2.2.2.2 <code>tensor.unsqueeze(dim)</code> 或 <code>tensor.squeeze([dim])</code></h5>
 <p><code>tensor.unsqueeze(dim)</code> 是给指定位置加上维数为 1 的维度；<code>tensor.squeeze()</code> 是去掉所有维数为 1 的维度；<code>tensor.squeeze(dim)</code> 是去掉指定的维数为 1 的维度。</p>
-<p><code>py
-b = a.unsqueeze(dim = 0) # 尺寸变为 [1, 12]
-c = b.squeeze(dim = 0)   # 尺寸变为 [12]</code></p>
-</li>
-</ol>
+<pre><code class="language-Python">b = a.unsqueeze(dim = 0) # 尺寸变为 [1, 12]
+c = b.squeeze(dim = 0)   # 尺寸变为 [12]
+</code></pre>
 <h3 id="23">2.3 数据类型</h3>
 <p>和一般的 Python 变量不同，PyTorch 中的数据是有类型的，其中常用的类型有布尔型（<code>torch.bool</code>）、整数（<code>torch.long</code>）和浮点数（<code>torch.float</code>）。</p>
 <p><strong>注意：</strong>整数和浮点数的默认精度在不同计算机上可能是不同的。在常见的 64 位计算机上，<code>torch.long</code> 一般是 <code>torch.int64</code>，<code>torch.float</code> 一般是 <code>torch.float32</code>。</p>
@@ -378,7 +319,7 @@ d = torch.FloatTensor([1, 1, 0]) # 结果：tensor([1., 1., 0.])
 <p>如果想将转换张量的数据类型，有以下两种方法：</p>
 <p>方法 1：使用 <code>.to</code> 函数，如 <code>a.to(torch.float)</code>。</p>
 <p>方法 2：使用 <code>.bool()</code>、<code>.long()</code>、<code>.float()</code> 等函数，如 <code>b.long()</code>、<code>c.bool()</code> 等。</p>
-<h2 id="3_1">3 张量的运算</h2>
+<h2 id="3">3 张量的运算</h2>
 <p>对于维度相同的张量，直接采用批量化计算；对于维度不同的张量，遵循 broadingcasting 规则。</p>
 <h3 id="31">3.1 批量化计算</h3>
 <p>维度相同的张量可以直接相加。</p>
