@@ -19,140 +19,140 @@ tensor对象有三个属性：
 
 ### 2.1 创建与初始化
 
-1. 使用函数 `torch.tensor()` 或 `torch.arange()`，直接从数据创建 tensor。
+#### 2.1.1 使用函数 `torch.tensor()` 或 `torch.arange()`，直接从数据创建 tensor。
 
-	```Python
-	# 标量
-	a0 = torch.tensor(0)
-	# 向量
-	a = torch.arange(12) # 对应 Python 中的 range(12)
-	a1 = torch.tensor([0, 1])
-	# 矩阵
-	a2 = torch.tensor([[0, 1, 2], [3, 4, 5]])
-	# 3维张量
-	a3 = torch.tensor([[[0, 1], [2, 3]], [[4, 5], [6, 7]], [[8, 9], [10, 	11]], [[12, 13], [14, 15]]])
-	# 把变量作为参数
-	data = [[1,2],[3,4]]
-	a_data = torch.tensor(data)
-	```
+```Python
+# 标量
+a0 = torch.tensor(0)
+# 向量
+a = torch.arange(12) # 对应 Python 中的 range(12)
+a1 = torch.tensor([0, 1])
+# 矩阵
+a2 = torch.tensor([[0, 1, 2], [3, 4, 5]])
+# 3维张量
+a3 = torch.tensor([[[0, 1], [2, 3]], [[4, 5], [6, 7]], [[8, 9], [10, 	11]], [[12, 13], [14, 15]]])
+# 把变量作为参数
+data = [[1,2],[3,4]]
+a_data = torch.tensor(data)
+```
 
-2. 从 NumPy 数组创建 tensor
+#### 2.1.2 从 NumPy 数组创建 tensor
 
-	```Python
-	import numpy as np
-	np_array = np.array(data)
-	a_np = torch.from_numpy(np_array)
-	```
-	
-3. 从另一个 tensor 创建 tensor
+```Python
+import numpy as np
+np_array = np.array(data)
+a_np = torch.from_numpy(np_array)
+```
 
-	使用 `torch.ones_like(tensor[,dtype])` 来创建全 1 tensor，或使用 `torch.rand_like(tensor[,dtype])` 来创建随机数 tensor
-	
-	```Python
-	# 保留 a_data 的性质
-	a_ones = torch.ones_like(a_data)
-	# 改变 a_data 的性质
-	a_rand = torch.rand_like(a_data, dtype=torch.float)
-	print(a_ones)
-	print(a_rand)
-	```
-	
-	输出：
-	
-	```
-	tensor([[1, 1],
-			[1, 1]])
-	tensor([[0.2095, 0.9481],
-			[0.2369, 0.0424]])
-	```
+#### 2.1.3 从另一个 tensor 创建 tensor
 
-4. 用随机数或常量创建 tensor
+使用 `torch.ones_like(tensor[,dtype])` 来创建全 1 tensor，或使用 `torch.rand_like(tensor[,dtype])` 来创建随机数 tensor
+	
+```Python
+# 保留 a_data 的性质
+a_ones = torch.ones_like(a_data)
+# 改变 a_data 的性质
+a_rand = torch.rand_like(a_data, dtype=torch.float)
+print(a_ones)
+print(a_rand)
+```
 
-	用一个元组（tuple） `shape` 来表示 tensor 的维度。
+输出：
 	
-	```Python
-	shape = (2,3)
-	b_rand = torch.rand(shape)
-	b_ones = torch.ones(shape)
-	b_zeros = torch.zeros(shape)
-	print(b_rand)
-	print(b_ones)
-	print(b_zeros)
-	```
-	输出：
+```
+tensor([[1, 1],
+		[1, 1]])
+tensor([[0.2095, 0.9481],
+		[0.2369, 0.0424]])
+```
+
+#### 2.1.4 用随机数或常量创建 tensor
+
+用一个元组（tuple） `shape` 来表示 tensor 的维度。
 	
-	```
-	tensor([[0.8283, 0.5521, 0.4598],
-			[0.3117, 0.7638, 0.0300]])
-	tensor([[1., 1., 1.],
-			[1., 1., 1.]])
-	tensor([[0., 0., 0.],
-			[0., 0., 0.]])
-	```
+```Python
+shape = (2,3)
+b_rand = torch.rand(shape)
+b_ones = torch.ones(shape)
+b_zeros = torch.zeros(shape)
+print(b_rand)
+print(b_ones)
+print(b_zeros)
+```
+输出：
+	
+```
+tensor([[0.8283, 0.5521, 0.4598],
+		[0.3117, 0.7638, 0.0300]])
+tensor([[1., 1., 1.],
+		[1., 1., 1.]])
+tensor([[0., 0., 0.],
+		[0., 0., 0.]])
+```
 
 ### 2.2 维度和尺寸
 
 #### 2.2.1 维度大小与数目的获取
 
-1. `tensor.ndimension()`
+##### 2.2.1.1 `tensor.ndimension()`
 
-	用于获取 tensor 的维数（整数）
+用于获取 tensor 的维数（整数）
 
-	```Python
-	a0.ndimension() # 返回：0
-	a1.ndimension() # 返回：1
-	a2.ndimension() # 返回：2
-	```
+```Python
+a0.ndimension() # 返回：0
+a1.ndimension() # 返回：1
+a2.ndimension() # 返回：2
+```
 
-2. `tensor.nelement()`
+##### 2.2.1.2 `tensor.nelement()`
 
-	用于获取张量总元素个数
+用于获取张量总元素个数
 
-	```Python
-	a0.nelement() # 返回：1
-	a1.nelement() # 返回：2
-	a2.nelement() # 返回：6
-	```
+```Python
+a0.nelement() # 返回：1
+a1.nelement() # 返回：2
+a2.nelement() # 返回：6
+```
 
-3. `tensor.size([dim])` 或 `tensor.shape`
+##### 2.2.1.3 `tensor.size([dim])` 或 `tensor.shape`
 
-	用于获取张量每个维度的大小，返回结果类型为 `torch.Size`。`tensor.size()` 调用的是函数，想要获得特定维度的大小可以加入维度参数，而 `tensor.shape` 访问的是张量的属性。
+用于获取张量每个维度的大小，返回结果类型为 `torch.Size`。`tensor.size()` 调用的是函数，想要获得特定维度的大小可以加入维度参数，而 `tensor.shape` 访问的是张量的属性。
 
-	```Python
-	a3.size()   # 返回：torch.Size([4, 2, 2])
-	a3.size(0)  # 返回：4
-	a3.size(1)  # 返回：2
-	a3.size(2)  # 返回：2
-	a3.size(-1) # 返回：2 （-1 表示倒数第一个）
-	a3.shape    # 返回：torch.Size([4, 2, 2])
-	```
+```Python
+a3.size()   # 返回：torch.Size([4, 2, 2])
+a3.size(0)  # 返回：4
+a3.size(1)  # 返回：2
+a3.size(2)  # 返回：2
+a3.size(-1) # 返回：2 （-1 表示倒数第一个）
+a3.shape    # 返回：torch.Size([4, 2, 2])
+```
 
-	\*标量没有尺寸
+\*标量没有尺寸
 
-	```Python
-	a0.size() # 返回：torch.Size([])
-	a0.shape  # 返回：torch.Size([])
-	```
+```Python
+a0.size() # 返回：torch.Size([])
+a0.shape  # 返回：torch.Size([])
+```
 
 #### 2.2.2 维度变换
 
-1. `tensor.view()`
+##### 2.2.2.1 `tensor.view()`
 
-	将 tensor 中的数据按照行优先的顺序排成一个一维数组，之后按照参数组合成其它维度的 tensor。参数有两个时，可省略其中一个，用 -1 表示。
+将 tensor 中的数据按照行优先的顺序排成一个一维数组，之后按照参数组合成其它维度的 tensor。参数有两个时，可省略其中一个，用 -1 表示。
 
-	```Python
-	b = a.view(3, 4)  # 尺寸变为 [3, 4]
-	b = a.view(-1, 4) # 尺寸变为 [3, 4]
-	```
+```Python
+b = a.view(3, 4)  # 尺寸变为 [3, 4]
+b = a.view(-1, 4) # 尺寸变为 [3, 4]
+```
 
-2. `tensor.unsqueeze(dim)` 或 `tensor.squeeze([dim])`
+##### 2.2.2.2 `tensor.unsqueeze(dim)` 或 `tensor.squeeze([dim])`
 
-	`tensor.unsqueeze(dim)` 是给指定位置加上维数为 1 的维度；`tensor.squeeze()` 是去掉所有维数为 1 的维度；`tensor.squeeze(dim)` 是去掉指定的维数为 1 的维度。
+`tensor.unsqueeze(dim)` 是给指定位置加上维数为 1 的维度；`tensor.squeeze()` 是去掉所有维数为 1 的维度；`tensor.squeeze(dim)` 是去掉指定的维数为 1 的维度。
 
-	```py
-	b = a.unsqueeze(dim = 0) # 尺寸变为 [1, 12]
-	c = b.squeeze(dim = 0)   # 尺寸变为 [12]
-	```
+```Python
+b = a.unsqueeze(dim = 0) # 尺寸变为 [1, 12]
+c = b.squeeze(dim = 0)   # 尺寸变为 [12]
+```
 
 ### 2.3 数据类型
 
