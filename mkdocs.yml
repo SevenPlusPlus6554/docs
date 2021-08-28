@@ -23,6 +23,13 @@ nav:
   - TensorFlow2:
     - 安装: tensorflow2/getting-started.md
     - 基础知识: tensorflow2/basics.md
+  - NumPy:
+    - ndarray 多维数组: numpy/multidim-array.md
+    - ndarray 多维数组创建方法: numpy/multidim-array-creation-method.md
+    - 数组元素的索引、切片、改变形状等操作方法: numpy/array-element-operation-method.md
+    - 数组运算函数的使用方法: numpy/array-operation-function.md
+    - 随机数生成函数: numpy/random.md
+    - NumPy 数据文件的读写操作: numpy/file-operation.md
   - 工作手册:
     - 编辑页面: manual/edit.md
     - 发布更新: manual/upd.md
