@@ -10,7 +10,7 @@
  pip install tensorflow
 ```
 
-![start_01](D:\docs\docs\docs\tensorflow2\start_01.png)
+![start_01](D:\docs\docs\docs\tensorflow2\img\start_01.png)
 
 等待一段时间即可自动安装完毕。
 
@@ -22,7 +22,7 @@
 import tensorflow as tf
 ```
 
-![start_02](D:\docs\docs\docs\tensorflow2\start_02.png)
+![start_02](D:\docs\docs\docs\tensorflow2\img\start_02.png)
 
 若点击回车后正常运行未报错，则证明tensorflow安装成功。
 
