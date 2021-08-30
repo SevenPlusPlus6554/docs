@@ -99,6 +99,35 @@ window.MathJax = {
                                 </ul>
                             </li>
                             <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">NumPy <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../numpy/multidim-array/" class="dropdown-item">ndarray 多维数组</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/multidim-array-creation-method/" class="dropdown-item">ndarray 多维数组创建方法</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/array-element-operation-method/" class="dropdown-item">数组元素的索引、切片、改变形状等操作方法</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/array-operation-function/" class="dropdown-item">数组运算函数的使用方法</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/random/" class="dropdown-item">随机数生成函数</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/file-operation/" class="dropdown-item">NumPy 数据文件的读写操作</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">工作手册 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -120,7 +149,7 @@ window.MathJax = {
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../manual/edit/" class="nav-link">
+                                <a rel="next" href="../../numpy/multidim-array/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -144,6 +173,18 @@ window.MathJax = {
             
             <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">基础知识</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">安装与环境配置</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#piptensorflow" class="nav-link">pip安装tensorflow</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#_3" class="nav-link">验证安装是否是否成功</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -152,7 +193,21 @@ window.MathJax = {
                     <div class="col-md-9" role="main">
 
 <h1 id="_1">基础知识</h1>
-<p>@TODO</p></div>
+<h2 id="_2">安装与环境配置</h2>
+<h3 id="piptensorflow">pip安装tensorflow</h3>
+<p>在安装pip后，可以在使用win+r命令，输入cmd打开控制窗，在控制窗下使用如下命令安装tensor flow2:</p>
+<pre><code class="language-python"> pip install tensorflow
+</code></pre>
+<p><img alt="image-20210830095609194" src="D:\docs\docs\docs\tensorflow2\image-20210830095609194-16302922818371.png" /></p>
+<p>等待一段时间即可自动安装完毕。</p>
+<h3 id="_3">验证安装是否是否成功</h3>
+<p>在控制窗输入"python"进入python，输入</p>
+<pre><code class="language-python">import tensorflow as tf
+</code></pre>
+<p><img alt="image-20210830095806465" src="D:\docs\docs\docs\tensorflow2\image-20210830095806465.png" /></p>
+<p>若点击回车后正常运行未报错，则证明tensorflow安装成功。</p>
+<h4 id="windowstensorflow"><em>Windows系统下装载tensorflow可能出现的问题及处理方法：</em></h4>
+<p>如果你在 Windows 下安装了 TensorFlow 2.1 正式版，可能会在导入 TensorFlow 时出现 DLL 载入错误 。此时安装 Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019 即可正常使用。</p></div>
             </div>
         </div>
 

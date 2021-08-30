@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="author" content="IE科协">
-        <link rel="canonical" href="https://ie.rtfd.io/pytorch/rnn/">
+        <link rel="canonical" href="https://ie.rtfd.io/numpy/array-element-operation-method/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>序列数据建模：RNN - IE科协</title>
+        <title>数组元素的索引、切片、改变形状等操作方法 - IE科协</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -60,28 +60,28 @@ window.MathJax = {
                             <li class="navitem">
                                 <a href="../.." class="nav-link">首页</a>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PyTorch <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../install/" class="dropdown-item">安装</a>
+    <a href="../../pytorch/install/" class="dropdown-item">安装</a>
 </li>
                                     
 <li>
-    <a href="../basics/" class="dropdown-item">基础知识</a>
+    <a href="../../pytorch/basics/" class="dropdown-item">基础知识</a>
 </li>
                                     
 <li>
-    <a href="../cnn/" class="dropdown-item">图像数据建模：CNN</a>
+    <a href="../../pytorch/cnn/" class="dropdown-item">图像数据建模：CNN</a>
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">序列数据建模：RNN</a>
+    <a href="../../pytorch/rnn/" class="dropdown-item">序列数据建模：RNN</a>
 </li>
                                     
 <li>
-    <a href="../mlp/" class="dropdown-item">向量数据建模：MLP</a>
+    <a href="../../pytorch/mlp/" class="dropdown-item">向量数据建模：MLP</a>
 </li>
                                 </ul>
                             </li>
@@ -98,32 +98,32 @@ window.MathJax = {
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">NumPy <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../../numpy/multidim-array/" class="dropdown-item">ndarray 多维数组</a>
+    <a href="../multidim-array/" class="dropdown-item">ndarray 多维数组</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/multidim-array-creation-method/" class="dropdown-item">ndarray 多维数组创建方法</a>
+    <a href="../multidim-array-creation-method/" class="dropdown-item">ndarray 多维数组创建方法</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/array-element-operation-method/" class="dropdown-item">数组元素的索引、切片、改变形状等操作方法</a>
+    <a href="./" class="dropdown-item active">数组元素的索引、切片、改变形状等操作方法</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/array-operation-function/" class="dropdown-item">数组运算函数的使用方法</a>
+    <a href="../array-operation-function/" class="dropdown-item">数组运算函数的使用方法</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/random/" class="dropdown-item">随机数生成函数</a>
+    <a href="../random/" class="dropdown-item">随机数生成函数</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/file-operation/" class="dropdown-item">NumPy 数据文件的读写操作</a>
+    <a href="../file-operation/" class="dropdown-item">NumPy 数据文件的读写操作</a>
 </li>
                                 </ul>
                             </li>
@@ -144,12 +144,12 @@ window.MathJax = {
 
                     <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a rel="prev" href="../cnn/" class="nav-link">
+                                <a rel="prev" href="../multidim-array-creation-method/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../mlp/" class="nav-link">
+                                <a rel="next" href="../array-operation-function/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -170,12 +170,75 @@ window.MathJax = {
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">数组元素的索引、切片、改变形状等操作方法</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1-ndarray" class="nav-link">1 ndarray数组索引</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2-ndarray" class="nav-link">2 ndarray 数组切片</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#ndarray" class="nav-link">改变 ndarray 数组形状</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>@TODO</p></div>
+<p></p>
+<h1 id="_1">数组元素的索引、切片、改变形状等操作方法</h1>
+<h2 id="1-ndarray">1 ndarray数组索引</h2>
+<ul>
+<li>单个元素索引 例：ar[5]</li>
+<li>布尔索引 例：ar[ar &gt; 5]</li>
+<li>列表索引：把作索引列表的值作为目标数组的某个轴的下标来选择元素</li>
+</ul>
+<h2 id="2-ndarray">2 ndarray 数组切片</h2>
+<p>（1）使用冒号“:”，设置参数 start: stop: step 进行切片操作。
+- 例：ndarray[0 : 2] </p>
+<p>（2）多维数组同样适用上述用冒号“:”索引提取方法，在多维数组的切片中，使用“,” 区分
+维数（轴）：
+- 例：ndarray[0 : 2, 2 : ]</p>
+<p>（3）也可使用省略号“…” 选择数组中的元素。
+- 例：x[1, 2, ...] 相当于 x[1, 2, :, :, :]</p>
+<h2 id="ndarray">改变 ndarray 数组形状</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ndarray.reshape(newshape)</td>
+<td align="left">返回修改形状后的视图，不改变原有数组的形状，对视图数据做的修改会影响原始数组</td>
+</tr>
+<tr>
+<td>ndarray.resize(newshape)</td>
+<td align="left">原地修改数组的形状，原有数组形状改变，修改数据影响原始数组</td>
+</tr>
+<tr>
+<td>ndarray.flatten()</td>
+<td align="left">返回一份数组拷贝，按行或列展开，对拷贝所做的修改不会影响原始数组</td>
+</tr>
+<tr>
+<td>ndarray.ravel()</td>
+<td align="left">返回的是数组视图，按行或列展开，对视图做的修改会影响原始数组</td>
+</tr>
+<tr>
+<td>ndarray.flat</td>
+<td align="left">返回数组元素迭代器，可通过迭代器遍历各元素</td>
+</tr>
+</tbody>
+</table></div>
             </div>
         </div>
 

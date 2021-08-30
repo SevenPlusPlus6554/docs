@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="author" content="IE科协">
-        <link rel="canonical" href="https://ie.rtfd.io/pytorch/rnn/">
+        <link rel="canonical" href="https://ie.rtfd.io/numpy/multidim-array-creation-method/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>序列数据建模：RNN - IE科协</title>
+        <title>ndarray 多维数组创建方法 - IE科协</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -60,28 +60,28 @@ window.MathJax = {
                             <li class="navitem">
                                 <a href="../.." class="nav-link">首页</a>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PyTorch <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../install/" class="dropdown-item">安装</a>
+    <a href="../../pytorch/install/" class="dropdown-item">安装</a>
 </li>
                                     
 <li>
-    <a href="../basics/" class="dropdown-item">基础知识</a>
+    <a href="../../pytorch/basics/" class="dropdown-item">基础知识</a>
 </li>
                                     
 <li>
-    <a href="../cnn/" class="dropdown-item">图像数据建模：CNN</a>
+    <a href="../../pytorch/cnn/" class="dropdown-item">图像数据建模：CNN</a>
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">序列数据建模：RNN</a>
+    <a href="../../pytorch/rnn/" class="dropdown-item">序列数据建模：RNN</a>
 </li>
                                     
 <li>
-    <a href="../mlp/" class="dropdown-item">向量数据建模：MLP</a>
+    <a href="../../pytorch/mlp/" class="dropdown-item">向量数据建模：MLP</a>
 </li>
                                 </ul>
                             </li>
@@ -98,32 +98,32 @@ window.MathJax = {
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">NumPy <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../../numpy/multidim-array/" class="dropdown-item">ndarray 多维数组</a>
+    <a href="../multidim-array/" class="dropdown-item">ndarray 多维数组</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/multidim-array-creation-method/" class="dropdown-item">ndarray 多维数组创建方法</a>
+    <a href="./" class="dropdown-item active">ndarray 多维数组创建方法</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/array-element-operation-method/" class="dropdown-item">数组元素的索引、切片、改变形状等操作方法</a>
+    <a href="../array-element-operation-method/" class="dropdown-item">数组元素的索引、切片、改变形状等操作方法</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/array-operation-function/" class="dropdown-item">数组运算函数的使用方法</a>
+    <a href="../array-operation-function/" class="dropdown-item">数组运算函数的使用方法</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/random/" class="dropdown-item">随机数生成函数</a>
+    <a href="../random/" class="dropdown-item">随机数生成函数</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/file-operation/" class="dropdown-item">NumPy 数据文件的读写操作</a>
+    <a href="../file-operation/" class="dropdown-item">NumPy 数据文件的读写操作</a>
 </li>
                                 </ul>
                             </li>
@@ -144,12 +144,12 @@ window.MathJax = {
 
                     <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a rel="prev" href="../cnn/" class="nav-link">
+                                <a rel="prev" href="../multidim-array/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../mlp/" class="nav-link">
+                                <a rel="next" href="../array-element-operation-method/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -170,12 +170,49 @@ window.MathJax = {
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#ndarray" class="nav-link">ndarray 多维数创建方法</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1-array" class="nav-link">1 使用 array() 函数由列表或元组创建数组</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2-arangelinspace" class="nav-link">2 使用 arange()、linspace() 等推导函数创建数组</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3-oneszerosempty" class="nav-link">3 使用 ones()、zeros()、empty() 函数创建特殊数组</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#4-ndarray" class="nav-link">4 其他创建 ndarray 数组的方法</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>@TODO</p></div>
+<p></p>
+<h1 id="ndarray">ndarray 多维数创建方法</h1>
+<h2 id="1-array">1 使用 array() 函数由列表或元组创建数组</h2>
+<p>numpy.array(object, dtype = None)
+- 例：<code>x = np.array([[1, 2], [3, 4]])</code> </p>
+<h2 id="2-arangelinspace">2 使用 arange()、linspace() 等推导函数创建数组</h2>
+<p><code>numpy.arange([start, ]stop[, step], dtype=None )</code> </p>
+<p><code>linspace(start, stop, num=50, endpoint=True,dtype=None)</code></p>
+<p>logspace()函数创建等比数列</p>
+<h2 id="3-oneszerosempty">3 使用 ones()、zeros()、empty() 函数创建特殊数组</h2>
+<p><code>numpy.ones(shape, dtype=None)  # 创建元素全为1的数组</code> 
+- 例：<code>a = np.ones(shape=(3, 3), dtype=int)</code> </p>
+<p><code>ones_like(arr)   # 数创建维数与已有数组 shape 相同，元素值全为1的数组</code> </p>
+<h2 id="4-ndarray">4 其他创建 ndarray 数组的方法</h2>
+<p><code>eye(N, M=None, k=0)  # 创建对角线值为1，其余值为0的二维数组，k 为主对角线偏移量，M 为列数，可选。</code> </p>
+<p><code>identity(n, dtype=None)  # 创建单位矩阵,n * n 的单位矩阵</code> </p>
+<p><code>full(shape, fill_value, dtype=None)  # 创建固定值填充的数组</code> </p></div>
             </div>
         </div>
 

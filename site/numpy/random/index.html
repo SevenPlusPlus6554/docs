@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="author" content="IE科协">
-        <link rel="canonical" href="https://ie.rtfd.io/pytorch/rnn/">
+        <link rel="canonical" href="https://ie.rtfd.io/numpy/random/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>序列数据建模：RNN - IE科协</title>
+        <title>随机数生成函数 - IE科协</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -60,28 +60,28 @@ window.MathJax = {
                             <li class="navitem">
                                 <a href="../.." class="nav-link">首页</a>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PyTorch <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../install/" class="dropdown-item">安装</a>
+    <a href="../../pytorch/install/" class="dropdown-item">安装</a>
 </li>
                                     
 <li>
-    <a href="../basics/" class="dropdown-item">基础知识</a>
+    <a href="../../pytorch/basics/" class="dropdown-item">基础知识</a>
 </li>
                                     
 <li>
-    <a href="../cnn/" class="dropdown-item">图像数据建模：CNN</a>
+    <a href="../../pytorch/cnn/" class="dropdown-item">图像数据建模：CNN</a>
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">序列数据建模：RNN</a>
+    <a href="../../pytorch/rnn/" class="dropdown-item">序列数据建模：RNN</a>
 </li>
                                     
 <li>
-    <a href="../mlp/" class="dropdown-item">向量数据建模：MLP</a>
+    <a href="../../pytorch/mlp/" class="dropdown-item">向量数据建模：MLP</a>
 </li>
                                 </ul>
                             </li>
@@ -98,32 +98,32 @@ window.MathJax = {
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">NumPy <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../../numpy/multidim-array/" class="dropdown-item">ndarray 多维数组</a>
+    <a href="../multidim-array/" class="dropdown-item">ndarray 多维数组</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/multidim-array-creation-method/" class="dropdown-item">ndarray 多维数组创建方法</a>
+    <a href="../multidim-array-creation-method/" class="dropdown-item">ndarray 多维数组创建方法</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/array-element-operation-method/" class="dropdown-item">数组元素的索引、切片、改变形状等操作方法</a>
+    <a href="../array-element-operation-method/" class="dropdown-item">数组元素的索引、切片、改变形状等操作方法</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/array-operation-function/" class="dropdown-item">数组运算函数的使用方法</a>
+    <a href="../array-operation-function/" class="dropdown-item">数组运算函数的使用方法</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/random/" class="dropdown-item">随机数生成函数</a>
+    <a href="./" class="dropdown-item active">随机数生成函数</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/file-operation/" class="dropdown-item">NumPy 数据文件的读写操作</a>
+    <a href="../file-operation/" class="dropdown-item">NumPy 数据文件的读写操作</a>
 </li>
                                 </ul>
                             </li>
@@ -144,12 +144,12 @@ window.MathJax = {
 
                     <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a rel="prev" href="../cnn/" class="nav-link">
+                                <a rel="prev" href="../array-operation-function/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../mlp/" class="nav-link">
+                                <a rel="next" href="../file-operation/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -170,12 +170,105 @@ window.MathJax = {
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">随机数生成函数</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1" class="nav-link">1 简单随机数</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#11-randomrandd0-d1-dnd0-d1-dn0-1" class="nav-link">1.1 random.rand(d0, d1, ..., dn)生成一个(d0, d1, ..., dn)维的数组，元素取自[0, 1)上的均匀分布。</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#12-randomrandnd0-d1-dnd0-d1-dn" class="nav-link">1.2 random.randn(d0, d1, ..., dn)生成一个(d0, d1, ..., dn)维的数组，元素是标准正态分布随机数，若没有参数，返回单个数据。</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#13-random-randomsizenone01size" class="nav-link">1.3 random. random(size=None)生成一个[0,1)之间size个随机数。</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#14-random-randint-m-n-size-mn-size-shape" class="nav-link">1.4 random. randint (m, n, size)生成 m，n范围的数组，形状为 size (传入元组形式的shape)。</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#15-choicearr-sizenone-replacetrue-pnone-arr-size-replacetrue-p-arr-p-arr-p-1-arr-arr-nparangea" class="nav-link">1.5 choice(arr, size=None, replace=True, p=None)从 arr 数组中选取 size 个随机数，replace=True 表示可重复抽取，p 是 arr 中每个元素出现的概率，p 的长度和 arr 的长度必须相同，且 p 中元素之和为1，否则报错；若 arr 是整数，则 arr 代表的数组是 np.arange(a) 。</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2" class="nav-link">2 随机分布</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3" class="nav-link">3 随机排列</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#31-shufflex" class="nav-link">3.1 shuffle(x)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#32-permutationx" class="nav-link">3.2 permutation(x)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#4" class="nav-link">4 随机数生成器</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>@TODO</p></div>
+<p></p>
+<h1 id="_1">随机数生成函数</h1>
+<h2 id="1">1 简单随机数</h2>
+<h3 id="11-randomrandd0-d1-dnd0-d1-dn0-1">1.1 random.rand(d0, d1, ..., dn)生成一个(d0, d1, ..., dn)维的数组，元素取自[0, 1)上的均匀分布。</h3>
+<h3 id="12-randomrandnd0-d1-dnd0-d1-dn">1.2 random.randn(d0, d1, ..., dn)生成一个(d0, d1, ..., dn)维的数组，元素是标准正态分布随机数，若没有参数，返回单个数据。</h3>
+<h3 id="13-random-randomsizenone01size">1.3 random. random(size=None)生成一个[0,1)之间size个随机数。</h3>
+<h3 id="14-random-randint-m-n-size-mn-size-shape">1.4 random. randint (m, n, size)生成 m，n范围的数组，形状为 size (传入元组形式的shape)。</h3>
+<h3 id="15-choicearr-sizenone-replacetrue-pnone-arr-size-replacetrue-p-arr-p-arr-p-1-arr-arr-nparangea">1.5 choice(arr, size=None, replace=True, p=None)从 arr 数组中选取 size 个随机数，replace=True 表示可重复抽取，p 是 arr 中每个元素出现的概率，p 的长度和 arr 的长度必须相同，且 p 中元素之和为1，否则报错；若 arr 是整数，则 arr 代表的数组是 np.arange(a) 。</h3>
+<h2 id="2">2 随机分布</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>binomial(n, p, size=None)</td>
+<td align="left">产生 size 个二项分布的样本值，n 表示 n 次试验，p 表示每次实验发生（成功）的概率。函数的返回值表示 n 次实验中发生（成功）的次数</td>
+</tr>
+<tr>
+<td>exponential(scale=1.0, size=None)</td>
+<td align="left">产生 size 个指数分布的样本值，这里的 scale 是 β，为标准差，β=1/λ，λ为单位时间内事件发生的次数</td>
+</tr>
+<tr>
+<td>normal(loc=0.0, scale=1.0, size=None)</td>
+<td align="left">产生 size 个正态分布的样本值，loc 为正态分布的均值，scale 为正态分布的标准差，size 缺省，则返回一个数</td>
+</tr>
+<tr>
+<td>poisson(lam=1.0, size=None)</td>
+<td align="left">从泊松分布中生成随机数，lam 是单位时间内事件的平均发生次数</td>
+</tr>
+<tr>
+<td>uniform(low=0.0, high=1.0, size=None)</td>
+<td align="left">产生 size 个均匀分布[low,high)的样本值，size 为 int 或元组类型，如 size = (m, n, k)，则输出 m<em>n</em>k 个样本，缺省时输出1个值</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3">3 随机排列</h2>
+<h3 id="31-shufflex">3.1 shuffle(x)</h3>
+<p>打乱对象 x（多维数组按照第一维打乱），直接在原来的数组上进行操作，改变原来数组元素的顺序，无返回值，x 可以是数组或者列表。</p>
+<h3 id="32-permutationx">3.2 permutation(x)</h3>
+<p>打乱并返回新对象（多维数组按照第一维打乱），不直接在原数组上进行操作，而是返回一个新的打乱元素顺序的数组，并不改变原来的数组，x 可以是整数或者列表，如果是整数k，那就随机打乱 numpy.arange(k)</p>
+<h2 id="4">4 随机数生成器</h2></div>
             </div>
         </div>
 

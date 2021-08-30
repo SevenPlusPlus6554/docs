@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="author" content="IE科协">
-        <link rel="canonical" href="https://ie.rtfd.io/pytorch/rnn/">
+        <link rel="canonical" href="https://ie.rtfd.io/numpy/file-operation/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>序列数据建模：RNN - IE科协</title>
+        <title>NumPy 数据文件的读写操作 - IE科协</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -60,28 +60,28 @@ window.MathJax = {
                             <li class="navitem">
                                 <a href="../.." class="nav-link">首页</a>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PyTorch <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../install/" class="dropdown-item">安装</a>
+    <a href="../../pytorch/install/" class="dropdown-item">安装</a>
 </li>
                                     
 <li>
-    <a href="../basics/" class="dropdown-item">基础知识</a>
+    <a href="../../pytorch/basics/" class="dropdown-item">基础知识</a>
 </li>
                                     
 <li>
-    <a href="../cnn/" class="dropdown-item">图像数据建模：CNN</a>
+    <a href="../../pytorch/cnn/" class="dropdown-item">图像数据建模：CNN</a>
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">序列数据建模：RNN</a>
+    <a href="../../pytorch/rnn/" class="dropdown-item">序列数据建模：RNN</a>
 </li>
                                     
 <li>
-    <a href="../mlp/" class="dropdown-item">向量数据建模：MLP</a>
+    <a href="../../pytorch/mlp/" class="dropdown-item">向量数据建模：MLP</a>
 </li>
                                 </ul>
                             </li>
@@ -98,32 +98,32 @@ window.MathJax = {
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">NumPy <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../../numpy/multidim-array/" class="dropdown-item">ndarray 多维数组</a>
+    <a href="../multidim-array/" class="dropdown-item">ndarray 多维数组</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/multidim-array-creation-method/" class="dropdown-item">ndarray 多维数组创建方法</a>
+    <a href="../multidim-array-creation-method/" class="dropdown-item">ndarray 多维数组创建方法</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/array-element-operation-method/" class="dropdown-item">数组元素的索引、切片、改变形状等操作方法</a>
+    <a href="../array-element-operation-method/" class="dropdown-item">数组元素的索引、切片、改变形状等操作方法</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/array-operation-function/" class="dropdown-item">数组运算函数的使用方法</a>
+    <a href="../array-operation-function/" class="dropdown-item">数组运算函数的使用方法</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/random/" class="dropdown-item">随机数生成函数</a>
+    <a href="../random/" class="dropdown-item">随机数生成函数</a>
 </li>
                                     
 <li>
-    <a href="../../numpy/file-operation/" class="dropdown-item">NumPy 数据文件的读写操作</a>
+    <a href="./" class="dropdown-item active">NumPy 数据文件的读写操作</a>
 </li>
                                 </ul>
                             </li>
@@ -144,12 +144,12 @@ window.MathJax = {
 
                     <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a rel="prev" href="../cnn/" class="nav-link">
+                                <a rel="prev" href="../random/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../mlp/" class="nav-link">
+                                <a rel="next" href="../../manual/edit/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -170,12 +170,52 @@ window.MathJax = {
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#numpy" class="nav-link">NumPy 数据文件的读写操作</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#npy" class="nav-link">读写二进制文件“.npy”</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#npz" class="nav-link">读写二进制文件“. npz”</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#12" class="nav-link">读写文本文件（只能存取1维或2维数组）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>@TODO</p></div>
+<p></p>
+<h1 id="numpy">NumPy 数据文件的读写操作</h1>
+<h2 id="npy">读写二进制文件“.npy”</h2>
+<p>NumPy 的 save()函数将数组以二进制格式保存在扩展名为 .npy 的文件中，可以使用 load() 函数读取 .npy 的文件中的数据。语法格式为：</p>
+<p>numpy.save(file, arr)</p>
+<p>file：用来保存数组的文件名，是字符串类型。</p>
+<p>arr：要保存的数组。</p>
+<h2 id="npz">读写二进制文件“. npz”</h2>
+<p>savez() 函数用于将多个数组写入同一个扩展名为 .npz 的文件中，同样使用 load() 函数读取。语法格式为：</p>
+<p>numpy.savez(file, <em>args, </em>*kwds)</p>
+<p>arrs = numpy.load(file)</p>
+<p>file, 用来保存数组的文件名，是字符串类型。</p>
+<p>*args，非关键字数组名，自动按顺序取名。</p>
+<p>**kwds，关键字数组名，按关键字取名。</p>
+<h2 id="12">读写文本文件（只能存取1维或2维数组）</h2>
+<p>savetxt() 函数将数组写入文本文件 (.txt，.csv 等)，语法格式为：</p>
+<p>numpy.savetxt(file, arr, fmt="%.18e", delimiter=' ', newline='\n' )</p>
+<p>file： 用来保存数组的文本文件名</p>
+<p>arr： 要保存的数组。</p>
+<p>fmt：指定数据存入的格式。</p>
+<p>delimiter：数据列之间的分隔符，数据类型为字符串，默认值为：' '。</p>
+<p>newline ： 数据行之间的分隔符。</p>
+<p>loadtxt() 函数读取文本文件中的数据，加载数据的语法格式：</p>
+<p>arr = numpy.loadtxt(file, dtype=int, delimiter=' ')</p></div>
             </div>
         </div>
 
