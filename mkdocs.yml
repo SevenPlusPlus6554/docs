@@ -17,6 +17,7 @@ nav:
   - PyTorch:
     - 安装: pytorch/install.md
     - 基础知识: pytorch/basics.md
+    - 神经网络: pytorch/neural-network.md
     - 图像数据建模：CNN: pytorch/cnn.md
     - 序列数据建模：RNN: pytorch/rnn.md
     - 向量数据建模：MLP: pytorch/mlp.md
