@@ -155,9 +155,9 @@ $$
 得到 $c$ 有多种方式，最简单的方法就是把 Encoder 的最后一个隐状态赋值给 $c$，还可以对最后的隐状态做一个变换得到 $c$，也可以对所有的隐状态做变换。
 
 $$
-&(1) c = h_4 \\
-&(2) c = q(h_4) \\
-&(3) c = q(h_1, h_2, h_3, h_4)
+(1) c = h_4 \\
+(2) c = q(h_4) \\
+(3) c = q(h_1, h_2, h_3, h_4)
 $$
 
 ![rnn-04](figs/rnn-04.jpg)
@@ -202,7 +202,7 @@ $$
 
 ![rnn-10](figs/rnn-10.png)
 
-从 $\sum {L_j}$ 中取出最后一个 $L_{t+n}$ 求关于 $c_t^l$ 的偏导，存在 n 个 \begin{Vmatrix} W_h \end{Vmatrix} \begin{Vmatrix} \delta '({c^l}_{\tau}) \end{Vmatrix} 相乘，一般来说 \begin{Vmatrix} \delta '({c^l}_{\tau}) \end{Vmatrix} 小于等于 0.25，如果小于 4，那么就会出现梯度消失；如果大于 4，那么就会出现梯度爆炸。
+从 $\sum {L_j}$ 中取出最后一个 $L_{t+n}$ 求关于 $c_t^l$ 的偏导，存在 n 个 $\| W_h \|$ $\| \delta '({c^l}_{\tau}) \|$ 相乘，一般来说 $\| \delta '({c^l}_{\tau}) \|$ 小于等于 0.25，如果小于 4，那么就会出现梯度消失；如果大于 4，那么就会出现梯度爆炸。
 
 ### 4.3 解决方法：Constant Error Carrousel (CEC)
 
