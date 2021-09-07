@@ -383,7 +383,7 @@ $$</p>
 <p>*第三个公式，$\sum L_j$ 关于 $c_t^l$ 的分解过程，这和 BP网络 的分解方式类似。</p>
 <h3 id="42-bptt">4.2 BPTT 算法存在的问题</h3>
 <p><img alt="rnn-10" src="../figs/rnn-10.png" /></p>
-<p>从 $\sum L_j$ 中取出最后一个 $L_{t+n}$ 求关于 $c_t^l$ 的偏导，存在 n 个 $|| W_h ||$ $||\delta^,(c_\tau^l)||$ 相乘，一般来说 $||\delta(c_\tau^l)||$ 小于等于 0.25，如果小于 4，那么就会出现梯度消失；如果大于 4，那么就会出现梯度爆炸。</p>
+<p>从 $\sum L_j$ 中取出最后一个 $L_{t+n}$ 求关于 $c_t^l$ 的偏导，存在 n 个 $|| W_h ||$ $||\sigma'(c_\tau^l)||$ 相乘，一般来说 $||\sigma(c_\tau^l)||$ 小于等于 0.25，如果小于 4，那么就会出现梯度消失；如果大于 4，那么就会出现梯度爆炸。</p>
 <h3 id="43-constant-error-carrousel-cec">4.3 解决方法：Constant Error Carrousel (CEC)</h3>
 <p><img alt="rnn-11" src="../figs/rnn-11.png" /></p>
 <hr />
