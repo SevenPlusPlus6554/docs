@@ -346,9 +346,9 @@ $$</p>
 <p>这个结构的原理是先编码后解码。左侧的RNN用来编码得到 $c$，拿到 $c$ 后再用右侧的 RNN 进行解码。</p>
 <p>得到 $c$ 有多种方式，最简单的方法就是把 Encoder 的最后一个隐状态赋值给 $c$，还可以对最后的隐状态做一个变换得到 $c$，也可以对所有的隐状态做变换。</p>
 <p>$$
-&amp;(1) c = h_4 \
-&amp;(2) c = q(h_4) \
-&amp;(3) c = q(h_1, h_2, h_3, h_4)
+(1) c = h_4 \
+(2) c = q(h_4) \
+(3) c = q(h_1, h_2, h_3, h_4)
 $$</p>
 <p><img alt="rnn-04" src="../figs/rnn-04.jpg" /></p>
 <h4 id="322">3.2.2 其它结构</h4>
@@ -379,7 +379,7 @@ $$</p>
 <p>*第三个公式，$\sum L_j$ 关于 $c_t^l$ 的分解过程，这和 BP网络 的分解方式类似。</p>
 <h3 id="42-bptt">4.2 BPTT 算法存在的问题</h3>
 <p><img alt="rnn-10" src="../figs/rnn-10.png" /></p>
-<p>从 $\sum {L_j}$ 中取出最后一个 $L_{t+n}$ 求关于 $c_t^l$ 的偏导，存在 n 个 \begin{Vmatrix} W_h \end{Vmatrix} \begin{Vmatrix} \delta '({c^l}<em>{\tau}) \end{Vmatrix} 相乘，一般来说 \begin{Vmatrix} \delta '({c^l}</em>{\tau}) \end{Vmatrix} 小于等于 0.25，如果小于 4，那么就会出现梯度消失；如果大于 4，那么就会出现梯度爆炸。</p>
+<p>从 $\sum {L_j}$ 中取出最后一个 $L_{t+n}$ 求关于 $c_t^l$ 的偏导，存在 n 个 $| W_h |$ $| \delta '({c^l}<em>{\tau}) |$ 相乘，一般来说 $| \delta '({c^l}</em>{\tau}) |$ 小于等于 0.25，如果小于 4，那么就会出现梯度消失；如果大于 4，那么就会出现梯度爆炸。</p>
 <h3 id="43-constant-error-carrousel-cec">4.3 解决方法：Constant Error Carrousel (CEC)</h3>
 <p><img alt="rnn-11" src="../figs/rnn-11.png" /></p>
 <hr />
