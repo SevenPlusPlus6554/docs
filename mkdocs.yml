@@ -20,6 +20,8 @@ nav:
     - 图像数据建模：CNN: pytorch/cnn.md
     - 序列数据建模：RNN: pytorch/rnn.md
     - 向量数据建模：MLP: pytorch/mlp.md
+    - 数据加载和处理: pytorch/datasets-and-dataloaders.md
+    - 优化模型参数: pytorch/optimization.md
   - TensorFlow2:
     - 安装: tensorflow2/getting-started.md
     - 基础知识: tensorflow2/basics.md
