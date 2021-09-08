@@ -2,87 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ie.rtfd.io/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/manual/edit/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/manual/upd/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/numpy/array-element-operation-method/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/numpy/array-operation-function/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/numpy/file-operation/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/numpy/multidim-array-creation-method/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/numpy/multidim-array/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/numpy/random/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/basics/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/cnn/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/install/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/mlp/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/neural-network/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/rnn/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/tensorflow2/basics/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/tensorflow2/getting-started/</loc>
-         <lastmod>2021-09-07</lastmod>
+         <lastmod>2021-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
