@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="IE科协">
+        <link rel="canonical" href="https://ie.rtfd.io/pytorch/optimization/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>优化模型参数 - IE科协</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/custom.css?t=202108070318" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight-10.5.0-lightfair.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="../../js/highlight-10.5.0.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+		<script>
+window.MathJax = {
+    tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        autoload: {
+            color: [],
+            colorV2: ['color']
+        },
+        packages: {'[+]': ['noerrors']}
+    },
+    svg: {
+        fontCache: 'global'
+    },
+    options: {
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+        load: ['[tex]/noerrors']
+    }
+};
+		</script>
+		<script type="text/javascript" id="MathJax-script" defer src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.0/es5/tex-svg.min.js"></script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">IE科协</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PyTorch <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../install/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../basics/" class="dropdown-item">基础知识</a>
+</li>
+                                    
+<li>
+    <a href="../cnn/" class="dropdown-item">图像数据建模：CNN</a>
+</li>
+                                    
+<li>
+    <a href="../rnn/" class="dropdown-item">序列数据建模：RNN</a>
+</li>
+                                    
+<li>
+    <a href="../mlp/" class="dropdown-item">向量数据建模：MLP</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">TensorFlow2 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tensorflow2/getting-started/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../../tensorflow2/basics/" class="dropdown-item">基础知识</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">NumPy <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../numpy/multidim-array/" class="dropdown-item">ndarray 多维数组</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/multidim-array-creation-method/" class="dropdown-item">ndarray 多维数组创建方法</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/array-element-operation-method/" class="dropdown-item">数组元素的索引、切片、改变形状等操作方法</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/array-operation-function/" class="dropdown-item">数组运算函数的使用方法</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/random/" class="dropdown-item">随机数生成函数</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/file-operation/" class="dropdown-item">NumPy 数据文件的读写操作</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">工作手册 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../manual/edit/" class="dropdown-item">编辑页面</a>
+</li>
+                                    
+<li>
+    <a href="../../manual/upd/" class="dropdown-item">发布更新</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">优化模型参数</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1" class="nav-link">1 代码准备</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2" class="nav-link">2 超参数</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3" class="nav-link">3 优化循环</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#31" class="nav-link">3.1 损失函数</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#32" class="nav-link">3.2 优化器</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#4" class="nav-link">4 完整实现</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#5" class="nav-link">5 拓展阅读</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">优化模型参数</h1>
+<p>有了模型和数据，需要通过优化数据上的参数来训练、验证和测试模型。训练模型是一个迭代的过程；在每次迭代（称为 epoch）中，模型对输出进行猜测，计算其猜测中的误差（损失），收集误差相对于其参数的导数，并使用梯度下降优化这些参数。要了解这个过程的更详细的步骤，请查看 <a href="https://www.youtube.com/watch?v=tIeHLnjs5U8">3Blue1Brown 的反向传播视频</a>。</p>
+<h2 id="1">1 <a href="https://pytorch.org/tutorials/beginner/basics/optimization_tutorial.html#prerequisite-code">代码准备</a></h2>
+<p>加载前文<a href="">数据加载和处理</a>及<a href="https://ie.readthedocs.io/zh_CN/latest/pytorch/mlp/#2">向量数据建模：MLP - 2 构建神经网络</a>中的代码。</p>
+<pre><code class="language-Python">import torch
+from torch import nn
+from torch.utils.data import DataLoader
+from torchvision import datasets
+from torchvision.transforms import ToTensor, Lambda
+
+training_data = datasets.FashionMNIST(
+    root=&quot;data&quot;,
+    train=True,
+    download=True,
+    transform=ToTensor()
+)
+
+test_data = datasets.FashionMNIST(
+    root=&quot;data&quot;,
+    train=False,
+    download=True,
+    transform=ToTensor()
+)
+
+train_dataloader = DataLoader(training_data, batch_size=64)
+test_dataloader = DataLoader(test_data, batch_size=64)
+
+class NeuralNetwork(nn.Module):
+    def __init__(self):
+        super(NeuralNetwork, self).__init__()
+        self.flatten = nn.Flatten()
+        self.linear_relu_stack = nn.Sequential(
+            nn.Linear(28*28, 512),
+            nn.ReLU(),
+            nn.Linear(512, 512),
+            nn.ReLU(),
+            nn.Linear(512, 10),
+        )
+
+    def forward(self, x):
+        x = self.flatten(x)
+        logits = self.linear_relu_stack(x)
+        return logits
+
+model = NeuralNetwork()
+</code></pre>
+<p>输出：</p>
+<pre><code>Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz to data/FashionMNIST/raw/train-images-idx3-ubyte.gz
+Extracting data/FashionMNIST/raw/train-images-idx3-ubyte.gz to data/FashionMNIST/raw
+
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz to data/FashionMNIST/raw/train-labels-idx1-ubyte.gz
+Extracting data/FashionMNIST/raw/train-labels-idx1-ubyte.gz to data/FashionMNIST/raw
+
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz to data/FashionMNIST/raw/t10k-images-idx3-ubyte.gz
+Extracting data/FashionMNIST/raw/t10k-images-idx3-ubyte.gz to data/FashionMNIST/raw
+
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz to data/FashionMNIST/raw/t10k-labels-idx1-ubyte.gz
+Extracting data/FashionMNIST/raw/t10k-labels-idx1-ubyte.gz to data/FashionMNIST/raw
+</code></pre>
+<h2 id="2">2 <a href="https://pytorch.org/tutorials/beginner/basics/optimization_tutorial.html#hyperparameters">超参数</a></h2>
+<p>超参数是可调节的参数，用于控制模型优化过程。不同的超参数值会影响模型训练和收敛速度（更多内容详见 <a href="https://pytorch.org/tutorials/beginner/hyperparameter_tuning_tutorial.html">HYPERPARAMETER TUNING WITH RAY TUNE</a>）</p>
+<p>定义以下超参数：</p>
+<ul>
+<li>
+<p><code>learning_rate</code>：每个批处理 / 迭代需要更新多少模型参数。值越小，学习速度越慢；然而值过大可能导致训练过程中行为不可预测。</p>
+</li>
+<li>
+<p><code>batch_size</code>：在参数更新之前通过网络传播的数据样本的数量。</p>
+</li>
+<li>
+<p><code>epochs</code>：迭代数，在数据集上迭代的次数。</p>
+</li>
+</ul>
+<pre><code class="language-Python">learning_rate = 1e-3
+batch_size = 64
+epochs = 5
+</code></pre>
+<h2 id="3">3 <a href="https://pytorch.org/tutorials/beginner/basics/optimization_tutorial.html#optimization-loop">优化循环</a></h2>
+<p>设置了超参数后可用一个优化循环来训练和优化模型。优化循环的每一次迭代称为 epoch。</p>
+<p>每一次迭代包括两个主要部分：</p>
+<ul>
+<li>
+<p>训练循环：遍历训练集并尝试收敛到最优参数；</p>
+</li>
+<li>
+<p>验证 / 测试循环：遍历测试集以检查模型性能是否改善。</p>
+</li>
+</ul>
+<p>下面简单介绍训练循环中的一些概念。详情见优化循环的<a href="https://pytorch.org/tutorials/beginner/basics/optimization_tutorial.html#full-impl-label">完整实现</a>。</p>
+<h3 id="31">3.1 损失函数</h3>
+<p>未经训练的网络在面对一些训练数据时很可能不会给出正确的答案。损失函数度量的是所得到的结果与目标值的不相似程度，在训练时，我们希望将其最小化。为了计算损失，我们使用给定数据样本的输入进行预测，并将其与真实的数据标签值进行比较。</p>
+<p>常见的损失函数包括： <code>nn.MSELoss</code>（均方误差），用于回归任务；<code>nn.NLLLoss</code>（负对数似然），用于分类；<code>nn.CrossEntropyLoss</code>，结合了 <code>nn.LogSoftmax</code> 和 <code>nn.NLLLoss</code>。</p>
+<p>将模型输出的对数传递给 <code>nn.CrossEntropyLoss</code>，对数归一化并计算预测误差。</p>
+<pre><code class="language-Python"># Initialize the loss function
+loss_fn = nn.CrossEntropyLoss()
+</code></pre>
+<h3 id="32">3.2 优化器</h3>
+<p>优化：在每个训练步骤中调整模型参数以减少模型误差的过程。</p>
+<p><strong>优化算法</strong>定义如何执行优化过程（在本例中，我们使用随机梯度下降）。所有优化逻辑都封装在 <code>optimizer</code>（优化器）对象中。在这里，我们使用 SGD 优化器；此外，PyTorch 中还有许多不同的优化器，如 ADAM 和 RMSProp，它们可以更好地处理不同类型的模型和数据。</p>
+<p>通过注册需要训练的模型参数来初始化优化器，并传入学习率超参数。</p>
+<pre><code class="language-Python">optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
+</code></pre>
+<p>在训练循环中，优化分为三个步骤:</p>
+<ul>
+<li>
+<p>调用 <code>optimizer.zero_grad()</code> 来重置模型参数的梯度。渐变默认累加；为了防止重复计数，在每次迭代时显式地将它们归零。</p>
+</li>
+<li>
+<p>通过调用 <code>loss.backwards()</code> 来反向传播预测损失。PyTorch 存储每个参数的损耗的梯度。</p>
+</li>
+<li>
+<p>得到梯度后，调用 <code>optimizer.step()</code> 来根据向后传递过程中收集的梯度调整参数。</p>
+</li>
+</ul>
+<h2 id="4">4 <a href="https://pytorch.org/tutorials/beginner/basics/optimization_tutorial.html#full-implementation">完整实现</a></h2>
+<p>定义 <code>train_loop</code> 以循环优化代码，定义 <code>test_loop</code> 以根据测试数据评估模型性能：</p>
+<pre><code class="language-Python">def train_loop(dataloader, model, loss_fn, optimizer):
+    size = len(dataloader.dataset)
+    for batch, (X, y) in enumerate(dataloader):
+        # Compute prediction and loss
+        pred = model(X)
+        loss = loss_fn(pred, y)
+
+        # Backpropagation
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        if batch % 100 == 0:
+            loss, current = loss.item(), batch * len(X)
+            print(f&quot;loss: {loss:&gt;7f}  [{current:&gt;5d}/{size:&gt;5d}]&quot;)
+
+
+def test_loop(dataloader, model, loss_fn):
+    size = len(dataloader.dataset)
+    num_batches = len(dataloader)
+    test_loss, correct = 0, 0
+
+    with torch.no_grad():
+        for X, y in dataloader:
+            pred = model(X)
+            test_loss += loss_fn(pred, y).item()
+            correct += (pred.argmax(1) == y).type(torch.float).sum().item()
+
+    test_loss /= num_batches
+    correct /= size
+    print(f&quot;Test Error: \n Accuracy: {(100*correct):&gt;0.1f}%, Avg loss: {test_loss:&gt;8f} \n&quot;)
+</code></pre>
+<p>初始化损失函数和优化器，并将其传递给 <code>train_loop</code> 和 <code>test_loop</code>：</p>
+<p>*迭代次数可随意添加以跟踪模型的改进性能</p>
+<pre><code class="language-Python">loss_fn = nn.CrossEntropyLoss()
+optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
+
+epochs = 10
+for t in range(epochs):
+    print(f&quot;Epoch {t+1}\n-------------------------------&quot;)
+    train_loop(train_dataloader, model, loss_fn, optimizer)
+    test_loop(test_dataloader, model, loss_fn)
+print(&quot;Done!&quot;)
+</code></pre>
+<p>输出：</p>
+<pre><code>Epoch 1
+-------------------------------
+loss: 2.304330  [    0/60000]
+loss: 2.297135  [ 6400/60000]
+loss: 2.276578  [12800/60000]
+loss: 2.274323  [19200/60000]
+loss: 2.251969  [25600/60000]
+loss: 2.219396  [32000/60000]
+loss: 2.235033  [38400/60000]
+loss: 2.193696  [44800/60000]
+loss: 2.203193  [51200/60000]
+loss: 2.164317  [57600/60000]
+Test Error:
+ Accuracy: 42.6%, Avg loss: 2.161588
+
+Epoch 2
+-------------------------------
+loss: 2.176873  [    0/60000]
+loss: 2.164621  [ 6400/60000]
+loss: 2.110821  [12800/60000]
+loss: 2.126994  [19200/60000]
+loss: 2.081725  [25600/60000]
+loss: 2.020193  [32000/60000]
+loss: 2.056971  [38400/60000]
+loss: 1.978224  [44800/60000]
+loss: 1.987843  [51200/60000]
+loss: 1.911017  [57600/60000]
+Test Error:
+ Accuracy: 59.0%, Avg loss: 1.908803
+
+Epoch 3
+-------------------------------
+loss: 1.944936  [    0/60000]
+loss: 1.909998  [ 6400/60000]
+loss: 1.798946  [12800/60000]
+loss: 1.836452  [19200/60000]
+loss: 1.739229  [25600/60000]
+loss: 1.682956  [32000/60000]
+loss: 1.712705  [38400/60000]
+loss: 1.613176  [44800/60000]
+loss: 1.628942  [51200/60000]
+loss: 1.520131  [57600/60000]
+Test Error:
+ Accuracy: 63.1%, Avg loss: 1.536381
+
+Epoch 4
+-------------------------------
+loss: 1.603712  [    0/60000]
+loss: 1.563944  [ 6400/60000]
+loss: 1.415494  [12800/60000]
+loss: 1.483423  [19200/60000]
+loss: 1.369704  [25600/60000]
+loss: 1.362556  [32000/60000]
+loss: 1.384496  [38400/60000]
+loss: 1.309461  [44800/60000]
+loss: 1.331194  [51200/60000]
+loss: 1.231564  [57600/60000]
+Test Error:
+ Accuracy: 64.4%, Avg loss: 1.255288
+
+Epoch 5
+-------------------------------
+loss: 1.333331  [    0/60000]
+loss: 1.313506  [ 6400/60000]
+loss: 1.145696  [12800/60000]
+loss: 1.250660  [19200/60000]
+loss: 1.126949  [25600/60000]
+loss: 1.153840  [32000/60000]
+loss: 1.182107  [38400/60000]
+loss: 1.121818  [44800/60000]
+loss: 1.145909  [51200/60000]
+loss: 1.065338  [57600/60000]
+Test Error:
+ Accuracy: 65.2%, Avg loss: 1.082845
+
+Epoch 6
+-------------------------------
+loss: 1.154285  [    0/60000]
+loss: 1.157415  [ 6400/60000]
+loss: 0.970255  [12800/60000]
+loss: 1.108754  [19200/60000]
+loss: 0.981628  [25600/60000]
+loss: 1.016651  [32000/60000]
+loss: 1.058487  [38400/60000]
+loss: 1.003933  [44800/60000]
+loss: 1.028309  [51200/60000]
+loss: 0.963359  [57600/60000]
+Test Error:
+ Accuracy: 66.3%, Avg loss: 0.973785
+
+Epoch 7
+-------------------------------
+loss: 1.032044  [    0/60000]
+loss: 1.058307  [ 6400/60000]
+loss: 0.852228  [12800/60000]
+loss: 1.017036  [19200/60000]
+loss: 0.893169  [25600/60000]
+loss: 0.921922  [32000/60000]
+loss: 0.978590  [38400/60000]
+loss: 0.928219  [44800/60000]
+loss: 0.948833  [51200/60000]
+loss: 0.895926  [57600/60000]
+Test Error:
+ Accuracy: 67.4%, Avg loss: 0.900662
+
+Epoch 8
+-------------------------------
+loss: 0.943577  [    0/60000]
+loss: 0.990556  [ 6400/60000]
+loss: 0.768960  [12800/60000]
+loss: 0.953487  [19200/60000]
+loss: 0.835906  [25600/60000]
+loss: 0.853781  [32000/60000]
+loss: 0.922632  [38400/60000]
+loss: 0.877674  [44800/60000]
+loss: 0.892046  [51200/60000]
+loss: 0.847884  [57600/60000]
+Test Error:
+ Accuracy: 68.8%, Avg loss: 0.848415
+
+Epoch 9
+-------------------------------
+loss: 0.876188  [    0/60000]
+loss: 0.940220  [ 6400/60000]
+loss: 0.707270  [12800/60000]
+loss: 0.906877  [19200/60000]
+loss: 0.795750  [25600/60000]
+loss: 0.803136  [32000/60000]
+loss: 0.880152  [38400/60000]
+loss: 0.842024  [44800/60000]
+loss: 0.849560  [51200/60000]
+loss: 0.811139  [57600/60000]
+Test Error:
+ Accuracy: 70.1%, Avg loss: 0.808887
+
+Epoch 10
+-------------------------------
+loss: 0.822409  [    0/60000]
+loss: 0.900021  [ 6400/60000]
+loss: 0.659346  [12800/60000]
+loss: 0.871149  [19200/60000]
+loss: 0.765414  [25600/60000]
+loss: 0.764470  [32000/60000]
+loss: 0.845658  [38400/60000]
+loss: 0.815226  [44800/60000]
+loss: 0.816064  [51200/60000]
+loss: 0.781372  [57600/60000]
+Test Error:
+ Accuracy: 71.3%, Avg loss: 0.777356
+
+Done!
+</code></pre>
+<h2 id="5">5 拓展阅读</h2>
+<ul>
+<li>
+<p><a href="https://pytorch.org/docs/stable/nn.html#loss-functions">Loss Functions</a></p>
+</li>
+<li>
+<p><a href="https://pytorch.org/docs/stable/optim.html">torch.optim</a></p>
+</li>
+<li>
+<p><a href="https://pytorch.org/tutorials/recipes/recipes/warmstarting_model_using_parameters_from_a_different_model.html">Warmstart Training a Model</a></p>
+</li>
+</ul>
+<hr />
+<p>转载自：<br />
+<a href="https://pytorch.org/tutorials/beginner/basics/optimization_tutorial.html">OPTIMIZING MODEL PARAMETERS</a></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Do not distribute.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
