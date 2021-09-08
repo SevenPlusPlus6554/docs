@@ -219,7 +219,7 @@ window.MathJax = {
 <h1 id="_1">优化模型参数</h1>
 <p>有了模型和数据，需要通过优化数据上的参数来训练、验证和测试模型。训练模型是一个迭代的过程；在每次迭代（称为 epoch）中，模型对输出进行猜测，计算其猜测中的误差（损失），收集误差相对于其参数的导数，并使用梯度下降优化这些参数。要了解这个过程的更详细的步骤，请查看 <a href="https://www.youtube.com/watch?v=tIeHLnjs5U8">3Blue1Brown 的反向传播视频</a>。</p>
 <h2 id="1">1 <a href="https://pytorch.org/tutorials/beginner/basics/optimization_tutorial.html#prerequisite-code">代码准备</a></h2>
-<p>加载前文<a href="">数据加载和处理</a>及<a href="https://ie.readthedocs.io/zh_CN/latest/pytorch/mlp/#2">向量数据建模：MLP - 2 构建神经网络</a>中的代码。</p>
+<p>加载前文<a href="https://ie.readthedocs.io/zh_CN/latest/pytorch/datasets-and-dataloaders/">数据加载和处理</a>及<a href="https://ie.readthedocs.io/zh_CN/latest/pytorch/mlp/#2">向量数据建模：MLP - 2 构建神经网络</a>中的代码。</p>
 <pre><code class="language-Python">import torch
 from torch import nn
 from torch.utils.data import DataLoader
