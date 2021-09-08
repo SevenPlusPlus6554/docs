@@ -4,7 +4,7 @@
 
 ## 1 [代码准备](https://pytorch.org/tutorials/beginner/basics/optimization_tutorial.html#prerequisite-code)
 
-加载前文[数据加载和处理]()及[向量数据建模：MLP - 2 构建神经网络](https://ie.readthedocs.io/zh_CN/latest/pytorch/mlp/#2)中的代码。
+加载前文[数据加载和处理](https://ie.readthedocs.io/zh_CN/latest/pytorch/datasets-and-dataloaders/)及[向量数据建模：MLP - 2 构建神经网络](https://ie.readthedocs.io/zh_CN/latest/pytorch/mlp/#2)中的代码。
 
 ```Python
 import torch
