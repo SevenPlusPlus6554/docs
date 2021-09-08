@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="IE科协">
+        <link rel="canonical" href="https://ie.rtfd.io/pytorch/datasets-and-dataloaders/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>数据加载和处理 - IE科协</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/custom.css?t=202108070318" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight-10.5.0-lightfair.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="../../js/highlight-10.5.0.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+		<script>
+window.MathJax = {
+    tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        autoload: {
+            color: [],
+            colorV2: ['color']
+        },
+        packages: {'[+]': ['noerrors']}
+    },
+    svg: {
+        fontCache: 'global'
+    },
+    options: {
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+        load: ['[tex]/noerrors']
+    }
+};
+		</script>
+		<script type="text/javascript" id="MathJax-script" defer src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.0/es5/tex-svg.min.js"></script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">IE科协</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PyTorch <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../install/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../basics/" class="dropdown-item">基础知识</a>
+</li>
+                                    
+<li>
+    <a href="../cnn/" class="dropdown-item">图像数据建模：CNN</a>
+</li>
+                                    
+<li>
+    <a href="../rnn/" class="dropdown-item">序列数据建模：RNN</a>
+</li>
+                                    
+<li>
+    <a href="../mlp/" class="dropdown-item">向量数据建模：MLP</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">TensorFlow2 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tensorflow2/getting-started/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../../tensorflow2/basics/" class="dropdown-item">基础知识</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">NumPy <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../numpy/multidim-array/" class="dropdown-item">ndarray 多维数组</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/multidim-array-creation-method/" class="dropdown-item">ndarray 多维数组创建方法</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/array-element-operation-method/" class="dropdown-item">数组元素的索引、切片、改变形状等操作方法</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/array-operation-function/" class="dropdown-item">数组运算函数的使用方法</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/random/" class="dropdown-item">随机数生成函数</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/file-operation/" class="dropdown-item">NumPy 数据文件的读写操作</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">工作手册 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../manual/edit/" class="dropdown-item">编辑页面</a>
+</li>
+                                    
+<li>
+    <a href="../../manual/upd/" class="dropdown-item">发布更新</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">数据加载和处理</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1" class="nav-link">1 加载数据集</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2" class="nav-link">2 迭代及可视化数据集</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3" class="nav-link">3 为文件创建自定义数据集</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#31" class="nav-link">3.1 创建数据集</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#32" class="nav-link">3.2 函数详解</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3-dataloaders" class="nav-link">3 用 DataLoaders 为训练准备数据</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#4-dataloader" class="nav-link">4 迭代 DataLoader</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#5" class="nav-link">5 进一步了解</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">数据加载和处理</h1>
+<p>PyTorch 提供了两个数据基元：<code>torch.utils.data.DataLoader</code> 和 <code>torch.utils.data.Dataset</code>，它们允许你使用预加载的数据集和你自己的数据。<code>Dataset</code> 存储示例及其对应的标签，<code>DataLoader</code> 围绕 <code>Dataset</code> 包装了一个可迭代对象，以方便访问示例。</p>
+<p>PyTorch 域库提供了许多预加载的数据集（如 <a href="https://pytorch.org/vision/stable/datasets.html#fashion-mnist">FashionMNIST</a> ），它们子类化了 <code>torch.utilS.data.Dataset</code> 并实现了针对特定数据的函数。它们可以用来建立模型的原型和基准。详见：<a href="https://pytorch.org/vision/stable/datasets.html">图像数据集</a>，<a href="https://pytorch.org/text/stable/datasets.html">文本数据集</a>和<a href="https://pytorch.org/audio/stable/datasets.html">音频数据集</a></p>
+<h2 id="1">1 <a href="https://pytorch.org/tutorials/beginner/basics/data_tutorial.html#loading-a-dataset">加载数据集</a></h2>
+<p>以从 TorchVision 中加载 Fashion-MNIST数据集为例。Fashion-MNIST 是Zalando 文章图像的数据集，包含 60,000 个训练示例和 10,000 个测试示例。每个示例包括 28×28 灰度图像和来自 10 个类中的一个的关联标签。</p>
+<p>参数说明：</p>
+<ul>
+<li>
+<p><code>root</code>：训练集 / 测试集数据存储路径；</p>
+</li>
+<li>
+<p><code>train</code>：指定训练或测试数据集；</p>
+</li>
+<li>
+<p><code>download=True</code>：从网上下载数据如其在 <code>root</code> 上不可用；</p>
+</li>
+<li>
+<p><code>transform</code> 和 <code>target_transform</code>：指定特性和标签转换。</p>
+</li>
+</ul>
+<pre><code class="language-Python">import torch
+from torch.utils.data import Dataset
+from torchvision import datasets
+from torchvision.transforms import ToTensor
+import matplotlib.pyplot as plt
+
+
+training_data = datasets.FashionMNIST(
+    root=&quot;data&quot;,
+    train=True,
+    download=True,
+    transform=ToTensor()
+)
+
+test_data = datasets.FashionMNIST(
+    root=&quot;data&quot;,
+    train=False,
+    download=True,
+    transform=ToTensor()
+)
+</code></pre>
+<p>输出：</p>
+<pre><code>Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz to data/FashionMNIST/raw/train-images-idx3-ubyte.gz
+Extracting data/FashionMNIST/raw/train-images-idx3-ubyte.gz to data/FashionMNIST/raw
+
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz to data/FashionMNIST/raw/train-labels-idx1-ubyte.gz
+Extracting data/FashionMNIST/raw/train-labels-idx1-ubyte.gz to data/FashionMNIST/raw
+
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz to data/FashionMNIST/raw/t10k-images-idx3-ubyte.gz
+Extracting data/FashionMNIST/raw/t10k-images-idx3-ubyte.gz to data/FashionMNIST/raw
+
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz to data/FashionMNIST/raw/t10k-labels-idx1-ubyte.gz
+Extracting data/FashionMNIST/raw/t10k-labels-idx1-ubyte.gz to data/FashionMNIST/raw
+</code></pre>
+<h2 id="2">2 <a href="https://pytorch.org/tutorials/beginner/basics/data_tutorial.html#iterating-and-visualizing-the-dataset">迭代及可视化数据集</a></h2>
+<p>我们可以像列表一样手动索引 <code>Datasets</code>：<code>training_data[index]</code>。使用 <code>matplotlib</code> 来可视化训练数据中的一些示例。</p>
+<pre><code class="language-Python">labels_map = {
+    0: &quot;T-Shirt&quot;,
+    1: &quot;Trouser&quot;,
+    2: &quot;Pullover&quot;,
+    3: &quot;Dress&quot;,
+    4: &quot;Coat&quot;,
+    5: &quot;Sandal&quot;,
+    6: &quot;Shirt&quot;,
+    7: &quot;Sneaker&quot;,
+    8: &quot;Bag&quot;,
+    9: &quot;Ankle Boot&quot;,
+}
+figure = plt.figure(figsize=(8, 8))
+cols, rows = 3, 3
+for i in range(1, cols * rows + 1):
+    sample_idx = torch.randint(len(training_data), size=(1,)).item()
+    img, label = training_data[sample_idx]
+    figure.add_subplot(rows, cols, i)
+    plt.title(labels_map[label])
+    plt.axis(&quot;off&quot;)
+    plt.imshow(img.squeeze(), cmap=&quot;gray&quot;)
+plt.show()
+</code></pre>
+<p><img alt="dataset-00" src="../figs/dataset-00.png" /></p>
+<hr />
+<h2 id="3">3 <a href="https://pytorch.org/tutorials/beginner/basics/data_tutorial.html#creating-a-custom-dataset-for-your-files">为文件创建自定义数据集</a></h2>
+<h3 id="31">3.1 创建数据集</h3>
+<p>自定义 Dataset 类必须实现三个函数：<code>__init__</code>、<code>__len__</code> 和 <code>__getitem__</code>。以下文实现为例，FashionMNIST 映像存储在目录 <code>img_dir</code> 中，它们的标签分别存储在 CSV 文件 <code>annotations_file</code> 中。</p>
+<pre><code class="language-Python">import os
+import pandas as pd
+from torchvision.io import read_image
+
+class CustomImageDataset(Dataset):
+    def __init__(self, annotations_file, img_dir, transform=None, target_transform=None):
+        self.img_labels = pd.read_csv(annotations_file)
+        self.img_dir = img_dir
+        self.transform = transform
+        self.target_transform = target_transform
+
+    def __len__(self):
+        return len(self.img_labels)
+
+    def __getitem__(self, idx):
+        img_path = os.path.join(self.img_dir, self.img_labels.iloc[idx, 0])
+        image = read_image(img_path)
+        label = self.img_labels.iloc[idx, 1]
+        if self.transform:
+            image = self.transform(image)
+        if self.target_transform:
+            label = self.target_transform(label)
+        return image, label
+</code></pre>
+<h3 id="32">3.2 函数详解</h3>
+<h4 id="321-__init__">3.2.1 <code>__init__</code></h4>
+<p><code>__init__</code> 函数在实例化 Dataset 对象时运行一次。我们初始化包含图像、注释文件和这两种转换的目录(下一节将详细介绍)。</p>
+<p><code>labels.csv</code> 文件形如：</p>
+<pre><code>tshirt1.jpg, 0
+tshirt2.jpg, 0
+......
+ankleboot999.jpg, 9
+</code></pre>
+<pre><code class="language-Python">def __init__(self, annotations_file, img_dir, transform=None, target_transform=None):
+    self.img_labels = pd.read_csv(annotations_file)
+    self.img_dir = img_dir
+    self.transform = transform
+    self.target_transform = target_transform
+</code></pre>
+<h4 id="322-__len__">3.2.2 <code>__len__</code></h4>
+<p><code>__len__</code> 函数返回数据集中实例的数量。</p>
+<p>例：</p>
+<pre><code class="language-Python">def __len__(self):
+    return len(self.img_labels)
+</code></pre>
+<h4 id="323-__getitem__">3.2.3 <code>__getitem__</code></h4>
+<p><code>__getitem__</code> 函数从给定的索引 <code>idx</code> 处的数据集加载并返回一个实例。基于此索引，识别图像在磁盘上的位置，并使用 <code>read_image</code> 将其转换为张量，从 <code>self.img_labels</code> 中的 csv 数据中检索相应的标签，对它们调用变换函数（如果适用），并在元组中返回张量图像和对应的标签。</p>
+<pre><code class="language-Python">def __getitem__(self, idx):
+    img_path = os.path.join(self.img_dir, self.img_labels.iloc[idx, 0])
+    image = read_image(img_path)
+    label = self.img_labels.iloc[idx, 1]
+    if self.transform:
+        image = self.transform(image)
+    if self.target_transform:
+        label = self.target_transform(label)
+    return image, label
+</code></pre>
+<h2 id="3-dataloaders">3 <a href="https://pytorch.org/tutorials/beginner/basics/data_tutorial.html#preparing-your-data-for-training-with-dataloaders">用 DataLoaders 为训练准备数据</a></h2>
+<p><code>Dataset</code> 每次检索数据集中一个样本的特性和标签。在训练模型时，我们通常希望以“小批量”通过样本，在每个时期重新洗牌数据以减少模型过拟合，并使用 Python 的 <code>multiprocessing</code> 来加快数据检索。</p>
+<p><code>DataLoader</code> 是一个可迭代对象，它在一个简单的 API 中为我们抽象了这种复杂性。</p>
+<pre><code class="language-Python">from torch.utils.data import DataLoader
+
+train_dataloader = DataLoader(training_data, batch_size=64, shuffle=True)
+test_dataloader = DataLoader(test_data, batch_size=64, shuffle=True)
+</code></pre>
+<h2 id="4-dataloader">4 <a href="https://pytorch.org/tutorials/beginner/basics/data_tutorial.html#iterate-through-the-dataloader">迭代 DataLoader</a></h2>
+<p>我们已经将数据集加载到 DataLoader 中，并可以根据需要遍历数据集。下面的每个迭代都返回一批 <code>train_features</code> 和 <code>train_labels</code>（分别包含 <code>batch_size=64</code> 个特性和标签）。因为我们指定了 <code>shuffle=True</code>，所以在遍历所有批次之后，数据将被打乱（为了更细粒度地控制数据加载顺序，请查看 <a href="https://pytorch.org/docs/stable/data.html#data-loading-order-and-sampler">Samplers</a>）。</p>
+<pre><code class="language-Python"># Display image and label.
+train_features, train_labels = next(iter(train_dataloader))
+print(f&quot;Feature batch shape: {train_features.size()}&quot;)
+print(f&quot;Labels batch shape: {train_labels.size()}&quot;)
+img = train_features[0].squeeze()
+label = train_labels[0]
+plt.imshow(img, cmap=&quot;gray&quot;)
+plt.show()
+print(f&quot;Label: {label}&quot;)
+</code></pre>
+<p><img alt="dataset-01" src="../figs/dataset-01.png" /></p>
+<p>输出：</p>
+<pre><code>Feature batch shape: torch.Size([64, 1, 28, 28])
+Labels batch shape: torch.Size([64])
+Label: 6
+</code></pre>
+<h2 id="5">5 进一步了解</h2>
+<p>详见 <a href="https://pytorch.org/docs/stable/data.html">torch.utils.data API</a></p>
+<hr />
+<p>转载自：<br />
+<a href="https://pytorch.org/tutorials/beginner/basics/data_tutorial.html">DATASETS &amp; DATALOADERS</a></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Do not distribute.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
