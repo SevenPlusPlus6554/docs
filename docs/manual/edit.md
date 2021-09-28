@@ -1,3 +1,7 @@
 # 编辑页面
 
-@TODO Markdown; LaTeX math
+1. 进入 github，将工程 clone 到本地
+
+2. 找到 docs 文件夹，在 docs 文件夹中找到待编辑页面对应的 .md 文件
+
+3. 修改该文件并保存
