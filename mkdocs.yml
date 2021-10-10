@@ -34,6 +34,8 @@ nav:
     - NumPy 数据文件的读写操作: numpy/file-operation.md
   - seaborn:
     - seaborn用法和实例: seaborn/seaborn.md
+  - sklearn:
+    - sklearn基本用法和实例: sklearn/sklearn.md
   - 工作手册:
     - 编辑页面: manual/edit.md
     - 发布更新: manual/upd.md
