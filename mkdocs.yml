@@ -33,7 +33,7 @@ nav:
     - 随机数生成函数: numpy/random.md
     - NumPy 数据文件的读写操作: numpy/file-operation.md
   - seaborn:
-    - seaborn用法和实验: seaborn/seaborn.md
+    - seaborn用法和实例: seaborn/seaborn.md
   - 工作手册:
     - 编辑页面: manual/edit.md
     - 发布更新: manual/upd.md
