@@ -28,5 +28,5 @@ import tensorflow as tf
 
 #### *Windows系统下装载tensorflow可能出现的问题及处理方法：*     
 
-如果你在 Windows 下安装了 TensorFlow 2.1 正式版，可能会在导入 TensorFlow 时出现 DLL 载入错误 。此时安装 Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019 即可正常使用。
+如果你在 Windows 下安装了 TensorFlow 2.1 正式版，可能会在导入 TensorFlow的时候出现 DLL 载入错误 。此时安装 Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019 即可正常使用。
 
