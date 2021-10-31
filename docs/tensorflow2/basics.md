@@ -1,6 +1,6 @@
 # 基础知识
 
-## 张量
+## 1 张量
 
 TensorFlow 使用 **张量** （Tensor）作为数据的基本单位。TensorFlow 的张量在概念上等同于多维数组，我们可以使用它来描述数学中的标量（0 维数组）、向量（1 维数组）、矩阵（2 维数组）等各种量，示例如下：
 
@@ -33,9 +33,9 @@ C = tf.add(A, B)    # 计算矩阵A和B的和
 D = tf.matmul(A, B) # 计算矩阵A和B的乘积
 ```
 
-## 自动求导
+## 2 自动求导
 
-### 一元函数求导
+### 2.1一元函数求导
 
 在机器学习中，如果需要计算函数的导数，tf提供了强大的自动求导机制。以下代码展示了如何使用 `tf.GradientTape()` 计算函数 $y=x^2$ 在 $x=6$时的导数：
 
@@ -60,7 +60,7 @@ tf.Tensor(6.0, shape=(), dtype=float32)
 
 `tf.GradientTape()` 是一个自动求导的记录器。只要进入了 `with tf.GradientTape() as tape` 的上下文环境，则在该环境中计算步骤都会被自动记录。比如在上面的示例中，计算步骤 `y = tf.square(x)` 即被自动记录。离开上下文环境后，记录将停止，但记录器 `tape` 依然可用，因此可以通过 `y_grad = tape.gradient(y, x)` 求张量 `y` 对变量 `x` 的导数。
 
-### 多元函数求偏导
+### 4 多元函数求偏导
 
 计算函数$L(w,b)=||Xw+b-y||^2$在 $w=(1,2)^T,b=1$ 时分别对$w,b$的偏导数。其中 !$X = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix},  y = \begin{bmatrix} 1 \\ 2\end{bmatrix}$。
 
@@ -85,7 +85,7 @@ tf.Tensor(
 tf.Tensor(30.0, shape=(), dtype=float32)
 ```
 
-## 线性回归
+## 3 线性回归
 
 以下展示了如何使用 TensorFlow 计算线性回归。可以注意到，程序的结构和前述 NumPy 的实现非常类似。这里，TensorFlow 帮助我们做了两件重要的工作：
 
