@@ -186,14 +186,234 @@ window.MathJax = {
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#pandas" class="nav-link">Pandas</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1" class="nav-link">1 简介</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2-series" class="nav-link">2 Series对象</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#21series" class="nav-link">2.1创建Series对象</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#22-series" class="nav-link">2.2 Series对象的属性</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#23-series" class="nav-link">2.3 Series数据的查询和修改</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#231-seriesid" class="nav-link">2.3.1 使用索引以“Series对象[id]”或认索引来读取</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#232" class="nav-link">2.3.2 使用切片方式读取多个元素</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#233" class="nav-link">2.3.3 修改或添加元素</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#24-series" class="nav-link">2.4 Series对象的基本运算</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#3-dataframe" class="nav-link">3 DataFrame对象</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#31-dataframe" class="nav-link">3.1 DataFrame对象的创建和属性查看</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#32-dataframe" class="nav-link">3.2 DataFrame数据的查询和编辑</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#321" class="nav-link">3.2.1 选取列</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#322" class="nav-link">3.2.2 选取行</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#323" class="nav-link">3.2.3 选取行和列</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#324" class="nav-link">3.2.4 判断元素是否在某个列表中</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#325-dataframe" class="nav-link">3.2.5 编辑DataFrame</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#4-dataframe" class="nav-link">4 DataFrame数据运算</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#41-dataframe" class="nav-link">4.1 DataFrame算术运算与排序</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#411" class="nav-link">4.1.1 算术运算</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#412" class="nav-link">4.1.2 排序</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#42-dataframe" class="nav-link">4.2 DataFrame数学统计</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#5-pandas" class="nav-link">5 Pandas数据可视化</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#51" class="nav-link">5.1 绘制折线图</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#52" class="nav-link">5.2 绘制条形图</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#53" class="nav-link">5.3 绘制直方图</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#54" class="nav-link">5.4 绘制箱线图</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#55" class="nav-link">5.5 绘制散点图</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#56" class="nav-link">5.6 绘制饼图</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#6-pandas" class="nav-link">6 Pandas读写数据</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#61-csv" class="nav-link">6.1 读写csv和文本文件</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#611-pandasread_csv" class="nav-link">6.1.1 使用pandas对象的read_csv函数读取文件：</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#612-dataframeto_csvcsv" class="nav-link">6.1.2 使用DataFrame对象的to_csv函数写入csv文件：</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#62-excel" class="nav-link">6.2 读写Excel数据文件</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#621-excel" class="nav-link">6.2.1 读取excel数据：</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#622-excel" class="nav-link">6.2.2 写入excel数据：</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#7-pandas" class="nav-link">7 Pandas数据分析——数据预处理</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#71" class="nav-link">7.1 数据探索分析</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#72" class="nav-link">7.2 重复行分析与处理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#73" class="nav-link">7.3 缺失值分析与处理</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#731-dataframe" class="nav-link">7.3.1 DataFrame对象缺失值检测函数</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#732" class="nav-link">7.3.2 缺失值处理函数</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#74" class="nav-link">7.4 异常值分析与处理</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#741" class="nav-link">7.4.1 基于偏差的方法</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#742" class="nav-link">7.4.2 箱线图分析法</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#8-pandas" class="nav-link">8 Pandas数据分析——数据特征分析</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#81" class="nav-link">8.1 分布分析</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#82" class="nav-link">8.2 相关性分析</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#83" class="nav-link">8.3 特征选择</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#9-pandas" class="nav-link">9 Pandas数据分析——建模分析方法</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#91" class="nav-link">9.1 分类分析方法</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#92" class="nav-link">9.2 回归分析方法</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>#Pandas库的使用方法</p>
+<h1 id="pandas">Pandas</h1>
 <p>注：文字内容大部分来自清华大学工业工程系“计算机程序设计实践”课程课件，作者为朱成礼老师。</p>
-<p>## 1 简介</p>
+<h2 id="1">1 简介</h2>
 <p>Pandas是python一个用于开放源码的数据分析扩展程序库。</p>
 <p>Pandas的主要数据结构是Series(一维数据)和DataFrame(二维数据)，它的基础仍是numpy。</p>
 <p>Pandas 可以从各种文件格式比如 CSV、JSON、SQL、Microsoft Excel
@@ -208,8 +428,8 @@ window.MathJax = {
 <p>习惯上，在导入pandas库时，写为:</p>
 <pre><code>import pandas as pd
 </code></pre>
-<p>## 2 Series对象</p>
-<p>## 2.1创建Series对象</p>
+<h2 id="2-series">2 Series对象</h2>
+<h2 id="21series">2.1创建Series对象</h2>
 <p>Series似于一维数组的对象，它只允许存放相同的数据类型的数据。它内部构件了两个相关联的数组，一个是数据数组values，一个是索引数组index。</p>
 <p>使用Series的构造函数创建对象，语法格式：</p>
 <pre><code>pandas.Series(data=None, index=None,dtype=None, name=None)
@@ -227,38 +447,38 @@ s1=pd.Series(scores)
 <pre><code>stuId = ['10106', '10242', '10107', '10230', '10153']
 s2 = pd.Series(data= scores, index=stuId)
 </code></pre>
-<p>## 2.2 Series对象的属性</p>
+<h2 id="22-series">2.2 Series对象的属性</h2>
 <p>属性 说明 语法(对象名为s)</p>
 <p>name Series 对象及索引的name属性 s.name</p>
 <p>shape 获取Series对象的形状，tuple s.shape</p>
 <p>dtype Series对象中的数据类型 s.dtype</p>
 <p>values Series对象中的数据数组 s.values</p>
 <p>index Series对象中的索引数组 s.index</p>
-<p>## 2.3 Series数据的查询和修改</p>
+<h2 id="23-series">2.3 Series数据的查询和修改</h2>
 <p>s:</p>
 <p>10106 95</p>
 <p>10242 93</p>
 <p>10107 92</p>
 <p>10230 86</p>
 <p>10153 90</p>
-<p>### 2.3.1 使用索引以“Series对象[id]”或认索引来读取</p>
+<h3 id="231-seriesid">2.3.1 使用索引以“Series对象[id]”或认索引来读取</h3>
 <pre><code>s['10230']
 s[1]
 </code></pre>
-<p>### 2.3.2 使用切片方式读取多个元素</p>
+<h3 id="232">2.3.2 使用切片方式读取多个元素</h3>
 <pre><code>s[1:3]
 s[s &gt;= 93]
 </code></pre>
-<p>### 2.3.3 修改或添加元素</p>
+<h3 id="233">2.3.3 修改或添加元素</h3>
 <pre><code>s['10153'] = 100
 s['10154'] = 91
 </code></pre>
-<p>## 2.4 Series对象的基本运算</p>
+<h2 id="24-series">2.4 Series对象的基本运算</h2>
 <p>适用于numpy数组的运算（+, -, *, /）或数学函数等，也适用于Series对象。</p>
 <p>也可以将Series对象的数据数组与标量进行+， -， *， /等算术运算</p>
 <p>Series对象始终保留索引和值之间的链接，在算术运算中，会自动按索引对齐，只有索引相同的元素才会进行相应的运算，索引对不上会返回数值NaN。运算后得到的是一个新的Series，原来的Series不会发生变化。</p>
-<p># 3 DataFrame对象</p>
-<p>## 3.1 DataFrame对象的创建和属性查看</p>
+<h1 id="3-dataframe">3 DataFrame对象</h1>
+<h2 id="31-dataframe">3.1 DataFrame对象的创建和属性查看</h2>
 <p>DataFrame是一个二维数据结构，既有行索引（index）也有列索引（columns）。
 同一列的元素必须具有相同的数据类型，列与列之间可以是不同的数据类型（数值、字符串、布尔型值）。</p>
 <p>可以看作由Series对象由一维扩展到多维。各行相同的列位置共用一个列索引，各列相同行位置共用一个行索引。</p>
@@ -287,7 +507,7 @@ df.columns = ['StuName', 'Java', 'Python']
 <p>ndim 维度，2</p>
 <p>size 返回DataFrame对象的元素个数，行与列的乘积</p>
 <p>values 返回存储在DataFrame对象中的数据，是一个数组</p>
-<p>## 3.2 DataFrame数据的查询和编辑</p>
+<h2 id="32-dataframe">3.2 DataFrame数据的查询和编辑</h2>
 <p>例2-3：</p>
 <p>df:</p>
 <p>StuName Java Python</p>
@@ -299,7 +519,7 @@ df.columns = ['StuName', 'Java', 'Python']
 <p>可直接按列和行索引名获取元素:</p>
 <pre><code>df[‘Java’][‘10002’]
 </code></pre>
-<p>### 3.2.1 选取列</p>
+<h3 id="321">3.2.1 选取列</h3>
 <p>选取列数据:</p>
 <pre><code>df.Java 
 df[‘Java’]
@@ -310,7 +530,7 @@ df[‘Java’]
 <p>布尔选择:</p>
 <pre><code>df[df[‘Python’]=90]
 </code></pre>
-<p>### 3.2.2 选取行</p>
+<h3 id="322">3.2.2 选取行</h3>
 <p>行切片:</p>
 <pre><code>df[start:stop:step]
 </code></pre>
@@ -326,19 +546,19 @@ df.query('Python==[90, 92]')
 tail(n) #后n行
 sample(n) #随机抽取n行
 </code></pre>
-<p>### 3.2.3 选取行和列</p>
+<h3 id="323">3.2.3 选取行和列</h3>
 <p>使用loc和iloc方法获得行:</p>
 <pre><code>df.loc[['10106', '10242'], 'Java']
 </code></pre>
 <p>选取行和列:</p>
 <pre><code>df.iloc[0 : 2 , 1]
 </code></pre>
-<p>### 3.2.4 判断元素是否在某个列表中</p>
+<h3 id="324">3.2.4 判断元素是否在某个列表中</h3>
 <p>isin函数：</p>
 <pre><code>df.isin(['Java', 95])
 df[df.isin(['Java', 95])] #得到二维数组
 </code></pre>
-<p>### 3.2.5 编辑DataFrame</p>
+<h3 id="325-dataframe">3.2.5 编辑DataFrame</h3>
 <pre><code>df.drop('Java', axis=1, inplace=True)
 axis=1 # 删除行 
 axis=0 # 删除列
@@ -347,9 +567,9 @@ df['C++'] = [77, 83, 90, 91, 76] # 修改一列
 df.iloc[1,1] = 100  # 修改单个元素
 df.loc['10106','C++'] = 100 # 修改单个元素
 </code></pre>
-<p># 4 DataFrame数据运算</p>
-<p>## 4.1 DataFrame算术运算与排序</p>
-<p>### 4.1.1 算术运算</p>
+<h1 id="4-dataframe">4 DataFrame数据运算</h1>
+<h2 id="41-dataframe">4.1 DataFrame算术运算与排序</h2>
+<h3 id="411">4.1.1 算术运算</h3>
 <p>DataFrame对象在进行算术运算时，将两个对象的行名（行索引）、列名（列索引）都相同的元素进行运算，其他位置的元素则用NaN填充。</p>
 <p>DataFrame对象各列元素数据类型不一定相同，如果对应元素之间不能进行数学运算，运行出错</p>
 <p>apply()函数将运算函数套用到DataFrame的行或列上，applymap()函数将运算函数应用到DataFrame的每个元素上。</p>
@@ -364,7 +584,7 @@ return np.sqrt(x) * 10
 df_sqrt = df.applymap(func_sqrt)
 print(df_sqrt)  # 将函数应用于df各个元素上
 </code></pre>
-<p>### 4.1.2 排序</p>
+<h3 id="412">4.1.2 排序</h3>
 <p>按行索引或列索引排序</p>
 <pre><code>df.sort_index(axis=0, ascending=True)
 #  axis=0行排序，axis=1列排序 ascending=True升序，False降序
@@ -378,7 +598,7 @@ print(df_sqrt)  # 将函数应用于df各个元素上
 <pre><code>df.rank(axis=0, method='average', ascending=True)
 #  method，average值相等的元素平分名次，min就低， max就高，first按出现的#  顺序分配排名。
 </code></pre>
-<p>## 4.2 DataFrame数学统计</p>
+<h2 id="42-dataframe">4.2 DataFrame数学统计</h2>
 <pre><code>df.count(axis=0) # 统计每列数值型的元素个数。
 df.mean(axis=None, skipna=None) # 返回指定轴上元素值的平均值。
 df.min(axis=0) # 返回每列（行）的最小值。
@@ -391,7 +611,7 @@ df.std(axis=None, skipna=None) # 返回指定轴上元素值的标准差
 df.cov() # 计算df的列列之间的协方差，不包括NA/空值。
 df.corr(method='pearson') # 计算df的列列之间的相关性，不包括NA/空值
 </code></pre>
-<p># 5 Pandas数据可视化</p>
+<h1 id="5-pandas">5 Pandas数据可视化</h1>
 <p>Pandas集成了Matplotlib中的基础组件，自带绘图功能，调用DataFame对象的plot函数可以快速地把DataFrame中的数据绘制成各种类型的图。</p>
 <p>语法格式：df.plot(x=…,y=…,kind=…,…)</p>
 <p>xlabel:设置x轴标签</p>
@@ -420,7 +640,7 @@ df.corr(method='pearson') # 计算df的列列之间的相关性，不包括NA/�
 <pre><code>plt.show()
 </code></pre>
 <p>下面以一些示例说明如何画具体的图：</p>
-<p>## 5.1 绘制折线图</p>
+<h2 id="51">5.1 绘制折线图</h2>
 <pre><code>df=pd.read_csv('data/GDP_2001_2019.csv',index_col=[0],header=[0])
 years = [2001, 2005, 2010, 2015, 2020]
 GDP = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22]
@@ -430,7 +650,7 @@ plt.show()
 </code></pre>
 <p><img alt="" src="media/6f4f29071883de9a96147b4ab2a29f21.png" /></p>
 <p>（标题中的“GPD”应为GDP，系原作者笔误）</p>
-<p>## 5.2 绘制条形图</p>
+<h2 id="52">5.2 绘制条形图</h2>
 <pre><code>countries = ['中国', '美国', '俄罗斯', '法国', '英国']
 items = ['GDP（万亿美元）', '人口（亿）']
 df = pd.read_csv('data/GDP_Pop_2019.csv',index_col=[0], usecols=['Country', 'GDP', 'Pop'])
@@ -442,7 +662,7 @@ plt.show()
 </code></pre>
 <p><img alt="" src="media/de60c38b8eaeaef840441addad2e2969.png" /></p>
 <p>（标题中的“GPD”应为GDP，系原作者笔误）</p>
-<p>## 5.3 绘制直方图</p>
+<h2 id="53">5.3 绘制直方图</h2>
 <pre><code>columns = ['花萼长', '花萼宽', '花瓣长', '花瓣宽']
 df = pd.read_csv('data/iris_hist.csv', header=None)
 df.columns = columns
@@ -452,7 +672,7 @@ plt.savefig('figures/iris_hist.png')
 plt.show()
 </code></pre>
 <p><img alt="" src="media/a68adfc417f0b1e2bf9877ab02f4016c.png" /></p>
-<p>## 5.4 绘制箱线图</p>
+<h2 id="54">5.4 绘制箱线图</h2>
 <pre><code>matplotlib.rcParams['font.family'] = 'STSong'
 matplotlib.rcParams['font.size'] = 12
 columns = ['花萼长', '花萼宽', '花瓣长', '花瓣宽']
@@ -462,7 +682,7 @@ df.plot(kind='box')
 plt.savefig('figures/iris_box.png')
 plt.show()
 </code></pre>
-<p>## 5.5 绘制散点图</p>
+<h2 id="55">5.5 绘制散点图</h2>
 <pre><code>df = pd.read_csv('data/iris_hist.csv', header=None)
 df.columns = ['花萼长', '花萼宽', '花瓣长', '花瓣宽']
 df.plot(x='花萼长', y='花萼宽', kind='scatter', style='+')
@@ -473,7 +693,7 @@ plt.savefig('figures/iris_scatter2.png')
 plt.show()
 </code></pre>
 <p><img alt="" src="media/75bf688b14d9bf170a67de1dc8287c1d.png" /><img alt="" src="media/2889628e804d997af7df145eec4077eb.png" /></p>
-<p>## 5.6 绘制饼图</p>
+<h2 id="56">5.6 绘制饼图</h2>
 <pre><code>countries = ['中国', '美国', '俄罗斯', '法国', '英国', '其他']
 df = pd.read_csv('data/GDP_2019.csv', index_col=[0], header=[0])
 df.index = countries
@@ -483,15 +703,15 @@ plt.savefig('figures/GDP_2019_pie.png')
 plt.show()
 </code></pre>
 <p><img alt="" src="media/f110ad109ab07c846411ad39d0066f5e.png" /></p>
-<p># 6 Pandas读写数据</p>
+<h1 id="6-pandas">6 Pandas读写数据</h1>
 <p>Pandas提供了常用数据文件的读写函数：</p>
 <p>read_csv():读取csv格式的数据</p>
 <p>to_csv():写入csv格式的数据</p>
 <p>read_table():读取普通分隔符分割的数据</p>
 <p>read_excel():读取excel格式的数据</p>
 <p>to_excel():写入excel格式的数据</p>
-<p>## 6.1 读写csv和文本文件</p>
-<p>### 6.1.1 使用pandas对象的read_csv函数读取文件：</p>
+<h2 id="61-csv">6.1 读写csv和文本文件</h2>
+<h3 id="611-pandasread_csv">6.1.1 使用pandas对象的read_csv函数读取文件：</h3>
 <pre><code>pd.read_csv(filepath,sep=',',header='infer',names=None, index_col=None, usecols=None)
 </code></pre>
 <p>参数说明：</p>
@@ -501,7 +721,7 @@ plt.show()
 <p>names:重设表头，即列名</p>
 <p>index_col:指定行索引名，可以是列编号或列名</p>
 <p>usecols:用于选取某些列，其他的列会被忽略</p>
-<p>### 6.1.2 使用DataFrame对象的to_csv函数写入csv文件：</p>
+<h3 id="612-dataframeto_csvcsv">6.1.2 使用DataFrame对象的to_csv函数写入csv文件：</h3>
 <pre><code>df.to_csv(filepath, sep=',', na_rep='', columns=None,
 header=True, index=True)
 </code></pre>
@@ -512,8 +732,8 @@ header=True, index=True)
 <p>columns:指定要写入文件包含哪些列</p>
 <p>header:是否保存列名</p>
 <p>index:是否保存行索引</p>
-<p>## 6.2 读写Excel数据文件</p>
-<p>### 6.2.1 读取excel数据：</p>
+<h2 id="62-excel">6.2 读写Excel数据文件</h2>
+<h3 id="621-excel">6.2.1 读取excel数据：</h3>
 <pre><code>pandas.read_excel( io, sheet_name=0, header=0, index_col=None, usercols=None,skiprows=None, skip_footer=0)
 </code></pre>
 <p>参数说明：</p>
@@ -524,7 +744,7 @@ header=True, index=True)
 <p>usecols:指定要加载的列</p>
 <p>skiprows:指定要排除的行</p>
 <p>skip_footer:读取数据时忽略最后skip_footer指定的行</p>
-<p>### 6.2.2 写入excel数据：</p>
+<h3 id="622-excel">6.2.2 写入excel数据：</h3>
 <pre><code>df.to_excel(excel_writer, na_rep=’’, columns=None,
 header=True, index=True)
 </code></pre>
@@ -534,15 +754,15 @@ header=True, index=True)
 <p>columns:选择输出的列</p>
 <p>header:指定列名，布尔值或者列表</p>
 <p>index:是否显示行索引</p>
-<p># 7 Pandas数据分析——数据预处理</p>
+<h1 id="7-pandas">7 Pandas数据分析——数据预处理</h1>
 <p>在数据分析之前须对数据进行预处理，处理数据中的“脏数据”，提高数据分析的准确性和有效性。脏数据主要表现为数据缺失、数据重复、数据错误等。</p>
 <p>数据预处理主要任务：数据探索分析、重复行分析与处理、缺失值分析与处理、异常值分析与处理。</p>
-<p>## 7.1 数据探索分析</p>
+<h2 id="71">7.1 数据探索分析</h2>
 <p>data_1=pd.read_csv(…)</p>
 <p>data_1.info():查看数据集信息，包括列数、列名、非空列数、数据类型等</p>
 <p>data_1.head():显示前五行数据</p>
 <p>data_1.describe():描述统计性信息</p>
-<p>## 7.2 重复行分析与处理</p>
+<h2 id="72">7.2 重复行分析与处理</h2>
 <p>处理重复行的函数：</p>
 <p>df.duplicated(subset=None, keep='first'):</p>
 <p>针对由subset指定的某些列，返回用布尔序列表示的重复行标</p>
@@ -554,17 +774,17 @@ header=True, index=True)
 <p>（inplace=False表示返回副本，True在原数据上执行。 ）</p>
 <p>df.index.duplicated(keep='first', inplace=False):</p>
 <p>根据索引标记重复行</p>
-<p>## 7.3 缺失值分析与处理</p>
+<h2 id="73">7.3 缺失值分析与处理</h2>
 <p>缺失值的处理方法有：</p>
 <p>删除含有缺失值的记录</p>
 <p>数据补齐（就近补齐、均值补齐、利用同类均值补齐、拟合补齐等）</p>
 <p>也可以不处理</p>
-<p>### 7.3.1 DataFrame对象缺失值检测函数</p>
+<h3 id="731-dataframe">7.3.1 DataFrame对象缺失值检测函数</h3>
 <p>df.isnull():检查df对象中的缺失值，返回矩阵。是缺失值在相应位置标记True，否则标记False。</p>
 <p>df.isnull().any():默认检查df对象中的各列是否存在缺失值，any(1)检测各行，返回以列名或行索引为索引的Series，有缺失值的列、行对应值为True，否则为False。</p>
 <p>df.isnull().all():默认检查各行是否全为缺失值，用法与any()类似。</p>
 <p>df.isnull().sum():统计缺失值的个数。</p>
-<p>### 7.3.2 缺失值处理函数</p>
+<h3 id="732">7.3.2 缺失值处理函数</h3>
 <pre><code>df.fillna(value=None,method=None,axis=None,inplace=True,limit=None)
 </code></pre>
 <p>参数说明：</p>
@@ -580,10 +800,10 @@ header=True, index=True)
 <p>df2 = df.dropna(how='all')
 删除全为缺失值的行，若为any，则是删除含有至少一个缺失值的行</p>
 <p>df3 = df.dropna(thresh=2) 删除至少含有2个缺失值的行</p>
-<p>## 7.4 异常值分析与处理</p>
-<p>### 7.4.1 基于偏差的方法</p>
+<h2 id="74">7.4 异常值分析与处理</h2>
+<h3 id="741">7.4.1 基于偏差的方法</h3>
 <p>对服从正态分布的数据，异常值被定义为与平均值的偏差超过三倍标准差（3σ）的值。</p>
-<p>### 7.4.2 箱线图分析法</p>
+<h3 id="742">7.4.2 箱线图分析法</h3>
 <p>箱线图，又称盒状图，是一种显示一组数据分散情况的统计图，因形状如箱子而得名。</p>
 <p>异常值定义为：</p>
 <p>小于QL-1.5IQR，或大于QU+1.5IQR。其中，QL为下四分位数，QU为上四分位数，IQR=QU-QL称为四分位数间距。</p>
@@ -597,16 +817,16 @@ sw_up = sw_q3 + 1.5 * sw_iqr # 计算上限
 delabnormal_data = df_data[(df_data &gt; sw_low) &amp; (df_data &lt; sw_up)]
 # 删除异常值（保留正常值）
 </code></pre>
-<p># 8 Pandas数据分析——数据特征分析</p>
-<p>## 8.1 分布分析</p>
+<h1 id="8-pandas">8 Pandas数据分析——数据特征分析</h1>
+<h2 id="81">8.1 分布分析</h2>
 <p>分布分析用来揭示数据的分布特征和分布类型，显示其分布情况；面对大量的数据，可使用直方图图像来描述数据的分布情况。</p>
-<p>## 8.2 相关性分析</p>
+<h2 id="82">8.2 相关性分析</h2>
 <p>相关分析是研究两个或两个以上的变量间的相关关系的统计分析方法。</p>
 <p>相关系数是变量间关联程度的最基本的度量方法。</p>
 <p>pandas中可采用corr()函数计算各变量间的相关性。</p>
 <pre><code>corr_matrix = df_data.corr(method='pearson')
 </code></pre>
-<p>## 8.3 特征选择</p>
+<h2 id="83">8.3 特征选择</h2>
 <p>当数据预处理完成后，需要选择有意义的特征来构建数据分析模型，好的特征能够构造出较好的分析模型。</p>
 <p>特征选择主要有两个目的：</p>
 <p>（1）减少特征数量、降维，使模型泛化能力更强，减少过拟合</p>
@@ -615,14 +835,14 @@ delabnormal_data = df_data[(df_data &gt; sw_low) &amp; (df_data &lt; sw_up)]
 <p>如筛选与column1相关系数大于0.7或小于-0.7的列：</p>
 <pre><code>corr_select = corr_matrix.query('column1 &gt; 0.7 | column1 &lt; -0.7')
 </code></pre>
-<p># 9 Pandas数据分析——建模分析方法</p>
+<h1 id="9-pandas">9 Pandas数据分析——建模分析方法</h1>
 <p>需要调用的库有：</p>
 <p>import pandas as pd</p>
 <p>from sklearn.model_selection import train_test_split</p>
 <p>from sklearn.tree import DecisionTreeClassifier （决策树分类）</p>
 <p>from sklearn.linear_model import LogisticRegression（逻辑回归）</p>
 <p>from sklearn import metrics</p>
-<p>## 9.1 分类分析方法</p>
+<h2 id="91">9.1 分类分析方法</h2>
 <p>决策树分类：</p>
 <p>属性集为x，分类标号为y</p>
 <pre><code>#将数据集分成训练集和测试集：
@@ -637,7 +857,7 @@ y_pred=model_dtc.predict(x_test)
 # 得出决策树分类模型的准确率：
 model_dtc.score(x_test,y_test)
 </code></pre>
-<p>## 9.2 回归分析方法</p>
+<h2 id="92">9.2 回归分析方法</h2>
 <p>逻辑回归模型：</p>
 <p>特征列为x，预测值列为y</p>
 <pre><code># 将数据集分成训练集和测试集：
