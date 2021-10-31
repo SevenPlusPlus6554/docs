@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="IE科协">
+        <link rel="canonical" href="https://ie.rtfd.io/pandas/pandas/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Pandas - IE科协</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/custom.css?t=202108070318" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight-10.5.0-lightfair.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="../../js/highlight-10.5.0.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+		<script>
+window.MathJax = {
+    tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        autoload: {
+            color: [],
+            colorV2: ['color']
+        },
+        packages: {'[+]': ['noerrors']}
+    },
+    svg: {
+        fontCache: 'global'
+    },
+    options: {
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+        load: ['[tex]/noerrors']
+    }
+};
+		</script>
+		<script type="text/javascript" id="MathJax-script" defer src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.0/es5/tex-svg.min.js"></script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">IE科协</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PyTorch <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../pytorch/install/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../../pytorch/basics/" class="dropdown-item">基础知识</a>
+</li>
+                                    
+<li>
+    <a href="../../pytorch/cnn/" class="dropdown-item">图像数据建模：CNN</a>
+</li>
+                                    
+<li>
+    <a href="../../pytorch/rnn/" class="dropdown-item">序列数据建模：RNN</a>
+</li>
+                                    
+<li>
+    <a href="../../pytorch/mlp/" class="dropdown-item">向量数据建模：MLP</a>
+</li>
+                                    
+<li>
+    <a href="../../pytorch/datasets-and-dataloaders/" class="dropdown-item">数据加载和处理</a>
+</li>
+                                    
+<li>
+    <a href="../../pytorch/optimization/" class="dropdown-item">优化模型参数</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">TensorFlow2 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tensorflow2/getting-started/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../../tensorflow2/basics/" class="dropdown-item">基础知识</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">NumPy <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../numpy/multidim-array/" class="dropdown-item">ndarray 多维数组</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/multidim-array-creation-method/" class="dropdown-item">ndarray 多维数组创建方法</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/array-element-operation-method/" class="dropdown-item">数组元素的索引、切片、改变形状等操作方法</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/array-operation-function/" class="dropdown-item">数组运算函数的使用方法</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/random/" class="dropdown-item">随机数生成函数</a>
+</li>
+                                    
+<li>
+    <a href="../../numpy/file-operation/" class="dropdown-item">NumPy 数据文件的读写操作</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">seaborn <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../seaborn/seaborn.md" class="dropdown-item">seaborn用法和实例</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">sklearn <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../sklearn/sklearn/" class="dropdown-item">sklearn基本用法和实例</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">工作手册 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../manual/edit/" class="dropdown-item">编辑页面</a>
+</li>
+                                    
+<li>
+    <a href="../../manual/upd/" class="dropdown-item">发布更新</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>#Pandas库的使用方法</p>
+<p>注：文字内容大部分来自清华大学工业工程系“计算机程序设计实践”课程课件，作者为朱成礼老师。</p>
+<p>## 1 简介</p>
+<p>Pandas是python一个用于开放源码的数据分析扩展程序库。</p>
+<p>Pandas的主要数据结构是Series(一维数据)和DataFrame(二维数据)，它的基础仍是numpy。</p>
+<p>Pandas 可以从各种文件格式比如 CSV、JSON、SQL、Microsoft Excel
+导入数据。并可对数据进行各种运算操作，如融合、切片、筛选、计算、统计、可视化，以及清洗和特征分析等，广泛应用于各领域的数据分析工作。</p>
+<p>以Pycharm中的pandas库安装为例：</p>
+<p>File>Settings</p>
+<p><img alt="" src="media/96834e825d1b2ce95cf42d6595cc5bab.png" /></p>
+<p>在Settings中找到Python Interpreter：</p>
+<p><img alt="" src="media/eb26a0f214e0fdef5de497b593f0069b.png" /></p>
+<p>在右方的“+”处添加Pandas包即可：</p>
+<p><img alt="" src="media/59b583c7fb7efea23045c2bf6ce3f19b.png" /></p>
+<p>习惯上，在导入pandas库时，写为:</p>
+<pre><code>import pandas as pd
+</code></pre>
+<p>## 2 Series对象</p>
+<p>## 2.1创建Series对象</p>
+<p>Series似于一维数组的对象，它只允许存放相同的数据类型的数据。它内部构件了两个相关联的数组，一个是数据数组values，一个是索引数组index。</p>
+<p>使用Series的构造函数创建对象，语法格式：</p>
+<pre><code>pandas.Series(data=None, index=None,dtype=None, name=None)
+</code></pre>
+<p>data：一组数据，可以是ndarray，List，dict或一个标量。</p>
+<p>index：数据索引标签，如果不指定，默认从 0 开始。</p>
+<p>dtype：数据类型，默认会自己判断。</p>
+<p>name：设置名称，为series取一个名字</p>
+<p>创建Series对象不指定index，自动创建默认索引，也可以创建时指定索引</p>
+<p>例2-1（自动创建默认索引）：</p>
+<pre><code>scores=[95,93,92,86,90]
+s1=pd.Series(scores)
+</code></pre>
+<p>例2-2（创建时指定索引）:</p>
+<pre><code>stuId = ['10106', '10242', '10107', '10230', '10153']
+s2 = pd.Series(data= scores, index=stuId)
+</code></pre>
+<p>## 2.2 Series对象的属性</p>
+<p>属性 说明 语法(对象名为s)</p>
+<p>name Series 对象及索引的name属性 s.name</p>
+<p>shape 获取Series对象的形状，tuple s.shape</p>
+<p>dtype Series对象中的数据类型 s.dtype</p>
+<p>values Series对象中的数据数组 s.values</p>
+<p>index Series对象中的索引数组 s.index</p>
+<p>## 2.3 Series数据的查询和修改</p>
+<p>s:</p>
+<p>10106 95</p>
+<p>10242 93</p>
+<p>10107 92</p>
+<p>10230 86</p>
+<p>10153 90</p>
+<p>### 2.3.1 使用索引以“Series对象[id]”或认索引来读取</p>
+<pre><code>s['10230']
+s[1]
+</code></pre>
+<p>### 2.3.2 使用切片方式读取多个元素</p>
+<pre><code>s[1:3]
+s[s &gt;= 93]
+</code></pre>
+<p>### 2.3.3 修改或添加元素</p>
+<pre><code>s['10153'] = 100
+s['10154'] = 91
+</code></pre>
+<p>## 2.4 Series对象的基本运算</p>
+<p>适用于numpy数组的运算（+, -, *, /）或数学函数等，也适用于Series对象。</p>
+<p>也可以将Series对象的数据数组与标量进行+， -， *， /等算术运算</p>
+<p>Series对象始终保留索引和值之间的链接，在算术运算中，会自动按索引对齐，只有索引相同的元素才会进行相应的运算，索引对不上会返回数值NaN。运算后得到的是一个新的Series，原来的Series不会发生变化。</p>
+<p># 3 DataFrame对象</p>
+<p>## 3.1 DataFrame对象的创建和属性查看</p>
+<p>DataFrame是一个二维数据结构，既有行索引（index）也有列索引（columns）。
+同一列的元素必须具有相同的数据类型，列与列之间可以是不同的数据类型（数值、字符串、布尔型值）。</p>
+<p>可以看作由Series对象由一维扩展到多维。各行相同的列位置共用一个列索引，各列相同行位置共用一个行索引。</p>
+<p>通常使用 DataFrame() 构造函数创建 DataFrame 对象，语法格式如下：</p>
+<pre><code>pandas.DataFrame(data, index, columns, dtype)
+</code></pre>
+<p>data：list 、 ndarray、 dict 、series 等</p>
+<p>index：指定行索引，行标签，默认：arange(n)</p>
+<p>columns：指定列索引，列标签，默认：arange(n)</p>
+<p>dtype：指定数据类型，如果为空，自动推断类型</p>
+<p>构建DataFrame 的方式很多，最常用的是直接传入一个由等长列表或者数组组成的字典。</p>
+<p>例2-1:创建DataFrame对象df:</p>
+<pre><code>s_data = {'StuName': ['ding', 'yan', 'feng', 'wang', 'zhang'], 'Java':[91, 90, 86, 91, 92], 'Python': [95, 93, 92, 86, 90]}
+df=pd.DataFrame(s_data)
+</code></pre>
+<p>例2-2:指定DataFrame对象的行索引、列索引</p>
+<pre><code>df.index = ['10001', '10002', '10003', '10004', '10005']
+df.columns = ['StuName', 'Java', 'Python']
+</code></pre>
+<p>DataFrame对象的常用属性:</p>
+<p>T 行列转置</p>
+<p>columns 查看列索引，可以直接通过赋值改变列索引</p>
+<p>index 查看行索引，也可以通过赋值改变行索引</p>
+<p>dtypes 查看各列的数据类型（各列类型可能不一样，返回的是Series）</p>
+<p>shape 查看DataFrame的形状，是包含两个整数元素的元组</p>
+<p>ndim 维度，2</p>
+<p>size 返回DataFrame对象的元素个数，行与列的乘积</p>
+<p>values 返回存储在DataFrame对象中的数据，是一个数组</p>
+<p>## 3.2 DataFrame数据的查询和编辑</p>
+<p>例2-3：</p>
+<p>df:</p>
+<p>StuName Java Python</p>
+<p>10001 ding 91 95</p>
+<p>10002 yan 90 93</p>
+<p>10003 feng 86 92</p>
+<p>10004 wang 91 86</p>
+<p>10005 zhang 92 90</p>
+<p>可直接按列和行索引名获取元素:</p>
+<pre><code>df[‘Java’][‘10002’]
+</code></pre>
+<p>### 3.2.1 选取列</p>
+<p>选取列数据:</p>
+<pre><code>df.Java 
+df[‘Java’]
+</code></pre>
+<p>选取多列数据:</p>
+<pre><code>df[[‘StuName’,’Python’]]
+</code></pre>
+<p>布尔选择:</p>
+<pre><code>df[df[‘Python’]=90]
+</code></pre>
+<p>### 3.2.2 选取行</p>
+<p>行切片:</p>
+<pre><code>df[start:stop:step]
+</code></pre>
+<p>布尔选择:</p>
+<pre><code>df[df[‘Java’]&gt;90]
+</code></pre>
+<p>使用query函数按筛选条件获取行:</p>
+<pre><code>df.query(&quot;Python&gt;90 and Java&gt;90&quot;)
+df.query('Python==[90, 92]')
+</code></pre>
+<p>使用DataFrame特殊函数获取行:</p>
+<pre><code>head(n) #前n行
+tail(n) #后n行
+sample(n) #随机抽取n行
+</code></pre>
+<p>### 3.2.3 选取行和列</p>
+<p>使用loc和iloc方法获得行:</p>
+<pre><code>df.loc[['10106', '10242'], 'Java']
+</code></pre>
+<p>选取行和列:</p>
+<pre><code>df.iloc[0 : 2 , 1]
+</code></pre>
+<p>### 3.2.4 判断元素是否在某个列表中</p>
+<p>isin函数：</p>
+<pre><code>df.isin(['Java', 95])
+df[df.isin(['Java', 95])] #得到二维数组
+</code></pre>
+<p>### 3.2.5 编辑DataFrame</p>
+<pre><code>df.drop('Java', axis=1, inplace=True)
+axis=1 # 删除行 
+axis=0 # 删除列
+df['C++'] = 100 # 添加一列
+df['C++'] = [77, 83, 90, 91, 76] # 修改一列
+df.iloc[1,1] = 100  # 修改单个元素
+df.loc['10106','C++'] = 100 # 修改单个元素
+</code></pre>
+<p># 4 DataFrame数据运算</p>
+<p>## 4.1 DataFrame算术运算与排序</p>
+<p>### 4.1.1 算术运算</p>
+<p>DataFrame对象在进行算术运算时，将两个对象的行名（行索引）、列名（列索引）都相同的元素进行运算，其他位置的元素则用NaN填充。</p>
+<p>DataFrame对象各列元素数据类型不一定相同，如果对应元素之间不能进行数学运算，运行出错</p>
+<p>apply()函数将运算函数套用到DataFrame的行或列上，applymap()函数将运算函数应用到DataFrame的每个元素上。</p>
+<p>例：</p>
+<pre><code>def func_avg(x):
+return x.sum() / len(x)  # 将函数应用于列，求列平均值
+df_avg = df.apply(func_avg, axis=0)
+print(df_avg)
+def func_sqrt(x):
+return np.sqrt(x) * 10
+
+df_sqrt = df.applymap(func_sqrt)
+print(df_sqrt)  # 将函数应用于df各个元素上
+</code></pre>
+<p>### 4.1.2 排序</p>
+<p>按行索引或列索引排序</p>
+<pre><code>df.sort_index(axis=0, ascending=True)
+#  axis=0行排序，axis=1列排序 ascending=True升序，False降序
+</code></pre>
+<p>按指定列或行的值进行排序</p>
+<pre><code>df.sort_values(by, axis=0, ascending=True)
+#  by，指定某些行或列为排序依据，axis=0行排序，axis=1列排序ascending，
+#  True升序，False降序
+</code></pre>
+<p>沿着行或计算元素的排名，返回名次</p>
+<pre><code>df.rank(axis=0, method='average', ascending=True)
+#  method，average值相等的元素平分名次，min就低， max就高，first按出现的#  顺序分配排名。
+</code></pre>
+<p>## 4.2 DataFrame数学统计</p>
+<pre><code>df.count(axis=0) # 统计每列数值型的元素个数。
+df.mean(axis=None, skipna=None) # 返回指定轴上元素值的平均值。
+df.min(axis=0) # 返回每列（行）的最小值。
+df.max(axis=0) # 返回每列（行）的最大值
+df.median(axis=None, skipna=None) # 返回指定轴上元素值的中位数,axis=0表
+#示按列统计，axis=1表示按行统计skipna=None，默认True跳过NaN值。
+df.sum(axis=None,skipna=None) # 返回指定轴上元素值的和
+df.var(axis=None, skipna=None) # 返回指定轴上元素值的均方差
+df.std(axis=None, skipna=None) # 返回指定轴上元素值的标准差
+df.cov() # 计算df的列列之间的协方差，不包括NA/空值。
+df.corr(method='pearson') # 计算df的列列之间的相关性，不包括NA/空值
+</code></pre>
+<p># 5 Pandas数据可视化</p>
+<p>Pandas集成了Matplotlib中的基础组件，自带绘图功能，调用DataFame对象的plot函数可以快速地把DataFrame中的数据绘制成各种类型的图。</p>
+<p>语法格式：df.plot(x=…,y=…,kind=…,…)</p>
+<p>xlabel:设置x轴标签</p>
+<p>ylabel:设置y轴标签</p>
+<p>kind: 所要绘制的图类型</p>
+<p>kind='line'，绘制折线图;kind='bar'，绘制条形图；</p>
+<p>kind='barh'，绘制横向条形图；kind='hist'，绘制直方图（柱状图）；kind='box'，绘制箱线图；kind='kde'，绘制Kernel的密度估计图，主要对柱状图添加Kernel概率密度线；</p>
+<p>kind='density'，绘制的图与kind='kde'的图相同；kind='area'，绘制区域图；</p>
+<p>kind='pie'，绘制饼图；kind='scatter'，绘制散点图。</p>
+<p>figsize:图片尺寸大小</p>
+<p>use_index:默认用索引做x轴</p>
+<p>title:图片的标题</p>
+<p>grid:图片是否有网格</p>
+<p>legend:子图的图例</p>
+<p>style:折线图的线型</p>
+<p>xticks:x轴刻度值，序列形式</p>
+<p>yticks:y轴刻度值，序列形式</p>
+<p>xlim:x坐标轴的范围,列表或元组形式</p>
+<p>ylim:y坐标轴的范围，列表或元组形式</p>
+<p>fontsize:设置轴刻度的字体大小</p>
+<p>alpha:设置图表填充的不透明度</p>
+<p>绘制之后，保存图片：</p>
+<pre><code>plt.savefig('figname.png')
+</code></pre>
+<p>在运行程序时显示保存的图片：</p>
+<pre><code>plt.show()
+</code></pre>
+<p>下面以一些示例说明如何画具体的图：</p>
+<p>## 5.1 绘制折线图</p>
+<pre><code>df=pd.read_csv('data/GDP_2001_2019.csv',index_col=[0],header=[0])
+years = [2001, 2005, 2010, 2015, 2020]
+GDP = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22]
+df.plot(kind='line’,xticks=years,yticks=GDP,grid=True,xlabel='年份', ylabel='GDP(万亿)', title='主要国家GDP(2001-2019)', style='1--')
+plt.savefig('figures/GDP_2001_2009.png')
+plt.show()
+</code></pre>
+<p><img alt="" src="media/6f4f29071883de9a96147b4ab2a29f21.png" /></p>
+<p>（标题中的“GPD”应为GDP，系原作者笔误）</p>
+<p>## 5.2 绘制条形图</p>
+<pre><code>countries = ['中国', '美国', '俄罗斯', '法国', '英国']
+items = ['GDP（万亿美元）', '人口（亿）']
+df = pd.read_csv('data/GDP_Pop_2019.csv',index_col=[0], usecols=['Country', 'GDP', 'Pop'])
+df.index = countries
+df.columns = items
+df.plot(kind='bar', title='2019年GDP/人口', style='2-', grid=True, rot=0)
+plt.savefig('figures/GDP_2009_1.png')
+plt.show()
+</code></pre>
+<p><img alt="" src="media/de60c38b8eaeaef840441addad2e2969.png" /></p>
+<p>（标题中的“GPD”应为GDP，系原作者笔误）</p>
+<p>## 5.3 绘制直方图</p>
+<pre><code>columns = ['花萼长', '花萼宽', '花瓣长', '花瓣宽']
+df = pd.read_csv('data/iris_hist.csv', header=None)
+df.columns = columns
+print(df)
+df.hist(bins=20)
+plt.savefig('figures/iris_hist.png')
+plt.show()
+</code></pre>
+<p><img alt="" src="media/a68adfc417f0b1e2bf9877ab02f4016c.png" /></p>
+<p>## 5.4 绘制箱线图</p>
+<pre><code>matplotlib.rcParams['font.family'] = 'STSong'
+matplotlib.rcParams['font.size'] = 12
+columns = ['花萼长', '花萼宽', '花瓣长', '花瓣宽']
+df = pd.read_csv('data/iris_hist.csv', header=None)
+df.columns = columns
+df.plot(kind='box')
+plt.savefig('figures/iris_box.png')
+plt.show()
+</code></pre>
+<p>## 5.5 绘制散点图</p>
+<pre><code>df = pd.read_csv('data/iris_hist.csv', header=None)
+df.columns = ['花萼长', '花萼宽', '花瓣长', '花瓣宽']
+df.plot(x='花萼长', y='花萼宽', kind='scatter', style='+')
+plt.savefig('figures/iris_scatter1.png')
+plt.show()
+df.plot(x='花瓣长', y='花瓣宽', kind='scatter', style='o')
+plt.savefig('figures/iris_scatter2.png')
+plt.show()
+</code></pre>
+<p><img alt="" src="media/75bf688b14d9bf170a67de1dc8287c1d.png" /><img alt="" src="media/2889628e804d997af7df145eec4077eb.png" /></p>
+<p>## 5.6 绘制饼图</p>
+<pre><code>countries = ['中国', '美国', '俄罗斯', '法国', '英国', '其他']
+df = pd.read_csv('data/GDP_2019.csv', index_col=[0], header=[0])
+df.index = countries
+print(df)
+df['GDP'].plot(kind='pie', subplots=True, autopct='%2.2f%%', legend=False, ylabel='', title='五国GDP占比')
+plt.savefig('figures/GDP_2019_pie.png')
+plt.show()
+</code></pre>
+<p><img alt="" src="media/f110ad109ab07c846411ad39d0066f5e.png" /></p>
+<p># 6 Pandas读写数据</p>
+<p>Pandas提供了常用数据文件的读写函数：</p>
+<p>read_csv():读取csv格式的数据</p>
+<p>to_csv():写入csv格式的数据</p>
+<p>read_table():读取普通分隔符分割的数据</p>
+<p>read_excel():读取excel格式的数据</p>
+<p>to_excel():写入excel格式的数据</p>
+<p>## 6.1 读写csv和文本文件</p>
+<p>### 6.1.1 使用pandas对象的read_csv函数读取文件：</p>
+<pre><code>pd.read_csv(filepath,sep=',',header='infer',names=None, index_col=None, usecols=None)
+</code></pre>
+<p>参数说明：</p>
+<p>filepath:文件路径，可以是本地文件，也可以是http文件</p>
+<p>sep:指定分隔符，默认为：,</p>
+<p>header:指定第几行为列名，默认0（第一行），如果没有列名，可以设置为None</p>
+<p>names:重设表头，即列名</p>
+<p>index_col:指定行索引名，可以是列编号或列名</p>
+<p>usecols:用于选取某些列，其他的列会被忽略</p>
+<p>### 6.1.2 使用DataFrame对象的to_csv函数写入csv文件：</p>
+<pre><code>df.to_csv(filepath, sep=',', na_rep='', columns=None,
+header=True, index=True)
+</code></pre>
+<p>参数说明：</p>
+<p>filepath:写入的文件名或对象</p>
+<p>sep:数据分隔符</p>
+<p>na_rep:把空字段指定为na_rep指定的值</p>
+<p>columns:指定要写入文件包含哪些列</p>
+<p>header:是否保存列名</p>
+<p>index:是否保存行索引</p>
+<p>## 6.2 读写Excel数据文件</p>
+<p>### 6.2.1 读取excel数据：</p>
+<pre><code>pandas.read_excel( io, sheet_name=0, header=0, index_col=None, usercols=None,skiprows=None, skip_footer=0)
+</code></pre>
+<p>参数说明：</p>
+<p>io:excel文件名</p>
+<p>sheetname:指sheet表名或索引值，可以使用列表</p>
+<p>header:指定作为列名的行</p>
+<p>index_col:指定某列为行索引，可以是列编号或列名</p>
+<p>usecols:指定要加载的列</p>
+<p>skiprows:指定要排除的行</p>
+<p>skip_footer:读取数据时忽略最后skip_footer指定的行</p>
+<p>### 6.2.2 写入excel数据：</p>
+<pre><code>df.to_excel(excel_writer, na_rep=’’, columns=None,
+header=True, index=True)
+</code></pre>
+<p>参数说明：</p>
+<p>excel_writer:写入的excel文件</p>
+<p>na_rep:缺失值填充</p>
+<p>columns:选择输出的列</p>
+<p>header:指定列名，布尔值或者列表</p>
+<p>index:是否显示行索引</p>
+<p># 7 Pandas数据分析——数据预处理</p>
+<p>在数据分析之前须对数据进行预处理，处理数据中的“脏数据”，提高数据分析的准确性和有效性。脏数据主要表现为数据缺失、数据重复、数据错误等。</p>
+<p>数据预处理主要任务：数据探索分析、重复行分析与处理、缺失值分析与处理、异常值分析与处理。</p>
+<p>## 7.1 数据探索分析</p>
+<p>data_1=pd.read_csv(…)</p>
+<p>data_1.info():查看数据集信息，包括列数、列名、非空列数、数据类型等</p>
+<p>data_1.head():显示前五行数据</p>
+<p>data_1.describe():描述统计性信息</p>
+<p>## 7.2 重复行分析与处理</p>
+<p>处理重复行的函数：</p>
+<p>df.duplicated(subset=None, keep='first'):</p>
+<p>针对由subset指定的某些列，返回用布尔序列表示的重复行标</p>
+<p>记。</p>
+<p>（keep设为first表示第一次出现不标记重复，last表示最后</p>
+<p>一次出现不标记重复，False表示都标记重复）</p>
+<p>df.drop_duplicates(subset=None, keep='first', inplace=False):</p>
+<p>用于删除df中的重复行，并返回删除重复行后的结果。</p>
+<p>（inplace=False表示返回副本，True在原数据上执行。 ）</p>
+<p>df.index.duplicated(keep='first', inplace=False):</p>
+<p>根据索引标记重复行</p>
+<p>## 7.3 缺失值分析与处理</p>
+<p>缺失值的处理方法有：</p>
+<p>删除含有缺失值的记录</p>
+<p>数据补齐（就近补齐、均值补齐、利用同类均值补齐、拟合补齐等）</p>
+<p>也可以不处理</p>
+<p>### 7.3.1 DataFrame对象缺失值检测函数</p>
+<p>df.isnull():检查df对象中的缺失值，返回矩阵。是缺失值在相应位置标记True，否则标记False。</p>
+<p>df.isnull().any():默认检查df对象中的各列是否存在缺失值，any(1)检测各行，返回以列名或行索引为索引的Series，有缺失值的列、行对应值为True，否则为False。</p>
+<p>df.isnull().all():默认检查各行是否全为缺失值，用法与any()类似。</p>
+<p>df.isnull().sum():统计缺失值的个数。</p>
+<p>### 7.3.2 缺失值处理函数</p>
+<pre><code>df.fillna(value=None,method=None,axis=None,inplace=True,limit=None)
+</code></pre>
+<p>参数说明：</p>
+<p>value:用于填充的值</p>
+<p>method:当没有指定value参数时，可以以该参数的内置方式填充缺失值，bfill用下一个非缺失值填充，ffill用上一个非缺失值填充。常与axis一起使用，指定填充维度。method参数不能与value同时出现。</p>
+<p>axis:填充维度。0指行维度，1指列维度。</p>
+<p>inplace:是否修改原对象的值，True表示修改，False表示创建一个副本，原对象不变。</p>
+<p>limit:指定填充的个数上限，默认为None，即不限制。</p>
+<pre><code>df.dropna(axis=0,how=’any’,thresh=None)
+</code></pre>
+<p>参数说明（举例）：</p>
+<p>df1 = df.dropna(axis=1) 删除含有缺失值的列</p>
+<p>df2 = df.dropna(how='all')
+删除全为缺失值的行，若为any，则是删除含有至少一个缺失值的行</p>
+<p>df3 = df.dropna(thresh=2) 删除至少含有2个缺失值的行</p>
+<p>## 7.4 异常值分析与处理</p>
+<p>### 7.4.1 基于偏差的方法</p>
+<p>对服从正态分布的数据，异常值被定义为与平均值的偏差超过三倍标准差（3σ）的值。</p>
+<p>### 7.4.2 箱线图分析法</p>
+<p>箱线图，又称盒状图，是一种显示一组数据分散情况的统计图，因形状如箱子而得名。</p>
+<p>异常值定义为：</p>
+<p>小于QL-1.5IQR，或大于QU+1.5IQR。其中，QL为下四分位数，QU为上四分位数，IQR=QU-QL称为四分位数间距。</p>
+<p>删除异常值示例:</p>
+<pre><code>sw_q1 = df_data.quantile(0.25) # 计算上四分位
+sw_q3 = df_data['SepalWidth'].quantile(0.75) # 计算下四分位
+sw_iqr = sw_q3 - sw_q1 # 计算四分位间距
+sw_low = sw_q1 - 1.5 * sw_iqr # 计算下限
+sw_up = sw_q3 + 1.5 * sw_iqr # 计算上限
+
+delabnormal_data = df_data[(df_data &gt; sw_low) &amp; (df_data &lt; sw_up)]
+# 删除异常值（保留正常值）
+</code></pre>
+<p># 8 Pandas数据分析——数据特征分析</p>
+<p>## 8.1 分布分析</p>
+<p>分布分析用来揭示数据的分布特征和分布类型，显示其分布情况；面对大量的数据，可使用直方图图像来描述数据的分布情况。</p>
+<p>## 8.2 相关性分析</p>
+<p>相关分析是研究两个或两个以上的变量间的相关关系的统计分析方法。</p>
+<p>相关系数是变量间关联程度的最基本的度量方法。</p>
+<p>pandas中可采用corr()函数计算各变量间的相关性。</p>
+<pre><code>corr_matrix = df_data.corr(method='pearson')
+</code></pre>
+<p>## 8.3 特征选择</p>
+<p>当数据预处理完成后，需要选择有意义的特征来构建数据分析模型，好的特征能够构造出较好的分析模型。</p>
+<p>特征选择主要有两个目的：</p>
+<p>（1）减少特征数量、降维，使模型泛化能力更强，减少过拟合</p>
+<p>（2）增强对特征和特征值之间的理解</p>
+<p>可以根据相关性分析得出的相关性矩阵，利用query函数来筛选行、列索引：</p>
+<p>如筛选与column1相关系数大于0.7或小于-0.7的列：</p>
+<pre><code>corr_select = corr_matrix.query('column1 &gt; 0.7 | column1 &lt; -0.7')
+</code></pre>
+<p># 9 Pandas数据分析——建模分析方法</p>
+<p>需要调用的库有：</p>
+<p>import pandas as pd</p>
+<p>from sklearn.model_selection import train_test_split</p>
+<p>from sklearn.tree import DecisionTreeClassifier （决策树分类）</p>
+<p>from sklearn.linear_model import LogisticRegression（逻辑回归）</p>
+<p>from sklearn import metrics</p>
+<p>## 9.1 分类分析方法</p>
+<p>决策树分类：</p>
+<p>属性集为x，分类标号为y</p>
+<pre><code>#将数据集分成训练集和测试集：
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.3)
+# test_size为测试集划分比例
+# 建立决策树模型：
+model_dtc=DecisionTreeClassifier()
+# 训练模型：
+model_dtc.fit(x_train,y_train)
+# 测试模型：
+y_pred=model_dtc.predict(x_test)
+# 得出决策树分类模型的准确率：
+model_dtc.score(x_test,y_test)
+</code></pre>
+<p>## 9.2 回归分析方法</p>
+<p>逻辑回归模型：</p>
+<p>特征列为x，预测值列为y</p>
+<pre><code># 将数据集分成训练集和测试集：
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.3)
+# test_size为测试集划分比例
+# 建立逻辑回归模型：
+model_lr = LogisticRegression(max_iter=500)
+model_lr.fit(x_train, y_train)
+# 预测测试集：
+y_pred = model_lr.predict(x_test)
+# 得出逻辑回归模型评分：
+model_lr.score(x_test,y_test)
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Do not distribute.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

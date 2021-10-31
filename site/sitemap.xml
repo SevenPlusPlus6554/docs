@@ -2,102 +2,112 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ie.rtfd.io/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ie.rtfd.io/Matplotlib/Matploblib/</loc>
+         <lastmod>2021-10-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ie.rtfd.io/Seaborn/seaborn/</loc>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/manual/edit/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/manual/upd/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/numpy/array-element-operation-method/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/numpy/array-operation-function/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/numpy/file-operation/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/numpy/multidim-array-creation-method/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/numpy/multidim-array/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/numpy/random/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ie.rtfd.io/pandas/pandas/</loc>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/basics/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/cnn/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/datasets-and-dataloaders/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/install/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/mlp/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/optimization/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/pytorch/rnn/</loc>
-         <lastmod>2021-10-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ie.rtfd.io/seaborn/seaborn/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/sklearn/sklearn/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/tensorflow2/basics/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ie.rtfd.io/tensorflow2/getting-started/</loc>
-         <lastmod>2021-10-10</lastmod>
+         <lastmod>2021-10-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
