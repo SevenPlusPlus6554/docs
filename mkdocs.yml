@@ -34,6 +34,10 @@ nav:
     - NumPy 数据文件的读写操作: numpy/file-operation.md
   - seaborn:
     - seaborn用法和实例: seaborn/seaborn.md
+  - Matplotlib:
+    - matplotlib用法和实例: Matplotlib/Matplotlib.md
+  - Pandas:
+    - pandas用法和实例: pandas/pandas.md
   - sklearn:
     - sklearn基本用法和实例: sklearn/sklearn.md
   - 工作手册:
