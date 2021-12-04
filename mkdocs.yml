@@ -43,5 +43,6 @@ nav:
   - 工作手册:
     - 编辑页面: manual/edit.md
     - 发布更新: manual/upd.md
+    - 社工宣传手册: manual/propa.md
 
 plugins: []
